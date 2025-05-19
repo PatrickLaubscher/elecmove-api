@@ -1,4 +1,4 @@
-package controller;
+package api.controller;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.User;
-import service.UserService;
+import api.model.User;
+import api.service.UserService;
 
 
 @RestController

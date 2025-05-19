@@ -27,7 +27,15 @@ dependencies {
 	// implementation 'com.h2database:h2' // permet à Spring Boot de démarrer une base en mémoire
 }
 
-/* tasks.named('test') {
+springBoot {
+    mainClass = 'api.ApiElecMove'
+}
+
+bootJar {
+    mainClass = 'api.ApiElecMove'
+}
+
+
+tasks.named('test') {
 	useJUnitPlatform()
 }
-*/

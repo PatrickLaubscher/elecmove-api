@@ -1,12 +1,12 @@
-package service;
+package api.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import model.User;
-import repository.UserRepository;
+import api.model.User;
+import api.repository.UserRepository;
 
 @Service
 public class UserService {
