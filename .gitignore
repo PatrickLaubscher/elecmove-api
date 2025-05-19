@@ -35,3 +35,13 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Ignore application.properties with sensitive info
+/src/main/resources/application-local.properties
+
+# Autres fichiers et dossiers courants à ignorer
+/build/
+/out/
+/.gradle/
+/*.iml
+/.idea/
