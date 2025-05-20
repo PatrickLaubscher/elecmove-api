@@ -16,8 +16,30 @@ public class UserDTO {
     private String updatedAt;
     private Long roleId;
 
+
+    
     // Constructeurs
-    public UserDTO() {}
+    public UserDTO(Long id, String firstname, String lastname, String birthdate,
+                   String mobile, String email, String address, String zipcode,
+                   String city, Boolean isValidated, String createdAt,
+                   String updatedAt, Long roleId) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.birthdate = birthdate;
+        this.mobile = mobile;
+        this.email = email;
+        this.address = address;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.isValidated = isValidated;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.roleId = roleId;
+
+    }
+
+
 
     // Getters & Setters
     public Long getId() { return id; }
@@ -46,7 +68,7 @@ public class UserDTO {
 
     public String getCity() { return city; }
     public void setCity(String city) { this.city = city; }
-    
+
     public Boolean getIsValidated() { return isValidated; }
     public void setIsValidated(Boolean isValidated) { this.isValidated = isValidated; }
 
