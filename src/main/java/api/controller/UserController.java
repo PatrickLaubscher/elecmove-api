@@ -2,13 +2,11 @@ package api.controller;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import api.model.User;
+import api.dto.UserDTO;
 import api.service.UserService;
 
 
@@ -19,17 +17,32 @@ public class UserController {
     // Initialize the UserService
     private final UserService userService;
 
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
     // Constructor
     public UserController(UserService userService) {
-        logger.info("getAllUsers() called"); 
         this.userService = userService;
     }
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers().stream()
+                .map(user -> {
+                    UserDTO userDTO = new UserDTO();
+                    userDTO.setId(user.getId());
+                    userDTO.setFirstname(user.getFirstname());
+                    userDTO.setLastname(user.getLastname());
+                    userDTO.setBirthdate(user.getBirthdate().toString());
+                    userDTO.setMobile(user.getMobile());
+                    userDTO.setEmail(user.getEmail());
+                    userDTO.setAddress(user.getAddress());
+                    userDTO.setZipcode(user.getZipcode());
+                    userDTO.setCity(user.getCity());
+                    userDTO.setIsValidated(user.getIsValidated());
+                    userDTO.setCreatedAt(user.getCreatedAt().toString());
+                    userDTO.setUpdatedAt(user.getUpdatedAt().toString());
+                    userDTO.setRoleId(user.getRoleId());
+                    return userDTO;
+                })
+                .toList();
     }
 
 
