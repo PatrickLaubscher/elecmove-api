@@ -17,14 +17,37 @@ repositories {
 	mavenCentral()
 }
 
+
 dependencies {
+
+	// Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'mysql:mysql-connector-java:8.0.33'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// Data JPA
+	runtimeOnly 'com.mysql:mysql-connector-j:8.0.33'
+
+	// JSON Web Token (JWT) avec JJWT
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+	// Encodeur de mot de passe 
+	implementation 'org.springframework.security:spring-security-crypto'
+	
+	// MapStruct
+	implementation 'org.mapstruct:mapstruct:1.6.3'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+	
+	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "org.testng:testng:6.10", "org.easytesting:fest-assert:1.4"
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	// implementation 'com.h2database:h2' // permet à Spring Boot de démarrer une base en mémoire
+
+
 }
 
 springBoot {

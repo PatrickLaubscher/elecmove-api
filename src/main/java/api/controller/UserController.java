@@ -13,21 +13,25 @@ import api.service.UserService;
 
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserController {
 
     // Initialize the UserService
     private final UserService userService;
+    private final UserMapper userMapper;
 
     // Constructor
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserMapper userMapper) {
         this.userService = userService;
+        this.userMapper = userMapper;
     }
 
+
+    // This method retrieves all users from the database and returns them as a list of UserDTO objects.
     @GetMapping
     public List<UserDTO> getAllUsers() {
         List<User> users = userService.getAllUsers();
-        return UserMapper.toDTOList(users);
+        return userMapper.usersToUserDTOs(users);
     }
 
 
