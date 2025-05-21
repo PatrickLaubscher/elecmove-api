@@ -4,6 +4,7 @@ package api.service;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwsHeader;
@@ -18,6 +19,10 @@ public class JWTService {
 
 
     private final JwtEncoder jwtEncoder;
+
+    @Value("${jwt.secret}")
+    private String jwtKey;
+    
     
     public JWTService(JwtEncoder jwtEncoder) {
         this.jwtEncoder = jwtEncoder;
