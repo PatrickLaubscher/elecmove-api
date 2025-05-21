@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 import api.service.CustomUserDetailsService;
 
 @Configuration
@@ -30,16 +31,16 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+        return http
             .csrf(csrf -> csrf.disable())  // désactive CSRF
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/login", "/auth/login/**").permitAll()
+                .requestMatchers("/auth/login").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
-        return http.build();
+            .authenticationProvider(authenticationProvider())
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+            .build();
     }
 
     @Bean
@@ -61,9 +62,18 @@ public class SecurityConfig {
     }
 
     @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService); // ← unique UserDetailsService ici
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
+    @Bean
     public InMemoryUserDetailsManager userDetailsService() {
-    UserDetails user = User.withUsername("testuser")
+    UserDetails user = User.withUsername("testuser@user.com")
             .password(passwordEncoder().encode("testpassword"))
+            .roles("USER")
             .build();
     return new InMemoryUserDetailsManager(user);
     }
