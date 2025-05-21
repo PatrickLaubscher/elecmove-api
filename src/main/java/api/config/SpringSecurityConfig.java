@@ -41,5 +41,9 @@ public class SpringSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    public JwtEncoder jwtEncoder() {
+        return new NimbusJwtEncoder(new ImmutableSecret<>(this.jwtKey.getBytes()));
+    }
 
 }
