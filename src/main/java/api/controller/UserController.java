@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import api.dto.UserDTO;
-import api.service.UserService;
+import api.dto.UserResponseDTO;
+import api.service.UserServiceImpl;
 
 
 
@@ -18,18 +18,18 @@ import api.service.UserService;
 public class UserController {
 
     // Initialize the UserService
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     // Constructor
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
     @GetMapping
-    public List<UserDTO> getAllUsers() {
+    public List<UserResponseDTO> getAllUsers() {
         return userService.getAllUsers().stream()
                 .map(user -> {
-                    UserDTO userDTO = new UserDTO();
+                    UserResponseDTO userDTO = new UserResponseDTO();
                     userDTO.setId(user.getId());
                     userDTO.setFirstname(user.getFirstname());
                     userDTO.setLastname(user.getLastname());

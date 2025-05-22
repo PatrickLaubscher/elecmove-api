@@ -8,6 +8,6 @@ import api.dto.UserResponseDTO;
 import api.model.User;
 
 public interface UserService {
-    User createUser(UserCreationDTO userDto);
+    UserResponseDTO createUser(UserCreationDTO dto);;
     List<User> getAllUsers();
 }
