@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import api.dto.UserCreationDTO;
 import api.dto.UserResponseDTO;
 import api.mapper.UserMapper;
 import api.model.User;
@@ -26,17 +27,18 @@ public class UserServiceImpl implements UserService {
     }
 
     // Get all users
+    @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     // Create user
     @Override
-    public UserResponseDTO createUser(UserResponseDTO userDto) {
-        User user = mapper.toEntity(dto);
-        user.setPwd(passwordEncoder.encode(dto.getPwd())); 
+    public UserResponseDTO createUser(UserCreationDTO userDto) {
+        User user = userMapper.toEntity(userDto);
+        user.setPwd(passwordEncoder.encode(userDto.getPwd())); 
         userRepository.save(user);
-        return mapper.toDto(user);
+        return userMapper.toDto(user);
     }
 
 
