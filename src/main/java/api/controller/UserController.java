@@ -3,11 +3,14 @@ package api.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import api.dto.UserDTO;
 import api.service.UserService;
+
 
 
 @RestController
@@ -46,10 +49,18 @@ public class UserController {
     }
 
 
+    // Create user
+    @PostMapping
+    public String postMethodName(@RequestBody String entity) {
+        //TODO: process POST request
+        
+        return entity;
+    }
+
+
     // Get user by ID
     // Get user by username
     // Get user by email
-    // Create user
     // Update user
     // Delete user
 

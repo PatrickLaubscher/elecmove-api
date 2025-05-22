@@ -1,6 +1,7 @@
 package api.dto;
 
-public class UserDTO {
+
+public class UserCreationDTO {
 
     private Long id;
     private String firstname;
@@ -8,6 +9,7 @@ public class UserDTO {
     private String birthdate;
     private String mobile;
     private String email;
+    private String pwd;
     private String address;
     private String zipcode;
     private String city;
@@ -17,7 +19,7 @@ public class UserDTO {
     private Long roleId;
 
     // Constructeurs
-    public UserDTO() {}
+    public UserCreationDTO() {}
 
     // Getters & Setters
     public Long getId() { return id; }
@@ -37,6 +39,9 @@ public class UserDTO {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
+    public String getPwd() { return pwd; }
+    public void setPwd(String pwd) { this.pwd = pwd; }
 
     public String getAddress() { return address; }
     public void setAddress(String address) { this.address = address; }
