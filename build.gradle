@@ -40,11 +40,11 @@ dependencies {
 }
 
 springBoot {
-    mainClass = 'api.ApiElecMove'
+    mainClass = 'fr.elecmove.api.ApiElecMove'
 }
 
 bootJar {
-    mainClass = 'api.ApiElecMove'
+    mainClass = 'fr.elecmove.api.ApiElecMove'
 }
 
 
