@@ -1,4 +1,4 @@
-package api.config;
+package fr.elecmove.api.config;
 
 import java.nio.charset.StandardCharsets;
 

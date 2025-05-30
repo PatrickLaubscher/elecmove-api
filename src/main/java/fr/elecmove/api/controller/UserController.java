@@ -1,4 +1,4 @@
-package api.controller;
+package fr.elecmove.api.controller;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import api.dto.UserResponseDTO;
-import api.service.UserServiceImpl;
+import fr.elecmove.api.dto.UserResponseDTO;
+import fr.elecmove.api.service.UserServiceImpl;
 
 
 

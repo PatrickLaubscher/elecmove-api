@@ -1,8 +1,10 @@
-package api.mapper;
+package fr.elecmove.api.mapper;
 
-import api.dto.UserCreationDTO;
-import api.dto.UserResponseDTO;
-import api.model.User;
+import fr.elecmove.api.dto.UserResponseDTO;
+import fr.elecmove.api.dto.UserCreationDTO;
+import fr.elecmove.api.model.User;
+
+
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

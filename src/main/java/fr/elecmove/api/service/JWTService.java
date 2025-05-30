@@ -1,4 +1,4 @@
-package api.service;
+package fr.elecmove.api.service;
 
 
 import java.time.Instant;

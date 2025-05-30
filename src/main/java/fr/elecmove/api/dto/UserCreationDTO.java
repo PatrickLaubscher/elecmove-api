@@ -1,4 +1,4 @@
-package api.dto;
+package fr.elecmove.api.dto;
 
 
 public class UserCreationDTO {

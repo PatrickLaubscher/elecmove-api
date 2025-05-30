@@ -1,4 +1,4 @@
-package api.service;
+package fr.elecmove.api.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,11 +6,11 @@ import java.util.Optional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import api.dto.UserCreationDTO;
-import api.dto.UserResponseDTO;
-import api.mapper.UserMapper;
-import api.model.User;
-import api.repository.UserRepository;
+import fr.elecmove.api.dto.UserCreationDTO;
+import fr.elecmove.api.dto.UserResponseDTO;
+import fr.elecmove.api.mapper.UserMapper;
+import fr.elecmove.api.model.User;
+import fr.elecmove.api.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {

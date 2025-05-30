@@ -1,4 +1,4 @@
-package api.model;
+package fr.elecmove.api.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
