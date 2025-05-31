@@ -3,6 +3,8 @@ package fr.elecmove.api.service;
 import java.util.List;
 import java.util.Optional;
 
+import fr.elecmove.api.model.Role;
+import fr.elecmove.api.repository.RoleRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +20,14 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
+    private final RoleRepository roleRepository;
 
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, UserMapper userMapper, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.userMapper = userMapper;
+        this.roleRepository = roleRepository;
     }
 
     // Get all users
@@ -36,7 +40,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDTO createUser(UserCreationDTO userDto) {
         User user = userMapper.toEntity(userDto);
-        user.setPwd(passwordEncoder.encode(userDto.getPwd())); 
+
+        // Hasher mot de passe
+        user.setPwd(passwordEncoder.encode(userDto.getPwd()));
+
+        // Récupérer rôle customer
+        Role role = roleRepository.findByName("customer")
+                .orElseThrow(() -> new RuntimeException("Role not found"));
+        user.setRole(role);
+
         userRepository.save(user);
         return userMapper.toDto(user);
     }

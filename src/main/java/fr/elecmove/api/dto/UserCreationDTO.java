@@ -61,4 +61,11 @@ public class UserCreationDTO {
     public Boolean getIsValidated() { return isValidated; }
     public void setIsValidated(Boolean isValidated) { this.isValidated = isValidated; }
 
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 }

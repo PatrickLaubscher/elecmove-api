@@ -3,14 +3,13 @@ package fr.elecmove.api.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "user", schema = "elecmove")
 public class User {
 
@@ -32,14 +31,17 @@ public class User {
     @Column(name = "is_validated")
     private Boolean isValidated;
 
-    @Column(name = "created_at")
+    @CreatedDate
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
+    @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Column(name = "role_id")
-    private Long roleId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
 
     // Constructeurs
     public User() {}
@@ -79,13 +81,14 @@ public class User {
     public void setIsValidated(Boolean isValidated) { this.isValidated = isValidated; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 
     public LocalDateTime getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 
-    public Long getRoleId() { return roleId; }
-    public void setRoleId(Long roleId) { this.roleId = roleId; }
+    public Role getRole() {
+        return role;
+    }
 
-    // Optionnel : equals/hashCode/toString si besoin
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }

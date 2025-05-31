@@ -2,6 +2,7 @@ package fr.elecmove.api.controller;
 
 import java.util.List;
 
+import fr.elecmove.api.dto.RoleDTO;
 import fr.elecmove.api.dto.UserCreationDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,7 +47,7 @@ public class UserController {
                     userDTO.setIsValidated(user.getIsValidated());
                     userDTO.setCreatedAt(user.getCreatedAt().toString());
                     userDTO.setUpdatedAt(user.getUpdatedAt().toString());
-                    userDTO.setRoleId(user.getRoleId());
+                    userDTO.setRole(new RoleDTO(user.getRole().getName()));
                     return userDTO;
                 })
                 .toList();
