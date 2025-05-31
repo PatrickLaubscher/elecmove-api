@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
         // Récupérer rôle customer
         Role role = roleRepository.findByName("customer")
-                .orElseThrow(() -> new RuntimeException("Role not found"));
+                .orElseThrow(() -> new IllegalStateException("Customer role not found in DB"));
         user.setRole(role);
 
         userRepository.save(user);
