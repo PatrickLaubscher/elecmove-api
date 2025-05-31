@@ -14,7 +14,9 @@ import org.mapstruct.Mapping;
 public interface UserMapper {
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "role", ignore = true)
     User toEntity(UserCreationDTO dto);
-    UserResponseDTO toDto(User user);
 
+    @Mapping(target = "role", expression = "java(user.getRole().getName())")
+    UserResponseDTO toDto(User user);
 }

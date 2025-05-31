@@ -14,7 +14,7 @@ public class UserResponseDTO {
     private Boolean isValidated;
     private String createdAt;
     private String updatedAt;
-    private RoleDTO role;
+    private String role;
 
     // Constructeurs
     public UserResponseDTO() {}
@@ -56,11 +56,11 @@ public class UserResponseDTO {
     public String getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(String updatedAt) { this.updatedAt = updatedAt; }
 
-    public RoleDTO getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(RoleDTO role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }

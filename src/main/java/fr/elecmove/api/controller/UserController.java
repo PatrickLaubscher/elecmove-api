@@ -47,7 +47,7 @@ public class UserController {
                     userDTO.setIsValidated(user.getIsValidated());
                     userDTO.setCreatedAt(user.getCreatedAt().toString());
                     userDTO.setUpdatedAt(user.getUpdatedAt().toString());
-                    userDTO.setRole(new RoleDTO(user.getRole().getName()));
+                    userDTO.setRole(user.getRole().getName());
                     return userDTO;
                 })
                 .toList();
