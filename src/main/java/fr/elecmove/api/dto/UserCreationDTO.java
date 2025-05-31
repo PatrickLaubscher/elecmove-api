@@ -1,21 +1,34 @@
 package fr.elecmove.api.dto;
 
+import jakarta.validation.constraints.*;
 
 public class UserCreationDTO {
 
+    @NotBlank
     private String firstname;
+
+    @NotBlank
     private String lastname;
+
+    @NotBlank
     private String birthdate;
+
+    @Pattern(regexp = "^\\d{10}$")
     private String mobile;
+
+    @NotBlank
+    @Email
     private String email;
+
     private String address;
     private String zipcode;
     private String city;
-    private Boolean isValidated;
-    private String createdAt;
-    private String updatedAt;
-    private Long roleId;
+
+    private Boolean isValidated = false;
+
+    @NotBlank
     private String pwd;
+
 
     // Constructeurs
     public UserCreationDTO() {}
@@ -48,17 +61,4 @@ public class UserCreationDTO {
     public Boolean getIsValidated() { return isValidated; }
     public void setIsValidated(Boolean isValidated) { this.isValidated = isValidated; }
 
-    public String getCreatedAt() { return createdAt; }
-    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
-
-    public String getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(String updatedAt) { this.updatedAt = updatedAt; }
-
-    public Long getRoleId() { return roleId; }
-    public void setRoleId(Long roleId) { this.roleId = roleId; }
-    
-    public String getPwd() { return pwd; }
-    public void setPwd(String pwd) { this.pwd = pwd; }
-
-    
 }

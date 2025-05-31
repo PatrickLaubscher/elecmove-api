@@ -2,6 +2,9 @@ package fr.elecmove.api.controller;
 
 import java.util.List;
 
+import fr.elecmove.api.dto.UserCreationDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +28,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    // Get list of all users
     @GetMapping
     public List<UserResponseDTO> getAllUsers() {
         return userService.getAllUsers().stream()
@@ -48,13 +52,11 @@ public class UserController {
                 .toList();
     }
 
-
     // Create user
     @PostMapping
-    public String postMethodName(@RequestBody String entity) {
-        //TODO: process POST request
-        
-        return entity;
+    public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserCreationDTO userDto) {
+        UserResponseDTO createdUser = userService.createUser(userDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
 

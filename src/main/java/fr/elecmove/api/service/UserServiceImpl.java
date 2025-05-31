@@ -41,7 +41,6 @@ public class UserServiceImpl implements UserService {
         return userMapper.toDto(user);
     }
 
-
     // Get user by ID
     public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
