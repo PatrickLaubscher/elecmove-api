@@ -1,13 +1,11 @@
-package api.repository;
-
-import java.util.Optional;
+package fr.elecmove.api.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import api.model.User;
+import fr.elecmove.api.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findUserByEmail(String username);
+    boolean existsByEmail(String email);
 }
