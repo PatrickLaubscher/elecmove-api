@@ -62,15 +62,15 @@ public class SpringSecurityConfig {
     }
     
     // This is the in-memory user details service for authentication
-    @Bean
-    public UserDetailsService users() {
-        UserDetails user = User.builder()
-                .username("user@test.com")
-                .password(passwordEncoder().encode("password"))
-                .roles("USER")
-                .build();       
-        return new InMemoryUserDetailsManager(user);
-    }
+//    @Bean
+//    public UserDetailsService users() {
+//        UserDetails user = User.builder()
+//                .username("user@test.com")
+//                .password(passwordEncoder().encode("password"))
+//                .roles("USER")
+//                .build();
+//        return new InMemoryUserDetailsManager(user);
+//    }
 
     // This is the password encoder used for encoding passwords
     @Bean
