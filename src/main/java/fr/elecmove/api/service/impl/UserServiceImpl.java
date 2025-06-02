@@ -1,10 +1,11 @@
-package fr.elecmove.api.service;
+package fr.elecmove.api.service.impl;
 
 import java.util.List;
 import java.util.Optional;
 
 import fr.elecmove.api.model.Role;
 import fr.elecmove.api.repository.RoleRepository;
+import fr.elecmove.api.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

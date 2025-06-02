@@ -2,8 +2,8 @@ package fr.elecmove.api.controller;
 
 import java.util.List;
 
-import fr.elecmove.api.dto.RoleDTO;
 import fr.elecmove.api.dto.UserCreationDTO;
+import fr.elecmove.api.service.impl.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.elecmove.api.dto.UserResponseDTO;
-import fr.elecmove.api.service.UserServiceImpl;
 
 
 
