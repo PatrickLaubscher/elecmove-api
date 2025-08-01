@@ -2,30 +2,31 @@ package fr.elecmove.api.model;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "station", schema = "elecmove")
 public class Station {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @UuidGenerator
+    private String id;
     private String name;
     private Double tarification;
     private String power;
     private String instrucion;
-    private String picture;
-    private String video;
 
     @Column(name = "is_free_standing")
     private boolean isFreeStanding;
 
     @Column(name = "is_available")
-    private boolean is_available;
+    private boolean available;
 
     private String type;
 
@@ -37,4 +38,134 @@ public class Station {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private LocationStation location;
+
+    @OneToMany(mappedBy = "station")
+    private List<Picture> pictures = new ArrayList<>();
+
+    public Station(String id, String name, Double tarification, String power, String instrucion, boolean isFreeStanding, boolean available, String type, LocalDateTime createdAt, LocalDateTime updatedAt, User user, LocationStation location) {
+        this.id = id;
+        this.name = name;
+        this.tarification = tarification;
+        this.power = power;
+        this.instrucion = instrucion;
+        this.isFreeStanding = isFreeStanding;
+        this.available = available;
+        this.type = type;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.user = user;
+        this.location = location;
+    }
+
+    public Station() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getTarification() {
+        return tarification;
+    }
+
+    public void setTarification(Double tarification) {
+        this.tarification = tarification;
+    }
+
+    public String getPower() {
+        return power;
+    }
+
+    public void setPower(String power) {
+        this.power = power;
+    }
+
+    public String getInstrucion() {
+        return instrucion;
+    }
+
+    public void setInstrucion(String instrucion) {
+        this.instrucion = instrucion;
+    }
+
+    public boolean isFreeStanding() {
+        return isFreeStanding;
+    }
+
+    public void setFreeStanding(boolean freeStanding) {
+        isFreeStanding = freeStanding;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public LocationStation getLocation() {
+        return location;
+    }
+
+    public void setLocation(LocationStation location) {
+        this.location = location;
+    }
+
+    public List<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Picture> pictures) {
+        this.pictures = pictures;
+    }
 }

@@ -1,39 +1,24 @@
-package fr.elecmove.api.dto;
+package fr.elecmove.api.controller.dto.user;
 
-import jakarta.validation.constraints.*;
+import fr.elecmove.api.controller.dto.role.RoleDTO;
 
-public class UserCreationDTO {
+public class UserSingleDTO {
 
-    @NotBlank
     private String firstname;
-
-    @NotBlank
     private String lastname;
-
-    @NotBlank
     private String birthdate;
-
-    @Pattern(regexp = "^\\d{10}$")
     private String mobile;
-
-    @NotBlank
-    @Email
     private String email;
-
     private String address;
     private String zipcode;
     private String city;
+    private Boolean isValidated;
+    private String createdAt;
+    private String updatedAt;
+    private RoleDTO role;
 
-    private Boolean isValidated = false;
+    public UserSingleDTO() {}
 
-    @NotBlank
-    private String pwd;
-
-
-    // Constructeurs
-    public UserCreationDTO() {}
-
-    // Getters & Setters
     public String getFirstname() { return firstname; }
     public void setFirstname(String firstname) { this.firstname = firstname; }
 
@@ -61,11 +46,16 @@ public class UserCreationDTO {
     public Boolean getIsValidated() { return isValidated; }
     public void setIsValidated(Boolean isValidated) { this.isValidated = isValidated; }
 
-    public String getPwd() {
-        return pwd;
-    }
+    public String getCreatedAt() { return createdAt; }
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public String getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(String updatedAt) { this.updatedAt = updatedAt; }
+
+    public RoleDTO getRole() {
+        return role;
+    }
+    public void setRole(RoleDTO role) {
+        this.role = role;
     }
 }

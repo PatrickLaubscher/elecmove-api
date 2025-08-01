@@ -2,20 +2,23 @@ package fr.elecmove.api.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "user", schema = "elecmove")
+@Table(name = "user_table", schema = "elecmove")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @UuidGenerator
+    private String id;
 
     private String firstname;
     private String lastname;
@@ -40,15 +43,33 @@ public class User {
     private LocalDateTime updatedAt;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "role_id", nullable = false)
+    @JoinColumn(nullable = false)
     private Role role;
 
-    // Constructeurs
+    @OneToMany(mappedBy = "user")
+    List<Station> stations = new ArrayList<>();
+
+    public User(String id, String firstname, String lastname, LocalDate birthdate, String mobile, String email, String address, String zipcode, String city, String pwd, Boolean isValidated, LocalDateTime createdAt, LocalDateTime updatedAt, Role role) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.birthdate = birthdate;
+        this.mobile = mobile;
+        this.email = email;
+        this.address = address;
+        this.zipcode = zipcode;
+        this.city = city;
+        this.pwd = pwd;
+        this.isValidated = isValidated;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.role = role;
+    }
+
     public User() {}
 
-    // Getters & Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
     public String getFirstname() { return firstname; }
     public void setFirstname(String firstname) { this.firstname = firstname; }
@@ -91,4 +112,6 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
+
+
 }

@@ -3,15 +3,15 @@ package fr.elecmove.api.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import fr.elecmove.api.controller.dto.user.UserCreationDTO;
+import fr.elecmove.api.controller.dto.user.UserResponseDTO;
+import fr.elecmove.api.controller.dto.mapper.UserMapper;
 import fr.elecmove.api.model.Role;
 import fr.elecmove.api.repository.RoleRepository;
 import fr.elecmove.api.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import fr.elecmove.api.dto.UserCreationDTO;
-import fr.elecmove.api.dto.UserResponseDTO;
-import fr.elecmove.api.mapper.UserMapper;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.repository.UserRepository;
 
@@ -55,17 +55,17 @@ public class UserServiceImpl implements UserService {
     }
 
     // Get user by ID
-    public Optional<User> getUserById(Long id) {
+    public Optional<User> getUserById(String id) {
         return userRepository.findById(id);
     }
 
     // Delete user by ID
-    public void deleteUser(Long id) {
+    public void deleteUser(String id) {
         userRepository.deleteById(id);
     }
 
     // Update user by ID
-    public User updateUser(Long id, User updatedUser) {
+    public User updateUser(String id, User updatedUser) {
         return userRepository.findById(id)
                 .map(user -> {
                     user.setFirstname(updatedUser.getFirstname());

@@ -1,4 +1,4 @@
-package fr.elecmove.api.dto;
+package fr.elecmove.api.controller.dto;
 
 public class LoginRequestDTO {
 

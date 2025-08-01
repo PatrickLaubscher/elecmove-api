@@ -2,7 +2,10 @@ package fr.elecmove.api.controller;
 
 import java.util.List;
 
-import fr.elecmove.api.dto.UserCreationDTO;
+import fr.elecmove.api.controller.dto.mapper.UserMapper;
+import fr.elecmove.api.controller.dto.user.UserCreationDTO;
+import fr.elecmove.api.controller.dto.user.UserListDTO;
+import fr.elecmove.api.controller.dto.user.UserResponseDTO;
 import fr.elecmove.api.service.impl.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.elecmove.api.dto.UserResponseDTO;
 
 
 
@@ -20,36 +22,17 @@ import fr.elecmove.api.dto.UserResponseDTO;
 @RequestMapping("/users")
 public class UserController {
 
-    // Initialize the UserService
     private final UserServiceImpl userService;
+    private final UserMapper userMapper;
 
-    // Constructor
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserServiceImpl userService, UserMapper userMapper) {
         this.userService = userService;
+        this.userMapper = userMapper;
     }
 
-    // Get list of all users
     @GetMapping
-    public List<UserResponseDTO> getAllUsers() {
-        return userService.getAllUsers().stream()
-                .map(user -> {
-                    UserResponseDTO userDTO = new UserResponseDTO();
-                    userDTO.setId(user.getId());
-                    userDTO.setFirstname(user.getFirstname());
-                    userDTO.setLastname(user.getLastname());
-                    userDTO.setBirthdate(user.getBirthdate().toString());
-                    userDTO.setMobile(user.getMobile());
-                    userDTO.setEmail(user.getEmail());
-                    userDTO.setAddress(user.getAddress());
-                    userDTO.setZipcode(user.getZipcode());
-                    userDTO.setCity(user.getCity());
-                    userDTO.setIsValidated(user.getIsValidated());
-                    userDTO.setCreatedAt(user.getCreatedAt().toString());
-                    userDTO.setUpdatedAt(user.getUpdatedAt().toString());
-                    userDTO.setRole(user.getRole().getName());
-                    return userDTO;
-                })
-                .toList();
+    public UserListDTO getAllUsers() {
+        return userMapper.toUserListDTO(userService.getAllUsers());
     }
 
     // Create user
@@ -59,12 +42,6 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
-
-    // Get user by ID
-    // Get user by username
-    // Get user by email
-    // Update user
-    // Delete user
 
 
 
