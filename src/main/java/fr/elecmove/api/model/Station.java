@@ -20,7 +20,7 @@ public class Station {
     private String name;
     private Double tarification;
     private String power;
-    private String instrucion;
+    private String instruction;
 
     @Column(name = "is_free_standing")
     private boolean isFreeStanding;
@@ -47,12 +47,12 @@ public class Station {
     @OneToMany(mappedBy = "station")
     private List<Picture> pictures = new ArrayList<>();
 
-    public Station(String id, String name, Double tarification, String power, String instrucion, boolean isFreeStanding, boolean available, String type, LocalDateTime createdAt, LocalDateTime updatedAt, User user, LocationStation location) {
+    public Station(String id, String name, Double tarification, String power, String instruction, boolean isFreeStanding, boolean available, String type, LocalDateTime createdAt, LocalDateTime updatedAt, User user, LocationStation location) {
         this.id = id;
         this.name = name;
         this.tarification = tarification;
         this.power = power;
-        this.instrucion = instrucion;
+        this.instruction = instruction;
         this.isFreeStanding = isFreeStanding;
         this.available = available;
         this.type = type;
@@ -97,12 +97,12 @@ public class Station {
         this.power = power;
     }
 
-    public String getInstrucion() {
-        return instrucion;
+    public String getInstruction() {
+        return instruction;
     }
 
-    public void setInstrucion(String instrucion) {
-        this.instrucion = instrucion;
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
     }
 
     public boolean isFreeStanding() {

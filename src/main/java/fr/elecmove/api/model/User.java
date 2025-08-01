@@ -22,17 +22,12 @@ public class User {
 
     private String firstname;
     private String lastname;
-
-    private LocalDate birthdate;
     private String mobile;
     private String email;
-    private String address;
-    private String zipcode;
-    private String city;
     private String pwd;
 
     @Column(name = "is_validated")
-    private Boolean isValidated;
+    private Boolean validated;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
@@ -47,63 +42,101 @@ public class User {
     private Role role;
 
     @OneToMany(mappedBy = "user")
-    List<Station> stations = new ArrayList<>();
+    private List<UserAddress> userAddresses;
 
-    public User(String id, String firstname, String lastname, LocalDate birthdate, String mobile, String email, String address, String zipcode, String city, String pwd, Boolean isValidated, LocalDateTime createdAt, LocalDateTime updatedAt, Role role) {
+    @OneToMany(mappedBy = "user")
+    private List<Station> stations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Car> cars = new ArrayList<>();
+
+    public User(String id, String firstname, String lastname, String mobile, String email, String pwd, Boolean validated, LocalDateTime createdAt, LocalDateTime updatedAt, Role role) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.birthdate = birthdate;
         this.mobile = mobile;
         this.email = email;
-        this.address = address;
-        this.zipcode = zipcode;
-        this.city = city;
         this.pwd = pwd;
-        this.isValidated = isValidated;
+        this.validated = validated;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.role = role;
     }
 
-    public User() {}
+    public User() {
+    }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getFirstname() { return firstname; }
-    public void setFirstname(String firstname) { this.firstname = firstname; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getLastname() { return lastname; }
-    public void setLastname(String lastname) { this.lastname = lastname; }
+    public String getFirstname() {
+        return firstname;
+    }
 
-    public LocalDate getBirthdate() { return birthdate; }
-    public void setBirthdate(LocalDate birthdate) { this.birthdate = birthdate; }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-    public String getMobile() { return mobile; }
-    public void setMobile(String mobile) { this.mobile = mobile; }
+    public String getLastname() {
+        return lastname;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public String getMobile() {
+        return mobile;
+    }
 
-    public String getZipcode() { return zipcode; }
-    public void setZipcode(String zipcode) { this.zipcode = zipcode; }
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
-    public String getCity() { return city; }
-    public void setCity(String city) { this.city = city; }
+    public String getEmail() {
+        return email;
+    }
 
-    public String getPwd() { return pwd; }
-    public void setPwd(String pwd) { this.pwd = pwd; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public Boolean getIsValidated() { return isValidated; }
-    public void setIsValidated(Boolean isValidated) { this.isValidated = isValidated; }
+    public String getPwd() {
+        return pwd;
+    }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public Boolean getValidated() {
+        return validated;
+    }
+
+    public void setValidated(Boolean validated) {
+        this.validated = validated;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     public Role getRole() {
         return role;
@@ -111,6 +144,22 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<Station> getStations() {
+        return stations;
+    }
+
+    public void setStations(List<Station> stations) {
+        this.stations = stations;
+    }
+
+    public List<UserAddress> getUserAddresses() {
+        return userAddresses;
+    }
+
+    public void setUserAddresses(List<UserAddress> userAddresses) {
+        this.userAddresses = userAddresses;
     }
 
 

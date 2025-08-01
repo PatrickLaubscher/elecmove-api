@@ -1,4 +1,4 @@
-package fr.elecmove.api.config;
+package fr.elecmove.api.security.jwt;
 
 import java.nio.charset.StandardCharsets;
 

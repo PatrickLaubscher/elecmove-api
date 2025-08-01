@@ -1,12 +1,10 @@
 package fr.elecmove.api.controller;
 
-import java.util.List;
-
 import fr.elecmove.api.controller.dto.mapper.UserMapper;
 import fr.elecmove.api.controller.dto.user.UserCreationDTO;
 import fr.elecmove.api.controller.dto.user.UserListDTO;
 import fr.elecmove.api.controller.dto.user.UserResponseDTO;
-import fr.elecmove.api.service.impl.UserServiceImpl;
+import fr.elecmove.api.business.impl.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

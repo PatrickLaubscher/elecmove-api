@@ -1,4 +1,4 @@
-package fr.elecmove.api.service;
+package fr.elecmove.api.business;
 
 
 import java.util.List;

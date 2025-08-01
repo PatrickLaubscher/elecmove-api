@@ -1,4 +1,4 @@
-package fr.elecmove.api.service;
+package fr.elecmove.api.security;
 
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.repository.UserRepository;
