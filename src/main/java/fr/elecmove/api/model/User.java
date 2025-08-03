@@ -1,8 +1,8 @@
 package fr.elecmove.api.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -10,21 +10,23 @@ import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(name = "user_table", schema = "elecmove")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @UuidGenerator
     private String id;
-
     private String firstname;
     private String lastname;
     private String mobile;
     private String email;
-    private String pwd;
+    private String password;
 
     @Column(name = "is_validated")
     private Boolean validated;
@@ -50,13 +52,13 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Car> cars = new ArrayList<>();
 
-    public User(String id, String firstname, String lastname, String mobile, String email, String pwd, Boolean validated, LocalDateTime createdAt, LocalDateTime updatedAt, Role role) {
+    public User(String id, String firstname, String lastname, String mobile, String email, String password, Boolean validated, LocalDateTime createdAt, LocalDateTime updatedAt, Role role) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.mobile = mobile;
         this.email = email;
-        this.pwd = pwd;
+        this.password = password;
         this.validated = validated;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -106,12 +108,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Boolean getValidated() {
@@ -162,5 +164,23 @@ public class User {
         this.userAddresses = userAddresses;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.getName()));
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
 
 }

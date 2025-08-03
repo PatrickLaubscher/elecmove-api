@@ -1,43 +1,39 @@
 package fr.elecmove.api.controller;
 
+import fr.elecmove.api.business.AccountBusiness;
 import fr.elecmove.api.controller.dto.mapper.UserMapper;
 import fr.elecmove.api.controller.dto.user.UserCreationDTO;
-import fr.elecmove.api.controller.dto.user.UserListDTO;
 import fr.elecmove.api.controller.dto.user.UserResponseDTO;
-import fr.elecmove.api.business.impl.UserServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserServiceImpl userService;
+
+    private final AccountBusiness accountBusiness;
     private final UserMapper userMapper;
 
-    public UserController(UserServiceImpl userService, UserMapper userMapper) {
-        this.userService = userService;
+    public UserController(AccountBusiness accountBusiness, UserMapper userMapper) {
+        this.accountBusiness = accountBusiness;
         this.userMapper = userMapper;
     }
 
-    @GetMapping
-    public UserListDTO getAllUsers() {
-        return userMapper.toUserListDTO(userService.getAllUsers());
-    }
 
-    // Create user
+    //@GetMapping
+    /*public UserListDTO getAllUsers() {
+        return userMapper.toUserListDTO(userService.getAllUsers());
+    }*/
+
     @PostMapping
-    public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserCreationDTO userDto) {
-        UserResponseDTO createdUser = userService.createUser(userDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+    @ResponseStatus(HttpStatus.CREATED)
+    public UserResponseDTO createUser(@RequestBody @Valid UserCreationDTO userDto) {
+        return userMapper.toDto(
+                accountBusiness.register(userMapper.toEntity(userDto))
+        );
     }
 
 

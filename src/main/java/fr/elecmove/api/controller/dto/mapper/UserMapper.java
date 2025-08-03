@@ -1,9 +1,6 @@
 package fr.elecmove.api.controller.dto.mapper;
 
-import fr.elecmove.api.controller.dto.user.UserCreationDTO;
-import fr.elecmove.api.controller.dto.user.UserListDTO;
-import fr.elecmove.api.controller.dto.user.UserResponseDTO;
-import fr.elecmove.api.controller.dto.user.UserSingleDTO;
+import fr.elecmove.api.controller.dto.user.*;
 import fr.elecmove.api.model.User;
 
 
@@ -19,6 +16,8 @@ public interface UserMapper {
 
     User toEntity(UserCreationDTO dto);
     UserResponseDTO toDto(User user);
+    UserConnectedDTO toConnectedDto(User user);
+
     List<UserSingleDTO> toDTOList(List<User> users);
 
     default UserListDTO toUserListDTO(List<User> users) {
