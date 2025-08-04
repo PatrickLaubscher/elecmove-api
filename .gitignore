@@ -37,7 +37,7 @@ out/
 .vscode/
 
 # Ignore application.properties with sensitive info
-/src/main/resources/application-local.properties
+/src/main/resources/env.properties
 
 # Autres fichiers et dossiers courants à ignorer
 /build/
