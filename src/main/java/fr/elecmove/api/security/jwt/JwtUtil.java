@@ -40,8 +40,6 @@ public class JwtUtil {
     }
 
 
-
-
     public UserDetails validateToken(String token) {
         try {
             DecodedJWT decodedJWT = JWT

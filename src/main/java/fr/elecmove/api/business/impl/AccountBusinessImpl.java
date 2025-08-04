@@ -3,28 +3,39 @@ package fr.elecmove.api.business.impl;
 
 import fr.elecmove.api.business.AccountBusiness;
 import fr.elecmove.api.business.exception.UserAlreadyExistsException;
+import fr.elecmove.api.messaging.MailService;
 import fr.elecmove.api.model.Role;
 import fr.elecmove.api.model.User;
+import fr.elecmove.api.repository.RefreshTokenRepository;
 import fr.elecmove.api.repository.RoleRepository;
 import fr.elecmove.api.repository.UserRepository;
+import fr.elecmove.api.security.jwt.JwtUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+
 
 @Service
 public class AccountBusinessImpl implements AccountBusiness {
 
-
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final JwtUtil jwtUtil;
+    private final MailService mailService;
+    private RefreshTokenRepository refreshTokenRepository;
 
-    public AccountBusinessImpl(PasswordEncoder passwordEncoder, UserRepository userRepository, RoleRepository roleRepository) {
+    public AccountBusinessImpl(PasswordEncoder passwordEncoder, UserRepository userRepository, RoleRepository roleRepository, JwtUtil jwtUtil, MailService mailService, RefreshTokenRepository refreshTokenRepository) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.jwtUtil = jwtUtil;
+        this.mailService = mailService;
+        this.refreshTokenRepository = refreshTokenRepository;
     }
 
     @Override
@@ -36,14 +47,56 @@ public class AccountBusinessImpl implements AccountBusiness {
 
         String rawPwd = user.getPassword();
         user.setPassword(passwordEncoder.encode(rawPwd));
-
         Role roleUser = roleRepository.findByName("ROLE_USER").get();
         user.setRole(roleUser);
-
         User savedUser = userRepository.save(user);
+        String token = jwtUtil.generateToken(savedUser, Instant.now().plus(7, ChronoUnit.DAYS));
+        mailService.sendEmailValidation(savedUser, token);
 
         return savedUser;
 
+    }
+
+
+    @Override
+    public void activateUser(String token){
+
+        User user = (User)jwtUtil.validateToken(token);
+        user.setValidated(true);
+        userRepository.save(user);
+
+    }
+
+
+    @Override
+    public void updatePassword(User user, String newPassword) {
+
+        String pwd = passwordEncoder.encode(newPassword);
+        user.setPassword(pwd);
+        userRepository.save(user);
+        //Optionnel: On invalide tous les refresh token du user (on les supprime en fait)
+        //pour le forcer à se reconnecter sur ses devices avec son nouveau mot de passe
+        refreshTokenRepository.deleteByUser(user);
+
+    }
+
+
+    @Override
+    public void resetPassword(String email) {
+
+        User user = userRepository.findByEmail(email).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Le compte user n'existe pas")
+        );
+
+        String token = jwtUtil.generateToken(user, Instant.now().plus(1, ChronoUnit.HOURS));
+        mailService.sendEmailValidation(user, token);
+
+    }
+
+    @Override
+    public void deleteAccount(User user) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteAccount'");
     }
 
 
@@ -54,19 +107,6 @@ public class AccountBusinessImpl implements AccountBusiness {
         );
 
     }
-
-    @Override
-    public void resetPassword(String email) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resetPassword'");
-    }
-
-    @Override
-    public void deleteAccount(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteAccount'");
-    }
-
 
 
 
