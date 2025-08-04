@@ -1,13 +1,10 @@
 package fr.elecmove.api.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
+
+import java.util.List;
 
 @Entity
 @Table(name = "role", schema = "elecmove")
@@ -18,7 +15,10 @@ public class Role {
     private String id;
 
     @Column(nullable = false, unique = true)
-    private String name; // Exemple : "ADMIN", "CUSTOMER"
+    private String name;
+
+    @OneToMany(mappedBy = "role")
+    private List<User> users;
 
 
     public Role(String id, String name) {
@@ -39,5 +39,11 @@ public class Role {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
+    public List<User> getUsers() {
+        return users;
+    }
 
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }

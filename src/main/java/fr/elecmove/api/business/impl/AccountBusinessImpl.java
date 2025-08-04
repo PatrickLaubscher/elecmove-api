@@ -37,7 +37,7 @@ public class AccountBusinessImpl implements AccountBusiness {
         String rawPwd = user.getPassword();
         user.setPassword(passwordEncoder.encode(rawPwd));
 
-        Role roleUser = roleRepository.findByName("USER").get();
+        Role roleUser = roleRepository.findByName("ROLE_USER").get();
         user.setRole(roleUser);
 
         User savedUser = userRepository.save(user);
