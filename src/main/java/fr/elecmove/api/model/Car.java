@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "car", schema = "elecmove")
+@Table(name = "car")
 public class Car {
 
     @Id

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "station", schema = "elecmove")
+@Table(name = "station")
 public class Station {
 
     @Id

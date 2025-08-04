@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "picture", schema = "elecmove")
+@Table(name = "picture")
 public class Picture {
 
     @Id

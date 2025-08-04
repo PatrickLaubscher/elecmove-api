@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "booking_status", schema = "elecmove")
+@Table(name = "booking_status")
 public class BookingStatus {
 
     @Id

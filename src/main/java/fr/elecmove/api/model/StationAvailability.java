@@ -7,7 +7,7 @@ import org.hibernate.annotations.UuidGenerator;
 import java.sql.Time;
 
 @Entity
-@Table(name = "station_availability", schema = "elecmove")
+@Table(name = "station_availability")
 public class StationAvailability {
 
     @Id

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "user_address", schema = "elecmove")
+@Table(name = "user_address")
 public class UserAddress {
 
     @Id

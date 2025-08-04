@@ -8,7 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "payment", schema = "elecmove")
+@Table(name = "payment")
 public class Payment {
 
     @Id

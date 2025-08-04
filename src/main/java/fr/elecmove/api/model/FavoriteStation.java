@@ -4,7 +4,7 @@ package fr.elecmove.api.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "favorite_station", schema = "elecmove")
+@Table(name = "favorite_station")
 @IdClass(FavoriteStation.class)
 public class FavoriteStation {
 

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "booking", schema = "elecmove")
+@Table(name = "booking")
 public class Booking {
 
     @Id

@@ -7,7 +7,7 @@ import org.hibernate.annotations.UuidGenerator;
 import java.util.List;
 
 @Entity
-@Table(name = "role", schema = "elecmove")
+@Table(name = "role")
 public class Role {
 
     @Id

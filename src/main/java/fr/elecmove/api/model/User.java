@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "user_table", schema = "elecmove")
+@Table(name = "user_table")
 public class User implements UserDetails {
 
     @Id
