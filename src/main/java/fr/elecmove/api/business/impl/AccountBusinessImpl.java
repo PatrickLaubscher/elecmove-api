@@ -10,6 +10,9 @@ import fr.elecmove.api.repository.RefreshTokenRepository;
 import fr.elecmove.api.repository.RoleRepository;
 import fr.elecmove.api.repository.UserRepository;
 import fr.elecmove.api.security.jwt.JwtUtil;
+import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,7 @@ import java.time.temporal.ChronoUnit;
 
 
 @Service
+@Transactional
 public class AccountBusinessImpl implements AccountBusiness {
 
     private final PasswordEncoder passwordEncoder;
@@ -27,7 +31,10 @@ public class AccountBusinessImpl implements AccountBusiness {
     private final RoleRepository roleRepository;
     private final JwtUtil jwtUtil;
     private final MailService mailService;
-    private RefreshTokenRepository refreshTokenRepository;
+    private final RefreshTokenRepository refreshTokenRepository;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
 
     public AccountBusinessImpl(PasswordEncoder passwordEncoder, UserRepository userRepository, RoleRepository roleRepository, JwtUtil jwtUtil, MailService mailService, RefreshTokenRepository refreshTokenRepository) {
         this.passwordEncoder = passwordEncoder;
@@ -53,6 +60,8 @@ public class AccountBusinessImpl implements AccountBusiness {
         String token = jwtUtil.generateToken(savedUser, Instant.now().plus(7, ChronoUnit.DAYS));
         mailService.sendEmailValidation(savedUser, token);
 
+        logger.info("New user register :" + user.getEmail());
+
         return savedUser;
 
     }
@@ -71,12 +80,15 @@ public class AccountBusinessImpl implements AccountBusiness {
     @Override
     public void updatePassword(User user, String newPassword) {
 
+        User userFound = userRepository.findByEmail(user.getEmail()).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Le compte user n'existe pas")
+        );
         String pwd = passwordEncoder.encode(newPassword);
-        user.setPassword(pwd);
-        userRepository.save(user);
+        userFound.setPassword(pwd);
+        userRepository.save(userFound);
         //Optionnel: On invalide tous les refresh token du user (on les supprime en fait)
         //pour le forcer à se reconnecter sur ses devices avec son nouveau mot de passe
-        refreshTokenRepository.deleteByUser(user);
+        refreshTokenRepository.deleteByUser(userFound);
 
     }
 
@@ -89,7 +101,7 @@ public class AccountBusinessImpl implements AccountBusiness {
         );
 
         String token = jwtUtil.generateToken(user, Instant.now().plus(1, ChronoUnit.HOURS));
-        mailService.sendEmailValidation(user, token);
+        mailService.sendResetPassword(user, token);
 
     }
 

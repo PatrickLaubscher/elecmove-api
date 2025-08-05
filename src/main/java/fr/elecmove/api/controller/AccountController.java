@@ -7,8 +7,10 @@ import fr.elecmove.api.controller.dto.mapper.UserMapper;
 import fr.elecmove.api.controller.dto.user.UserCreationDTO;
 import fr.elecmove.api.model.User;
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -43,7 +45,8 @@ public class AccountController {
     }
 
     @PatchMapping("/password")
-    public String updatePassword(@AuthenticationPrincipal User user, @RequestBody UpdatePasswordDTO dto) {
+    public String updatePassword(@AuthenticationPrincipal UserDetails userDetails, @RequestBody UpdatePasswordDTO dto) {
+        User user = (User) userDetails;
         accountBusiness.updatePassword(user, dto.getNewPassword());
         return "Password updated";
     }
