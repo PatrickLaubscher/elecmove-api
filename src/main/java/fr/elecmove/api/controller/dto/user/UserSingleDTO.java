@@ -6,55 +6,56 @@ public class UserSingleDTO {
 
     private String firstname;
     private String lastname;
-    private String birthdate;
-    private String mobile;
     private String email;
-    private String address;
-    private String zipcode;
-    private String city;
-    private Boolean isValidated;
     private String createdAt;
     private String updatedAt;
     private RoleDTO role;
 
-    public UserSingleDTO() {}
 
-    public String getFirstname() { return firstname; }
-    public void setFirstname(String firstname) { this.firstname = firstname; }
+    public String getFirstname() {
+        return firstname;
+    }
 
-    public String getLastname() { return lastname; }
-    public void setLastname(String lastname) { this.lastname = lastname; }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-    public String getBirthdate() { return birthdate; }
-    public void setBirthdate(String birthdate) { this.birthdate = birthdate; }
+    public String getLastname() {
+        return lastname;
+    }
 
-    public String getMobile() { return mobile; }
-    public void setMobile(String mobile) { this.mobile = mobile; }
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getEmail() {
+        return email;
+    }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public String getZipcode() { return zipcode; }
-    public void setZipcode(String zipcode) { this.zipcode = zipcode; }
+    public String getCreatedAt() {
+        return createdAt;
+    }
 
-    public String getCity() { return city; }
-    public void setCity(String city) { this.city = city; }
-    
-    public Boolean getIsValidated() { return isValidated; }
-    public void setIsValidated(Boolean isValidated) { this.isValidated = isValidated; }
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
 
-    public String getCreatedAt() { return createdAt; }
-    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
 
-    public String getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(String updatedAt) { this.updatedAt = updatedAt; }
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     public RoleDTO getRole() {
         return role;
     }
+
     public void setRole(RoleDTO role) {
         this.role = role;
     }

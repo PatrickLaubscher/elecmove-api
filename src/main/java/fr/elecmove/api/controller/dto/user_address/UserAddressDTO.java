@@ -1,50 +1,19 @@
-package fr.elecmove.api.model;
+package fr.elecmove.api.controller.dto.user_address;
+
+import fr.elecmove.api.controller.dto.user.UserSingleDTO;
 
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.UuidGenerator;
 
-@Entity
-@Table(name = "user_address")
-public class UserAddress {
+public class UserAddressDTO {
 
-    @Id
-    @UuidGenerator
-    private String id;
-    @Column(name = "address_name")
     private String addressName;
     private String address;
     private String city;
-    @Column(name = "zipcode")
     private String zipcode;
     private Double latitude;
     private Double longitude;
+    private UserSingleDTO user;
 
-    @ManyToOne
-    private User user;
-
-
-    public UserAddress(String id, String addressName, String address, String city, String zipcode, Double latitude, Double longitude, User user) {
-        this.id = id;
-        this.addressName = addressName;
-        this.address = address;
-        this.city = city;
-        this.zipcode = zipcode;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.user = user;
-    }
-
-    public UserAddress() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getAddressName() {
         return addressName;
@@ -94,11 +63,11 @@ public class UserAddress {
         this.longitude = longitude;
     }
 
-    public User getUser() {
+    public UserSingleDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserSingleDTO user) {
         this.user = user;
     }
 }

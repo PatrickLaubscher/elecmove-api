@@ -107,8 +107,18 @@ public class AccountBusinessImpl implements AccountBusiness {
 
     @Override
     public void deleteAccount(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteAccount'");
+
+        User userFound = userRepository.findByEmail(user.getEmail()).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Le compte user n'existe pas")
+        );
+        refreshTokenRepository.deleteByUser(userFound);
+
+        String anonymous = "anonymous";
+        userFound.setFirstname(anonymous);
+        userFound.setLastname(anonymous);
+        userFound.setEmail(anonymous);
+        userFound.setValidated(false);
+        userRepository.save(userFound);
     }
 
 

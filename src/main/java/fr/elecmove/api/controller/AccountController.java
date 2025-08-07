@@ -51,5 +51,13 @@ public class AccountController {
         return "Password updated";
     }
 
+    @PatchMapping("/delete-account")
+    public String deleteAccount(@AuthenticationPrincipal UserDetails userDetails) {
+        User user = (User) userDetails;
+        accountBusiness.deleteAccount(user);
+        return "Your account has been deleted";
+
+    }
+
 }
 

@@ -2,7 +2,6 @@ package fr.elecmove.api;
 
 
 import fr.elecmove.api.messaging.MailService;
-
 import fr.elecmove.api.model.Role;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.repository.RoleRepository;
@@ -16,23 +15,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import org.springframework.http.MediaType;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 
@@ -40,7 +35,7 @@ import org.springframework.http.MediaType;
 @AutoConfigureTestDatabase
 @AutoConfigureMockMvc
 @Transactional
-public class ApiUserTest {
+public class ApiUserAddressTest {
 
     @Autowired
     MockMvc mvc;
@@ -56,10 +51,9 @@ public class ApiUserTest {
     @Autowired
     private UserRepository userRepository;
 
+    User user1 = new User();
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-    User user1 = new User();
 
     @BeforeEach
     void setUp() throws Exception {
@@ -90,47 +84,28 @@ public class ApiUserTest {
 
 
     @Test
-    void postShouldPersistUserAndSendEmail() throws Exception {
-        mvc.perform(post("/api/users")
+    void postShouldPersistUserAddress() throws Exception {
+
+        mvc.perform(post("/api/user-addresses")
+                        .with(user(user1))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
 			{
-				"firstname":"firstname2",
-				"lastname":"lastname2",
-				"email":"firstname2@test.com",
-				"password": "test"
+				"addressName":"adresse1",
+				"address":"4 rue de l'adresse",
+			    "city": "ville",
+			    "zipcode": 12345,
+			    "latitude": 10.00,
+				"longitude": 10.00
 			}"""))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.firstname").value("firstname2"))
-                .andExpect(jsonPath("$.lastname").value("lastname2"))
-                .andExpect(jsonPath("$.email").value("firstname2@test.com"))
-                .andExpect(jsonPath("$.id").isNotEmpty());
-        verify(mailService, times(1)).sendEmailValidation(any(User.class), anyString());
+                .andExpect(jsonPath("$.addressName").value("adresse1"))
+                .andExpect(jsonPath("$.address").value("4 rue de l'adresse"))
+                .andExpect(jsonPath("$.city").value("ville"))
+                .andExpect(jsonPath("$.zipcode").value(12345))
+                .andExpect(jsonPath("$.latitude").value(10.00))
+                .andExpect(jsonPath("$.longitude").value(10.00))
+                .andExpect(jsonPath("$.user").value(10.00));
     }
-
-
-
-    @Test
-    void DeleteAccountShouldAnonymizePrivateInformationAndDisableAccount() throws Exception {
-
-        User userBefore = userRepository.findByEmail("firstname1@test.com")
-                .orElseThrow();
-
-        mvc.perform(patch("/api/account/delete-account")
-                .with(user(user1))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Your account has been deleted"));
-
-        User updatedUser = userRepository.findById(userBefore.getId()).orElseThrow();
-
-        assertEquals("anonymous", updatedUser.getFirstname());
-        assertEquals("anonymous", updatedUser.getLastname());
-        assertEquals("anonymous", updatedUser.getEmail());
-        assertFalse(updatedUser.getValidated());
-    }
-
-
-
 
 }
