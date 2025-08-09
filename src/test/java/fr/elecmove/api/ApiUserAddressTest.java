@@ -84,7 +84,7 @@ public class ApiUserAddressTest {
 
 
     @Test
-    void postShouldPersistUserAddress() throws Exception {
+    void postShouldPersistUserAddressWithRightUser() throws Exception {
 
         mvc.perform(post("/api/user-addresses")
                         .with(user(user1))
@@ -105,7 +105,7 @@ public class ApiUserAddressTest {
                 .andExpect(jsonPath("$.zipcode").value(12345))
                 .andExpect(jsonPath("$.latitude").value(10.00))
                 .andExpect(jsonPath("$.longitude").value(10.00))
-                .andExpect(jsonPath("$.user").value(10.00));
+                .andExpect(jsonPath("$.user.email").value(user1.getEmail()));
     }
 
 }

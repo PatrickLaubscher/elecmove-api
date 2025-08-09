@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 
 @Service
 @Transactional
@@ -30,10 +32,8 @@ public class UserAddressBusinessImpl implements UserAddressBusiness {
 
 
     @Override
-    public UserAddress getUserAddressByEmail(String email) {
-        return userAddressRepository.findUserAddressByUserEmail(email).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The address does not exist")
-        );
+    public List<UserAddress> getUserAddressByEmail(String email) {
+        return userAddressRepository.findUserAddressByUserEmail(email);
     }
 
 

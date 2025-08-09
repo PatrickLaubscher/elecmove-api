@@ -3,6 +3,8 @@ package fr.elecmove.api.business;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.model.UserAddress;
 
+import java.util.List;
+
 public interface UserAddressBusiness {
 
 
@@ -20,7 +22,7 @@ public interface UserAddressBusiness {
      * @param email
      * @return
      */
-    UserAddress getUserAddressByEmail(String email);
+    List<UserAddress> getUserAddressByEmail(String email);
 
 
     /**
