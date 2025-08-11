@@ -6,6 +6,7 @@ import fr.elecmove.api.controller.dto.user.UserSingleDTO;
 
 public class UserAddressDTO {
 
+    private String id;
     private String addressName;
     private String address;
     private String city;
@@ -14,6 +15,14 @@ public class UserAddressDTO {
     private Double longitude;
     private UserSingleDTO user;
 
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getAddressName() {
         return addressName;
