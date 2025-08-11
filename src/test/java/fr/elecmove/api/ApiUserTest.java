@@ -40,7 +40,7 @@ import org.springframework.http.MediaType;
 @AutoConfigureTestDatabase
 @AutoConfigureMockMvc
 @Transactional
-public class ApiUserTest {
+class ApiUserTest {
 
     @Autowired
     MockMvc mvc;

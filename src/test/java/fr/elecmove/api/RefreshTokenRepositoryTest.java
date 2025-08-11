@@ -18,7 +18,7 @@ import java.util.List;
 
 @SpringBootTest
 @Transactional
-public class RefreshTokenRepositoryTest {
+class RefreshTokenRepositoryTest {
 
     @Autowired
     private RefreshTokenRepository refreshTokenRepository;

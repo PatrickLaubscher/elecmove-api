@@ -29,11 +29,16 @@ public class UserAddressController {
     private final UserAddressMapper userAddressMapper;
 
 
+    @GetMapping("/{id}")
+    public UserAddressDTO getUserAddress(@PathVariable String id) {
+        return userAddressMapper.toDto(userAddressBusiness.getUserAddress(id));
+    }
+
 
     @GetMapping
-    public List<UserAddressDTO> getUserAddresses(@AuthenticationPrincipal UserDetails user) {
+    public List<UserAddressDTO> getAllUserAddresses(@AuthenticationPrincipal UserDetails user) {
         List<UserAddressDTO> userAddressDTOS = new ArrayList<>();
-        for(UserAddress userAddress : userAddressBusiness.getUserAddressByEmail(user.getUsername())){
+        for(UserAddress userAddress : userAddressBusiness.getAllUserAddressByEmail(user.getUsername())){
             userAddressDTOS.add(userAddressMapper.toDto(userAddress));
         }
         return userAddressDTOS;
@@ -50,5 +55,20 @@ public class UserAddressController {
     }
 
 
+    @PatchMapping("/{id}")
+    public UserAddressDTO updateUserAddress(@PathVariable String id, @RequestBody UserAddressCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
+        User user = (User) userDetails;
+        return userAddressMapper.toDto(
+                userAddressBusiness.updateUserAddress(id, userAddressMapper.toEntity(dto), user)
+        );
+    }
+
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUserAddress(@PathVariable String id, @AuthenticationPrincipal UserDetails userDetails) {
+        User user = (User) userDetails;
+        userAddressBusiness.deleteUserAddress(id, user);
+    }
 
 }

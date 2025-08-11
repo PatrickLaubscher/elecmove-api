@@ -19,26 +19,35 @@ public interface UserAddressBusiness {
 
     /**
      *
-     * @param email
+     * @param id
      * @return
      */
-    List<UserAddress> getUserAddressByEmail(String email);
+    UserAddress getUserAddress(String id);
 
 
     /**
      *
+     * @param email
+     * @return
+     */
+    List<UserAddress> getAllUserAddressByEmail(String email);
+
+
+    /**
+     *
+     * @param id
      * @param userAddress
      * @param user
      * @return
      */
-    UserAddress updateUserAddress(UserAddress userAddress, User user);
+    UserAddress updateUserAddress(String id, UserAddress userAddress, User user);
 
 
     /**
      *
-     * @param userAddress
+     * @param id
      * @return
      */
-    void deleteUserAddress(UserAddress userAddress, User user);
+    void deleteUserAddress(String id, User user);
 
 }
