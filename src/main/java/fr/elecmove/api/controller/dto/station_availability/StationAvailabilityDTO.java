@@ -1,43 +1,21 @@
-package fr.elecmove.api.model;
+package fr.elecmove.api.controller.dto.station_availability;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
-import org.hibernate.annotations.UuidGenerator;
+import fr.elecmove.api.controller.dto.Station.StationDTO;
+
 import java.time.LocalTime;
 
+public class StationAvailabilityDTO {
 
-@Entity
-@Table(name = "station_availability")
-public class StationAvailability {
-
-    @Id
-    @UuidGenerator
     private String id;
-    @Column(name = "availability_day")
     private String day;
     @JsonFormat(pattern = "HH:mm")
-    @Column(name = "start_time")
     private LocalTime startLocalTime;
     @JsonFormat(pattern = "HH:mm")
-    @Column(name = "end_time")
     private LocalTime endLocalTime;
+    private StationDTO station;
 
-    @ManyToOne
-    private Station station;
-
-
-    public StationAvailability() {
-    }
-
-
-    public StationAvailability(String id, String day, LocalTime startLocalTime, LocalTime endLocalTime, Station station) {
-        this.id = id;
-        this.day = day;
-        this.startLocalTime = startLocalTime;
-        this.endLocalTime = endLocalTime;
-        this.station = station;
-    }
 
     public String getId() {
         return id;
@@ -71,11 +49,11 @@ public class StationAvailability {
         this.endLocalTime = endLocalTime;
     }
 
-    public Station getStation() {
+    public StationDTO getStation() {
         return station;
     }
 
-    public void setStation(Station station) {
+    public void setStation(StationDTO station) {
         this.station = station;
     }
 }
