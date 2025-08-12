@@ -36,7 +36,7 @@ public class CarBusinessImpl implements CarBusiness {
     @Override
     public Car getCar(String id) {
         return carRepository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The address does not exist")
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The car does not exist")
         );
     }
 
@@ -51,10 +51,10 @@ public class CarBusinessImpl implements CarBusiness {
     public Car updateCar(String id, Car car, User user) {
 
         Car existingCar = carRepository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The address does not exist")
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The car does not exist")
         );
         if(!existingCar.getUser().getId().equals(user.getId())) {
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You can't modify this address.");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You can't modify this car.");
         }
 
         carEntityMapper.merge(existingCar, car);
@@ -69,7 +69,7 @@ public class CarBusinessImpl implements CarBusiness {
         Car existingCar = getCar(id);
 
         if(!existingCar.getUser().getId().equals(user.getId())) {
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You can't delete this address.");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You can't delete this car.");
         }
 
         carRepository.delete(existingCar);

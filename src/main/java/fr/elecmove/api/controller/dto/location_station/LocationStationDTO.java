@@ -1,17 +1,7 @@
-package fr.elecmove.api.model;
+package fr.elecmove.api.controller.dto.location_station;
 
+public class LocationStationDTO {
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.UuidGenerator;
-
-import java.util.List;
-
-@Entity
-@Table(name = "location_station")
-public class LocationStation {
-
-    @Id
-    @UuidGenerator
     private String id;
     private String address;
     private String city;
@@ -19,20 +9,6 @@ public class LocationStation {
     private Double latitude;
     private Double longitude;
 
-    @OneToMany(mappedBy = "location")
-    private List<Station> stations;
-
-    public LocationStation(String id, String address, String city, String zipcode, Double latitude, Double longitude) {
-        this.id = id;
-        this.address = address;
-        this.city = city;
-        this.zipcode = zipcode;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
-
-    public LocationStation() {
-    }
 
     public String getId() {
         return id;
@@ -80,13 +56,5 @@ public class LocationStation {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
-    }
-
-    public List<Station> getStations() {
-        return stations;
-    }
-
-    public void setStations(List<Station> stations) {
-        this.stations = stations;
     }
 }
