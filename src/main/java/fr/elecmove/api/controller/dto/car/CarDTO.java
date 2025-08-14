@@ -1,16 +1,22 @@
-package fr.elecmove.api.controller.dto.Car;
+package fr.elecmove.api.controller.dto.car;
 
+import fr.elecmove.api.controller.dto.user.UserSingleDTO;
 
-import jakarta.validation.constraints.NotBlank;
+public class CarDTO {
 
-public class CarCreationDTO {
-
-    @NotBlank
+    private String id;
     private String type;
-    @NotBlank
     private String registration;
-    @NotBlank
     private String brand;
+    private UserSingleDTO user;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getType() {
         return type;
@@ -34,5 +40,13 @@ public class CarCreationDTO {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public UserSingleDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserSingleDTO user) {
+        this.user = user;
     }
 }

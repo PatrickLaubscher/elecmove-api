@@ -1,8 +1,8 @@
 package fr.elecmove.api.controller.dto.mapper;
 
 
-import fr.elecmove.api.controller.dto.Car.CarCreationDTO;
-import fr.elecmove.api.controller.dto.Car.CarDTO;
+import fr.elecmove.api.controller.dto.car.CarCreationDTO;
+import fr.elecmove.api.controller.dto.car.CarDTO;
 import fr.elecmove.api.model.Car;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

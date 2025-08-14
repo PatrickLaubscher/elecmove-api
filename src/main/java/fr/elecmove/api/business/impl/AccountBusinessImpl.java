@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 
@@ -54,6 +55,8 @@ public class AccountBusinessImpl implements AccountBusiness {
 
         String rawPwd = user.getPassword();
         user.setPassword(passwordEncoder.encode(rawPwd));
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
         Role roleUser = roleRepository.findByName("ROLE_USER").get();
         user.setRole(roleUser);
         User savedUser = userRepository.save(user);
@@ -85,6 +88,7 @@ public class AccountBusinessImpl implements AccountBusiness {
         );
         String pwd = passwordEncoder.encode(newPassword);
         userFound.setPassword(pwd);
+        userFound.setUpdatedAt(LocalDateTime.now());
         userRepository.save(userFound);
         //Optionnel: On invalide tous les refresh token du user (on les supprime en fait)
         //pour le forcer à se reconnecter sur ses devices avec son nouveau mot de passe
@@ -118,6 +122,7 @@ public class AccountBusinessImpl implements AccountBusiness {
         userFound.setLastname(anonymous);
         userFound.setEmail(anonymous);
         userFound.setValidated(false);
+        userFound.setUpdatedAt(LocalDateTime.now());
         userRepository.save(userFound);
     }
 

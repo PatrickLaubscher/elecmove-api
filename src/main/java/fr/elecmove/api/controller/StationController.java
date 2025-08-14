@@ -1,0 +1,73 @@
+package fr.elecmove.api.controller;
+
+
+import fr.elecmove.api.business.StationBusiness;
+import fr.elecmove.api.controller.dto.station.StationCreationDTO;
+import fr.elecmove.api.controller.dto.station.StationDTO;
+import fr.elecmove.api.controller.dto.mapper.StationMapper;
+import fr.elecmove.api.model.Station;
+import fr.elecmove.api.model.User;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/stations")
+public class StationController {
+
+    StationBusiness stationBusiness;
+    StationMapper stationMapper;
+
+    public StationController(StationBusiness stationBusiness, StationMapper stationMapper) {
+        this.stationBusiness = stationBusiness;
+        this.stationMapper = stationMapper;
+    }
+
+    @GetMapping("/{id}")
+    public StationDTO getStation(@PathVariable String id) {
+        return stationMapper.toDto(stationBusiness.getStation(id));
+    }
+
+
+    @GetMapping
+    public List<StationDTO> getAllStations(@AuthenticationPrincipal UserDetails user) {
+        List<StationDTO> stationDTOS = new ArrayList<>();
+        for(Station station : stationBusiness.getAllStationByEmail(user.getUsername())){
+            stationDTOS.add(stationMapper.toDto(station));
+        }
+        return stationDTOS;
+    }
+
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public StationDTO createStation(@RequestBody @Valid StationCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
+        User user = (User) userDetails;
+        return stationMapper.toDto(
+                stationBusiness.createStation(stationMapper.toEntity(dto), user)
+        );
+    }
+
+
+    @PatchMapping("/{id}")
+    public StationDTO updateStation(@PathVariable String id, @RequestBody StationCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
+        User user = (User) userDetails;
+        return stationMapper.toDto(
+                stationBusiness.updateStation(id, stationMapper.toEntity(dto), user)
+        );
+    }
+
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteStation(@PathVariable String id, @AuthenticationPrincipal UserDetails userDetails) {
+        User user = (User) userDetails;
+        stationBusiness.deleteStation(id, user);
+    }
+
+}

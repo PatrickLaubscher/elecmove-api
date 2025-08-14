@@ -2,7 +2,7 @@ package fr.elecmove.api.controller.dto.station_availability;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import fr.elecmove.api.controller.dto.Station.StationDTO;
+import fr.elecmove.api.controller.dto.station.StationDTO;
 
 import java.time.LocalTime;
 

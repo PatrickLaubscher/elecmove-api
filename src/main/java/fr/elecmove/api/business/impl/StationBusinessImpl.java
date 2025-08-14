@@ -6,10 +6,14 @@ import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.repository.StationRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+@Service
+@Transactional
 public class StationBusinessImpl implements StationBusiness {
 
 

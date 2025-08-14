@@ -2,8 +2,8 @@ package fr.elecmove.api.controller;
 
 
 import fr.elecmove.api.business.CarBusiness;
-import fr.elecmove.api.controller.dto.Car.CarCreationDTO;
-import fr.elecmove.api.controller.dto.Car.CarDTO;
+import fr.elecmove.api.controller.dto.car.CarCreationDTO;
+import fr.elecmove.api.controller.dto.car.CarDTO;
 import fr.elecmove.api.controller.dto.mapper.CarMapper;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.model.Car;

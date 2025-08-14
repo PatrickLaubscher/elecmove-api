@@ -1,72 +1,28 @@
-package fr.elecmove.api.model;
+package fr.elecmove.api.controller.dto.station;
 
+import fr.elecmove.api.controller.dto.location_station.LocationStationDTO;
+import fr.elecmove.api.controller.dto.station_availability.StationAvailabilityDTO;
+import fr.elecmove.api.controller.dto.user.UserSingleDTO;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.UuidGenerator;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "station")
-public class Station {
+public class StationDTO {
 
-    @Id
-    @UuidGenerator
     private String id;
     private String name;
     private Double tarification;
     private String power;
     private String instruction;
-
-    @Column(name = "is_free_standing")
     private Boolean freeStanding;
-
-    @Column(name = "is_available")
     private Boolean available;
-
     private String type;
-
-    @CreatedDate
-    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
-    @ManyToOne
-    private User user;
-
-    @ManyToOne
-    private LocationStation location;
-
-    @OneToMany(mappedBy = "station")
-    private List<StationAvailability> availabilities = new ArrayList<>();
-
-    @OneToMany(mappedBy = "station")
-    private List<Picture> pictures = new ArrayList<>();
-
-    public Station(String id, String name, Double tarification, String power, String instruction, Boolean freeStanding, Boolean available, String type, LocalDateTime createdAt, LocalDateTime updatedAt, User user, LocationStation location) {
-        this.id = id;
-        this.name = name;
-        this.tarification = tarification;
-        this.power = power;
-        this.instruction = instruction;
-        this.freeStanding = freeStanding;
-        this.available = available;
-        this.type = type;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.user = user;
-        this.location = location;
-    }
-
-    public Station() {
-    }
+    private UserSingleDTO user;
+    private LocationStationDTO location;
+    private List<StationAvailabilityDTO> availabilities;
 
     public String getId() {
         return id;
@@ -108,7 +64,7 @@ public class Station {
         this.instruction = instruction;
     }
 
-    public Boolean getFreeStanding() {
+    public Boolean isFreeStanding() {
         return freeStanding;
     }
 
@@ -116,7 +72,7 @@ public class Station {
         this.freeStanding = freeStanding;
     }
 
-    public Boolean getAvailable() {
+    public Boolean isAvailable() {
         return available;
     }
 
@@ -148,35 +104,27 @@ public class Station {
         this.updatedAt = updatedAt;
     }
 
-    public User getUser() {
+    public UserSingleDTO getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserSingleDTO user) {
         this.user = user;
     }
 
-    public LocationStation getLocation() {
+    public LocationStationDTO getLocation() {
         return location;
     }
 
-    public void setLocation(LocationStation location) {
+    public void setLocation(LocationStationDTO location) {
         this.location = location;
     }
 
-    public List<StationAvailability> getAvailabilities() {
+    public List<StationAvailabilityDTO> getAvailabilities() {
         return availabilities;
     }
 
-    public void setAvailabilities(List<StationAvailability> availabilities) {
+    public void setAvailabilities(List<StationAvailabilityDTO> availabilities) {
         this.availabilities = availabilities;
-    }
-
-    public List<Picture> getPictures() {
-        return pictures;
-    }
-
-    public void setPictures(List<Picture> pictures) {
-        this.pictures = pictures;
     }
 }
