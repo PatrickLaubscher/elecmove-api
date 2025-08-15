@@ -1,5 +1,6 @@
 package fr.elecmove.api.business;
 
+import fr.elecmove.api.model.LocationStation;
 import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
 
@@ -14,7 +15,7 @@ public interface StationBusiness {
      * @param user
      * @return
      */
-    Station createStation(Station station, User user);
+    Station createStation(Station station, LocationStation location, User user);
 
 
     /**

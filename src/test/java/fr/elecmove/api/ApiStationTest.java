@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -21,6 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
@@ -125,5 +127,55 @@ public class ApiStationTest {
     }
 
 
+    @Test
+    void postShouldPersistStationWithRightUserAndRightLocation() throws Exception {
+
+        mvc.perform(post("/api/stations")
+                        .with(user(user1))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+			{
+				"name": "station2",
+				"tarification": 1.5,
+			    "type": "type2",
+			    "power": "power2",
+			    "instruction": "instruction2",
+				"freeStanding": false,
+				"available": true,
+				"locationStationId": "%s"
+			}""".formatted(locationId)))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.name").value("station2"))
+                .andExpect(jsonPath("$.tarification").value(1.5))
+                .andExpect(jsonPath("$.type").value("type2"))
+                .andExpect(jsonPath("$.power").value("power2"))
+                .andExpect(jsonPath("$.instruction").value("instruction2"))
+                .andExpect(jsonPath("$.freeStanding").value(false))
+                .andExpect(jsonPath("$.location.address").value(location.getAddress()))
+                .andExpect(jsonPath("$.user.email").value(user1.getEmail()));
+    }
+
+    @Test
+    void patchShouldUpdateUserAddress() throws Exception {
+        mvc.perform(patch("/api/stations/"+stationId)
+                        .with(user(user1))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+			{
+				"name": "updated station1",
+				"tarification": 1.5,
+			    "available": false
+			}"""))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("updated station1"))
+                .andExpect(jsonPath("$.tarification").value(1.5))
+                .andExpect(jsonPath("$.available").value(false));
+    }
+
+    @Test
+    void deleteShouldDeleteUserAddressById() throws Exception {
+        mvc.perform(delete("/api/stations/"+stationId).with(user(user1)))
+                .andExpect(status().isNoContent());
+    }
 
 }

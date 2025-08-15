@@ -2,6 +2,7 @@ package fr.elecmove.api.business.impl;
 
 import fr.elecmove.api.business.StationBusiness;
 import fr.elecmove.api.business.mapper.StationEntityMapper;
+import fr.elecmove.api.model.LocationStation;
 import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.repository.StationRepository;
@@ -27,8 +28,9 @@ public class StationBusinessImpl implements StationBusiness {
     }
 
     @Override
-    public Station createStation(Station station, User user) {
+    public Station createStation(Station station, LocationStation location, User user) {
         station.setUser(user);
+        station.setLocation(location);
         return stationRepository.save(station);
     }
 

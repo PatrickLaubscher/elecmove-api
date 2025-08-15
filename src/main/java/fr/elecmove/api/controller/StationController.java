@@ -1,10 +1,12 @@
 package fr.elecmove.api.controller;
 
 
+import fr.elecmove.api.business.LocationStationBusiness;
 import fr.elecmove.api.business.StationBusiness;
 import fr.elecmove.api.controller.dto.station.StationCreationDTO;
 import fr.elecmove.api.controller.dto.station.StationDTO;
 import fr.elecmove.api.controller.dto.mapper.StationMapper;
+import fr.elecmove.api.model.LocationStation;
 import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
 import jakarta.validation.Valid;
@@ -21,10 +23,12 @@ import java.util.List;
 public class StationController {
 
     StationBusiness stationBusiness;
+    LocationStationBusiness locationStationBusiness;
     StationMapper stationMapper;
 
-    public StationController(StationBusiness stationBusiness, StationMapper stationMapper) {
+    public StationController(StationBusiness stationBusiness, LocationStationBusiness locationStationBusiness, StationMapper stationMapper) {
         this.stationBusiness = stationBusiness;
+        this.locationStationBusiness = locationStationBusiness;
         this.stationMapper = stationMapper;
     }
 
@@ -48,8 +52,9 @@ public class StationController {
     @ResponseStatus(HttpStatus.CREATED)
     public StationDTO createStation(@RequestBody @Valid StationCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
         User user = (User) userDetails;
+        LocationStation location = locationStationBusiness.getLocation(dto.getLocationStationId());
         return stationMapper.toDto(
-                stationBusiness.createStation(stationMapper.toEntity(dto), user)
+                stationBusiness.createStation(stationMapper.toEntity(dto), location, user)
         );
     }
 
