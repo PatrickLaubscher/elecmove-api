@@ -27,7 +27,6 @@ public class RoleDataInitializer implements CommandLineRunner {
             roleRepository.save(adminRole);
             roleRepository.save(userRole);
 
-            System.out.println("Roles ADMIN and USER created");
         }
     }
 }
