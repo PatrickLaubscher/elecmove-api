@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,12 +18,13 @@ public class Booking {
     @Id
     @UuidGenerator
     private String id;
-    @Column(name = "start_date")
-    private LocalDateTime startDate;
-    @Column(name = "end_date")
-    private LocalDateTime endDate;
+    private Date date;
+    @Column(name = "start_time")
+    private Time startTime;
+    @Column(name = "end_time")
+    private Time endTime;
     @Column(name = "total_price")
-    private Time totalPrice;
+    private Double totalPrice;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
@@ -45,10 +47,21 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String id, LocalDateTime startDate, LocalDateTime endDate, Time totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt, User user, Car car, Station station, BookingStatus status, List<Payment> payments) {
+    public Booking(String id, Date date, Time startTime, Time endTime, Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.totalPrice = totalPrice;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public Booking(String id, Date date, Time startTime, Time endTime, Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt, User user, Car car, Station station, BookingStatus status, List<Payment> payments) {
+        this.id = id;
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.totalPrice = totalPrice;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -67,27 +80,35 @@ public class Booking {
         this.id = id;
     }
 
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public LocalDateTime getEndDate() {
-        return endDate;
+    public Time getStartTime() {
+        return startTime;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
+    public void setStartTime(Time startTime) {
+        this.startTime = startTime;
     }
 
-    public Time getTotalPrice() {
+    public Time getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Time endTime) {
+        this.endTime = endTime;
+    }
+
+    public Double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Time totalPrice) {
+    public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
 

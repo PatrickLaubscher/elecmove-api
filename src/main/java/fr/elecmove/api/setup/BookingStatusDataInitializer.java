@@ -2,7 +2,6 @@ package fr.elecmove.api.setup;
 
 
 import fr.elecmove.api.model.BookingStatus;
-import fr.elecmove.api.model.Role;
 import fr.elecmove.api.repository.BookingStatusRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

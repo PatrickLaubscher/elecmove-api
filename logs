@@ -1080,3 +1080,4 @@
 2025-08-15T10:33:25.017+02:00 DEBUG 25552 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
 2025-08-15T10:33:25.181+02:00  INFO 25552 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2025-08-15T10:33:25.186+02:00  INFO 25552 --- [main] fr.elecmove.api.ApiElecMove              : Started ApiElecMove in 3.636 seconds (process running for 3.83)
+2025-08-15T18:32:57.155+02:00  WARN 25552 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h50m37s920ms980µs600ns).
