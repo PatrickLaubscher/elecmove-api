@@ -1,14 +1,16 @@
 package fr.elecmove.api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import java.sql.Time;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -18,11 +20,13 @@ public class Booking {
     @Id
     @UuidGenerator
     private String id;
-    private Date date;
+    private LocalDate date;
     @Column(name = "start_time")
-    private Time startTime;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime startTime;
     @Column(name = "end_time")
-    private Time endTime;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime endTime;
     @Column(name = "total_price")
     private Double totalPrice;
 
@@ -47,7 +51,7 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String id, Date date, Time startTime, Time endTime, Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Booking(String id, LocalDate date, LocalTime startTime, LocalTime endTime, Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.date = date;
         this.startTime = startTime;
@@ -57,7 +61,7 @@ public class Booking {
         this.updatedAt = updatedAt;
     }
 
-    public Booking(String id, Date date, Time startTime, Time endTime, Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt, User user, Car car, Station station, BookingStatus status, List<Payment> payments) {
+    public Booking(String id, LocalDate date, LocalTime startTime, LocalTime endTime, Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt, User user, Car car, Station station, BookingStatus status, List<Payment> payments) {
         this.id = id;
         this.date = date;
         this.startTime = startTime;
@@ -80,27 +84,27 @@ public class Booking {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public Time getStartTime() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
-    public Time getEndTime() {
+    public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Time endTime) {
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 

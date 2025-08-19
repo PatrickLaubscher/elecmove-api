@@ -1,5 +1,6 @@
 package fr.elecmove.api;
 
+
 import fr.elecmove.api.messaging.MailService;
 import fr.elecmove.api.model.*;
 import fr.elecmove.api.repository.RoleRepository;
@@ -19,23 +20,25 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 
 @SpringBootTest
 @AutoConfigureTestDatabase
 @AutoConfigureMockMvc
 @Transactional
-class ApiStationTest {
+class ApiBookingTest {
 
     @Autowired
     MockMvc mvc;
@@ -55,9 +58,9 @@ class ApiStationTest {
     private PasswordEncoder passwordEncoder;
 
     User user1 = new User();
-    LocationStation location = new LocationStation();
-    String locationId;
     String stationId;
+    String carId;
+    String bookingId;
 
     @BeforeEach
     void setUp() throws Exception {
@@ -78,13 +81,21 @@ class ApiStationTest {
         user1.setValidated(true);
         em.persist(user1);
 
+        Car car = new Car();
+        car.setUser(user1);
+        car.setBrand("brand1");
+        car.setRegistration("registration1");
+        car.setType("type1");
+        em.persist(car);
+        carId = car.getId();
+
+        LocationStation location = new LocationStation();
         location.setAddress("address1");
         location.setCity("city1");
         location.setZipcode("zipcode1");
         location.setLatitude(10.0);
         location.setLongitude(10.0);
         em.persist(location);
-        locationId = location.getId();
 
         Station station = new Station();
         station.setName("station1");
@@ -98,6 +109,16 @@ class ApiStationTest {
         em.persist(station);
         stationId = station.getId();
 
+        Booking booking1 = new Booking();
+        booking1.setDate(LocalDate.of(2025, 1, 1));
+        booking1.setStartTime(LocalTime.of(9, 0));
+        booking1.setEndTime(LocalTime.of(11, 0));
+        booking1.setUser(user1);
+        booking1.setCar(car);
+        booking1.setStation(station);
+        em.persist(booking1);
+        bookingId = booking1.getId();
+
         em.flush();
     }
 
@@ -106,76 +127,63 @@ class ApiStationTest {
         SecurityContextHolder.clearContext();
     }
 
+
     @Test
-    void getWithIdShouldReturnLocationStation() throws Exception {
-        mvc.perform(get("/api/stations/"+stationId))
+    void getWithIdShouldReturnBooking() throws Exception {
+        mvc.perform(get("/api/bookings/"+bookingId))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("station1"))
-                .andExpect(jsonPath("$.tarification").value(1.0))
-                .andExpect(jsonPath("$.type").value("type1"))
-                .andExpect(jsonPath("$.power").value("power1"))
-                .andExpect(jsonPath("$.instruction").value("instruction1"))
-                .andExpect(jsonPath("$.freeStanding").value(true))
-                .andExpect(jsonPath("$.location.address").value(location.getAddress()))
-                .andExpect(jsonPath("$.user.email").value(user1.getEmail()));
+                .andExpect(jsonPath("$.date").value("2025-01-01"))
+                .andExpect(jsonPath("$.startTime").value("09:00"))
+                .andExpect(jsonPath("$.endTime").value("11:00"));
     }
 
     @Test
-    void getWithIdShouldThrow404IfNoLocationStation() throws Exception {
-        mvc.perform(get("/api/locations/dontexist"))
+    void getWithIdShouldThrow404IfNoBooking() throws Exception {
+        mvc.perform(get("/api/bookings/dontexist"))
                 .andExpect(status().isNotFound());
     }
 
-
     @Test
-    void postShouldPersistStationWithRightUserAndRightLocation() throws Exception {
+    void postShouldPersistBookingWithRightStationAndRightUserAndRightCar() throws Exception {
 
-        mvc.perform(post("/api/stations")
+        mvc.perform(post("/api/bookings")
                         .with(user(user1))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
 			{
-				"name": "station2",
-				"tarification": 1.5,
-			    "type": "type2",
-			    "power": "power2",
-			    "instruction": "instruction2",
-				"freeStanding": false,
-				"available": true,
-				"locationStationId": "%s"
-			}""".formatted(locationId)))
+				"date": "2025-01-01",
+				"startTime": "09:00",
+			    "endTime": "12:00",
+			    "carId": "%s",
+			    "stationId": "%s"
+			}""".formatted(carId, stationId)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.name").value("station2"))
-                .andExpect(jsonPath("$.tarification").value(1.5))
-                .andExpect(jsonPath("$.type").value("type2"))
-                .andExpect(jsonPath("$.power").value("power2"))
-                .andExpect(jsonPath("$.instruction").value("instruction2"))
-                .andExpect(jsonPath("$.freeStanding").value(false))
-                .andExpect(jsonPath("$.location.address").value(location.getAddress()))
+                .andExpect(jsonPath("$.date").value("2025-01-01"))
+                .andExpect(jsonPath("$.startTime").value("09:00"))
+                .andExpect(jsonPath("$.endTime").value("12:00"))
+                .andExpect(jsonPath("$.car.id").value(carId))
+                .andExpect(jsonPath("$.station.id").value(stationId))
                 .andExpect(jsonPath("$.user.email").value(user1.getEmail()));
     }
 
     @Test
-    void patchShouldUpdateUserAddress() throws Exception {
-        mvc.perform(patch("/api/stations/"+stationId)
+    void patchShouldUpdateBooking() throws Exception {
+        mvc.perform(patch("/api/bookings/"+bookingId)
                         .with(user(user1))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
 			{
-				"name": "updated station1",
-				"tarification": 1.5,
-			    "available": false
+				"endTime": "13:00"
 			}"""))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("updated station1"))
-                .andExpect(jsonPath("$.tarification").value(1.5))
-                .andExpect(jsonPath("$.available").value(false));
+                .andExpect(jsonPath("$.endTime").value("13:00"));
     }
 
     @Test
-    void deleteShouldDeleteUserAddressById() throws Exception {
-        mvc.perform(delete("/api/stations/"+stationId).with(user(user1)))
+    void deleteShouldDeleteBookingById() throws Exception {
+        mvc.perform(delete("/api/bookings/"+bookingId).with(user(user1)))
                 .andExpect(status().isNoContent());
     }
+
 
 }
