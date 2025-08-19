@@ -1,10 +1,10 @@
 package fr.elecmove.api.controller.dto.user;
 
-
-public class UserSingleDTO {
+public class UserPatchDTO {
 
     private String firstname;
     private String lastname;
+    private String mobile;
     private String email;
 
     public String getFirstname() {
@@ -23,6 +23,14 @@ public class UserSingleDTO {
         this.lastname = lastname;
     }
 
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -30,5 +38,4 @@ public class UserSingleDTO {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

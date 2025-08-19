@@ -5,6 +5,7 @@ import fr.elecmove.api.business.AccountBusiness;
 import fr.elecmove.api.controller.dto.UpdatePasswordDTO;
 import fr.elecmove.api.controller.dto.mapper.UserMapper;
 import fr.elecmove.api.controller.dto.user.UserCreationDTO;
+import fr.elecmove.api.controller.dto.user.UserResponseDTO;
 import fr.elecmove.api.model.User;
 import jakarta.validation.Valid;
 
@@ -27,10 +28,12 @@ public class AccountController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String register(@RequestBody @Valid UserCreationDTO dto) {
-        accountBusiness.register(userMapper.toEntity(dto));
-        return "Check your email, please";
+    public UserResponseDTO register(@RequestBody @Valid UserCreationDTO dto) {
+        return userMapper.toDto(
+                accountBusiness.register(userMapper.toEntity(dto))
+        );
     }
+
 
     @GetMapping("/validate/{token}")
     public String activate(@PathVariable String token) {

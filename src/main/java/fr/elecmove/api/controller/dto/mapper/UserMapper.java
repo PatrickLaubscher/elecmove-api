@@ -15,6 +15,7 @@ import java.util.List;
 public interface UserMapper {
 
     User toEntity(UserCreationDTO dto);
+    User toPatchEntity(UserPatchDTO dto);
     UserResponseDTO toDto(User user);
     UserConnectedDTO toConnectedDto(User user);
 

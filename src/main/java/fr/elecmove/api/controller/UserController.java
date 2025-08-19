@@ -2,10 +2,11 @@ package fr.elecmove.api.controller;
 
 import fr.elecmove.api.business.AccountBusiness;
 import fr.elecmove.api.controller.dto.mapper.UserMapper;
-import fr.elecmove.api.controller.dto.user.UserCreationDTO;
+import fr.elecmove.api.controller.dto.user.UserPatchDTO;
 import fr.elecmove.api.controller.dto.user.UserResponseDTO;
-import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
+import fr.elecmove.api.model.User;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,20 +24,20 @@ public class UserController {
     }
 
 
-    //@GetMapping
-    /*public UserListDTO getAllUsers() {
-        return userMapper.toUserListDTO(userService.getAllUsers());
-    }*/
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public UserResponseDTO createUser(@RequestBody @Valid UserCreationDTO userDto) {
-        return userMapper.toDto(
-                accountBusiness.register(userMapper.toEntity(userDto))
-        );
+    @GetMapping("/me")
+    public UserResponseDTO getUser(@AuthenticationPrincipal UserDetails userDetails) {
+        User user = (User) userDetails;
+        return userMapper.toDto(accountBusiness.findUserByEmail(user.getEmail()));
     }
 
 
+    @PatchMapping("/me")
+    public UserResponseDTO updateUser(@AuthenticationPrincipal UserDetails userDetails, @RequestBody UserPatchDTO dto) {
+        User user = (User) userDetails;
+        return userMapper.toDto(
+                accountBusiness.updateUser(user.getId(), userMapper.toPatchEntity(dto))
+        );
+    }
 
 
 }

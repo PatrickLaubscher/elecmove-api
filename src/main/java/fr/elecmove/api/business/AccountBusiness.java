@@ -45,5 +45,12 @@ public interface AccountBusiness {
      *
      * @param user
      */
+    User updateUser(String userId, User user);
+
+
+    /**
+     *
+     * @param user
+     */
     void deleteAccount(User user);
 }

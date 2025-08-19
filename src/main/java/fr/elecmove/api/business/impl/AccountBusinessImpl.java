@@ -90,10 +90,31 @@ public class AccountBusinessImpl implements AccountBusiness {
         userFound.setPassword(pwd);
         userFound.setUpdatedAt(LocalDateTime.now());
         userRepository.save(userFound);
-        //Optionnel: On invalide tous les refresh token du user (on les supprime en fait)
-        //pour le forcer à se reconnecter sur ses devices avec son nouveau mot de passe
         refreshTokenRepository.deleteByUser(userFound);
 
+    }
+
+    @Override
+    public User updateUser(String userId, User user) {
+
+        User userFound = userRepository.findById(userId).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The user account doesn't exist"));
+
+        if (user.getFirstname() != null && !user.getFirstname().isEmpty()) {
+            userFound.setFirstname(user.getFirstname());
+        }
+        if (user.getLastname() != null && !user.getLastname().isEmpty()) {
+            userFound.setLastname(user.getLastname());
+        }
+        if (user.getMobile() != null) {
+            userFound.setMobile(user.getMobile());
+        }
+        if (user.getEmail() != null && !user.getEmail().isEmpty()) {
+            userFound.setEmail(user.getEmail());
+        }
+        userFound.setUpdatedAt(LocalDateTime.now());
+
+        return userRepository.save(userFound);
     }
 
 
@@ -101,7 +122,7 @@ public class AccountBusinessImpl implements AccountBusiness {
     public void resetPassword(String email) {
 
         User user = userRepository.findByEmail(email).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Le compte user n'existe pas")
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The user account doesn't exist")
         );
 
         String token = jwtUtil.generateToken(user, Instant.now().plus(1, ChronoUnit.HOURS));
@@ -113,7 +134,7 @@ public class AccountBusinessImpl implements AccountBusiness {
     public void deleteAccount(User user) {
 
         User userFound = userRepository.findByEmail(user.getEmail()).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Le compte user n'existe pas")
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The user account doesn't exist")
         );
         refreshTokenRepository.deleteByUser(userFound);
 
@@ -130,7 +151,7 @@ public class AccountBusinessImpl implements AccountBusiness {
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Le compte user n'existe pas")
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The user account doesn't exist")
         );
 
     }
