@@ -35,9 +35,9 @@ public class CarController {
 
 
     @GetMapping
-    public List<CarDTO> getAllCares(@AuthenticationPrincipal UserDetails user) {
+    public List<CarDTO> getAllCares(@AuthenticationPrincipal UserDetails userDetails) {
         List<CarDTO> carDTOS = new ArrayList<>();
-        for(Car car : carBusiness.getAllCarByEmail(user.getUsername())){
+        for(Car car : carBusiness.getAllCarByEmail(userDetails.getUsername())){
             carDTOS.add(carMapper.toDto(car));
         }
         return carDTOS;

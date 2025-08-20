@@ -2,41 +2,56 @@ package fr.elecmove.api.model;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
 
 @Entity
-@Table(name = "favorite_station")
-@IdClass(FavoriteStation.class)
+@Table(name = "favorite_station", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"user_id", "station_id"})
+})
 public class FavoriteStation {
 
     @Id
-    @Column(name="user_id")
-    private String userId;
+    @UuidGenerator
+    private String id;
 
-    @Id
-    @Column(name="group_id")
-    private String groupId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "station_id", nullable = false)
+    private Station station;
+
 
     public FavoriteStation() {
     }
 
-    public FavoriteStation(String userId, String groupId) {
-        this.userId = userId;
-        this.groupId = groupId;
+    public FavoriteStation(User user, Station station) {
+        this.user = user;
+        this.station = station;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getGroupId() {
-        return groupId;
+    public User getUser() {
+        return user;
     }
 
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Station getStation() {
+        return station;
+    }
+
+    public void setStation(Station station) {
+        this.station = station;
     }
 }
