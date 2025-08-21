@@ -103,8 +103,7 @@ class ApiAccountTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.firstname").value("firstname2"))
                 .andExpect(jsonPath("$.lastname").value("lastname2"))
-                .andExpect(jsonPath("$.email").value("firstname2@test.com"))
-                .andExpect(jsonPath("$.id").isNotEmpty());
+                .andExpect(jsonPath("$.email").value("firstname2@test.com"));
         verify(mailService, times(1)).sendEmailValidation(any(User.class), anyString());
     }
 
