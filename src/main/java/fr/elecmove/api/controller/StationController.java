@@ -3,9 +3,11 @@ package fr.elecmove.api.controller;
 
 import fr.elecmove.api.business.LocationStationBusiness;
 import fr.elecmove.api.business.StationBusiness;
+import fr.elecmove.api.controller.dto.CoordinatesWithRadiusDTO;
 import fr.elecmove.api.controller.dto.station.StationCreationDTO;
 import fr.elecmove.api.controller.dto.station.StationDTO;
 import fr.elecmove.api.controller.dto.mapper.StationMapper;
+import fr.elecmove.api.controller.dto.station.StationSingleDTO;
 import fr.elecmove.api.model.LocationStation;
 import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
@@ -47,7 +49,6 @@ public class StationController {
         return stationDTOS;
     }
 
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public StationDTO createStation(@RequestBody @Valid StationCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
@@ -73,6 +74,16 @@ public class StationController {
     public void deleteStation(@PathVariable String id, @AuthenticationPrincipal UserDetails userDetails) {
         User user = (User) userDetails;
         stationBusiness.deleteStation(id, user);
+    }
+
+
+    @PostMapping("/nearby")
+    public List<StationSingleDTO> getAllStationsByLocation(@RequestBody @Valid CoordinatesWithRadiusDTO dto) {
+        List<StationSingleDTO> stationDTOS = new ArrayList<>();
+        for(Station station : stationBusiness.getAllStationByLocation(dto.getLatitude(), dto.getLongitude(), dto.getRayonMeters())){
+            stationDTOS.add(stationMapper.toSingleDto(station));
+        }
+        return stationDTOS;
     }
 
 }

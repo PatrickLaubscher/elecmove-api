@@ -33,6 +33,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if (request.getRequestURI().startsWith("/api/login")
                 || request.getRequestURI().startsWith("/api/refresh-token")
+                || request.getRequestURI().startsWith("/api/stations/nearby")
                 || authHeader == null
                 || !authHeader.startsWith("Bearer")) {
             filterChain.doFilter(request, response);

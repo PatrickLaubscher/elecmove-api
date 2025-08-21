@@ -6,6 +6,7 @@ import fr.elecmove.api.repository.RoleRepository;
 import fr.elecmove.api.repository.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -98,6 +99,24 @@ class ApiStationTest {
         em.persist(station);
         stationId = station.getId();
 
+
+        LocationStation loc1 = new LocationStation(45.7578, 4.8320); // Bellecour
+        LocationStation loc2 = new LocationStation(45.7600, 4.8610); // Part-Dieu
+        em.persist(loc1);
+        em.persist(loc2);
+
+        Station s1 = new Station();
+        s1.setName("Borne Bellecour");
+        s1.setLocation(loc1);
+        s1.setAvailable(true);
+        Station s2 = new Station();
+        s2.setName("Borne Part Dieu");
+        s2.setLocation(loc2);
+        s2.setAvailable(true);
+        em.persist(s1);
+        em.persist(s2);
+
+
         em.flush();
     }
 
@@ -177,5 +196,7 @@ class ApiStationTest {
         mvc.perform(delete("/api/stations/"+stationId).with(user(user1)))
                 .andExpect(status().isNoContent());
     }
+
+
 
 }

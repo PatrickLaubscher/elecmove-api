@@ -3,6 +3,7 @@ package fr.elecmove.api.controller.dto.mapper;
 
 import fr.elecmove.api.controller.dto.station.StationCreationDTO;
 import fr.elecmove.api.controller.dto.station.StationDTO;
+import fr.elecmove.api.controller.dto.station.StationSingleDTO;
 import fr.elecmove.api.model.Station;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
@@ -13,5 +14,6 @@ public interface StationMapper {
 
     Station toEntity(StationCreationDTO dto);
     StationDTO toDto(Station station);
+    StationSingleDTO toSingleDto(Station station);
 
 }

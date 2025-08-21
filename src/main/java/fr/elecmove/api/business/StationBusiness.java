@@ -36,6 +36,17 @@ public interface StationBusiness {
 
     /**
      *
+     * @param latitude
+     * @param longitude
+     * @param rayonMeters
+     * @return
+     */
+    List<Station> getAllStationByLocation(double latitude, double longitude, double rayonMeters);
+
+
+
+    /**
+     *
      * @param id
      * @param station
      * @param user

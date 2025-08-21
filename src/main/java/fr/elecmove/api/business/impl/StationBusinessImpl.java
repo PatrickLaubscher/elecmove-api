@@ -50,6 +50,12 @@ public class StationBusinessImpl implements StationBusiness {
 
 
     @Override
+    public List<Station> getAllStationByLocation(double latitude, double longitude, double rayonMeters) {
+        return stationRepository.findStationsNearby(latitude, longitude, rayonMeters);
+    }
+
+
+    @Override
     public Station updateStation(String id, Station station, User user) {
 
         Station existingStation = stationRepository.findById(id).orElseThrow(
