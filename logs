@@ -2012,3 +2012,1045 @@
 2025-08-21T08:34:59.005+02:00 DEBUG 25524 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
 2025-08-21T08:34:59.153+02:00  INFO 25524 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2025-08-21T08:34:59.157+02:00  INFO 25524 --- [main] fr.elecmove.api.ApiElecMove              : Started ApiElecMove in 3.526 seconds (process running for 3.722)
+2025-08-21T09:15:06.625+02:00  INFO 23680 --- [main] fr.elecmove.api.ApiElecMove              : Starting ApiElecMove using Java 21.0.5 with PID 23680 (C:\Users\patri\Documents\elecmove-api\build\classes\java\main started by patri in C:\Users\patri\Documents\elecmove-api)
+2025-08-21T09:15:06.626+02:00  INFO 23680 --- [main] fr.elecmove.api.ApiElecMove              : The following 1 profile is active: "local"
+2025-08-21T09:15:07.099+02:00  INFO 23680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T09:15:07.180+02:00  INFO 23680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 13 JPA repository interfaces.
+2025-08-21T09:15:07.617+02:00  INFO 23680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T09:15:07.631+02:00  INFO 23680 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T09:15:07.631+02:00  INFO 23680 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-08-21T09:15:07.672+02:00  INFO 23680 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T09:15:07.672+02:00  INFO 23680 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1023 ms
+2025-08-21T09:15:07.786+02:00  INFO 23680 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T09:15:07.833+02:00  INFO 23680 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-08-21T09:15:07.854+02:00  INFO 23680 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T09:15:08.038+02:00  INFO 23680 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T09:15:08.056+02:00  INFO 23680 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T09:15:08.283+02:00  INFO 23680 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b841713
+2025-08-21T09:15:08.284+02:00  INFO 23680 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T09:15:08.328+02:00  INFO 23680 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.31
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T09:15:09.029+02:00  INFO 23680 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T09:15:09.102+02:00  INFO 23680 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T09:15:09.333+02:00  INFO 23680 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T09:15:09.700+02:00 TRACE 23680 --- [main] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@46e77fb7}
+2025-08-21T09:15:09.704+02:00  INFO 23680 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-08-21T09:15:09.896+02:00 DEBUG 23680 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-21T09:15:10.063+02:00  INFO 23680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-21T09:15:10.068+02:00  INFO 23680 --- [main] fr.elecmove.api.ApiElecMove              : Started ApiElecMove in 3.728 seconds (process running for 3.961)
+2025-08-21T09:56:03.210+02:00  INFO 24588 --- [Test worker] fr.elecmove.api.ApiAccountTest           : Starting ApiAccountTest using Java 21.0.5 with PID 24588 (started by patri in C:\Users\patri\Documents\elecmove-api)
+2025-08-21T09:56:03.211+02:00  INFO 24588 --- [Test worker] fr.elecmove.api.ApiAccountTest           : The following 1 profile is active: "local"
+2025-08-21T09:56:03.790+02:00  INFO 24588 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T09:56:03.878+02:00  INFO 24588 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 13 JPA repository interfaces.
+2025-08-21T09:56:04.035+02:00  INFO 24588 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2025-08-21T09:56:04.751+02:00  INFO 24588 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:72457574-d9e5-4def-8f50-a1240e82894b;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2025-08-21T09:56:05.017+02:00  INFO 24588 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T09:56:05.065+02:00  INFO 24588 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-08-21T09:56:05.087+02:00  INFO 24588 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T09:56:05.178+02:00  INFO 24588 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T09:56:05.232+02:00  INFO 24588 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@45cf0c15']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T09:56:05.971+02:00  INFO 24588 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T09:56:06.040+02:00  INFO 24588 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T09:56:06.439+02:00  INFO 24588 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T09:56:07.010+02:00 TRACE 24588 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@16fc3be9}
+2025-08-21T09:56:07.029+02:00  INFO 24588 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-08-21T09:56:07.495+02:00 DEBUG 24588 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-21T09:56:07.832+02:00  INFO 24588 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-08-21T09:56:07.833+02:00  INFO 24588 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-08-21T09:56:07.833+02:00  INFO 24588 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-08-21T09:56:07.865+02:00  INFO 24588 --- [Test worker] fr.elecmove.api.ApiAccountTest           : Started ApiAccountTest in 4.878 seconds (process running for 5.796)
+2025-08-21T09:56:08.372+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:08.382+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:08.383+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing PATCH /api/account/delete-account
+2025-08-21T09:56:08.383+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:08.384+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:08.387+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:08.387+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:08.388+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:08.388+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:08.388+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:08.388+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:08.389+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:08.389+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:08.390+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:08.390+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@6ceb953, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:08.390+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:08.390+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:08.390+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:08.390+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing PATCH /api/account/delete-account
+2025-08-21T09:56:08.391+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on PATCH /api/account/delete-account using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:08.391+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured PATCH /api/account/delete-account
+2025-08-21T09:56:08.423+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:08.507+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/account
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:08.507+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:08.508+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:08.508+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:08.508+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:08.508+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/account
+2025-08-21T09:56:08.508+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/account using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:08.509+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/account
+2025-08-21T09:56:08.690+02:00  INFO 24588 --- [Test worker] f.e.a.business.impl.AccountBusinessImpl  : New user register :firstname2@test.com
+2025-08-21T09:56:08.700+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:08.730+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.ApiBookingTest]: ApiBookingTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:08.735+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.ApiBookingTest
+2025-08-21T09:56:08.805+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:08.805+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:08.805+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/bookings
+2025-08-21T09:56:08.805+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:08.805+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:08.805+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:08.805+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:08.807+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:08.807+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:08.807+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:08.807+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:08.807+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:08.807+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:08.807+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:08.807+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@14fed6c7, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:08.808+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:08.808+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:08.808+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:08.808+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/bookings
+2025-08-21T09:56:08.808+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/bookings using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:08.808+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/bookings
+2025-08-21T09:56:08.826+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:08.892+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:08.893+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:08.893+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing PATCH /api/bookings/086c3a20-c0d2-4b77-b61b-5cb3d06765f1
+2025-08-21T09:56:08.893+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:08.893+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:08.893+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:08.893+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@6bd721e1, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:08.894+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:08.895+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:08.895+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:08.895+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing PATCH /api/bookings/086c3a20-c0d2-4b77-b61b-5cb3d06765f1
+2025-08-21T09:56:08.895+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on PATCH /api/bookings/086c3a20-c0d2-4b77-b61b-5cb3d06765f1 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:08.895+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured PATCH /api/bookings/086c3a20-c0d2-4b77-b61b-5cb3d06765f1
+2025-08-21T09:56:08.899+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:08.962+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:08.963+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:08.963+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing DELETE /api/bookings/94bb22d0-1f1b-42d7-b3fe-3c60a8440edc
+2025-08-21T09:56:08.963+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:08.963+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:08.963+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:08.963+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@79e7f5b1, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:08.964+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:08.965+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:08.965+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:08.965+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing DELETE /api/bookings/94bb22d0-1f1b-42d7-b3fe-3c60a8440edc
+2025-08-21T09:56:08.965+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on DELETE /api/bookings/94bb22d0-1f1b-42d7-b3fe-3c60a8440edc using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:08.965+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured DELETE /api/bookings/94bb22d0-1f1b-42d7-b3fe-3c60a8440edc
+2025-08-21T09:56:08.969+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.043+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.043+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/bookings/dontexist
+2025-08-21T09:56:09.043+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.043+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.043+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.043+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.043+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.043+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.043+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/bookings/dontexist
+2025-08-21T09:56:09.044+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/bookings/dontexist using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.044+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/bookings/dontexist
+2025-08-21T09:56:09.050+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.115+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.115+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/bookings/5d8dcdce-8c67-4012-8441-b4c7a933ac09
+2025-08-21T09:56:09.115+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.116+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:09.117+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.117+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.117+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/bookings/5d8dcdce-8c67-4012-8441-b4c7a933ac09
+2025-08-21T09:56:09.117+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/bookings/5d8dcdce-8c67-4012-8441-b4c7a933ac09 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.117+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/bookings/5d8dcdce-8c67-4012-8441-b4c7a933ac09
+2025-08-21T09:56:09.119+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.124+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.ApiCarTest]: ApiCarTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:09.127+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.ApiCarTest
+2025-08-21T09:56:09.189+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.190+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.190+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing DELETE /api/cars/a9180119-1f8b-407b-b695-89cd23ebba19
+2025-08-21T09:56:09.190+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.190+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.191+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@2982f1eb, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:09.192+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:09.192+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.192+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.192+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing DELETE /api/cars/a9180119-1f8b-407b-b695-89cd23ebba19
+2025-08-21T09:56:09.192+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on DELETE /api/cars/a9180119-1f8b-407b-b695-89cd23ebba19 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.192+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured DELETE /api/cars/a9180119-1f8b-407b-b695-89cd23ebba19
+2025-08-21T09:56:09.194+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.270+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.270+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/cars/dontexist
+2025-08-21T09:56:09.270+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.270+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.270+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/cars/dontexist
+2025-08-21T09:56:09.271+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/cars/dontexist using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.271+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/cars/dontexist
+2025-08-21T09:56:09.274+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.337+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.337+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.337+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/cars
+2025-08-21T09:56:09.337+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.337+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@27879b4e, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/cars
+2025-08-21T09:56:09.338+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/cars using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.338+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/cars
+2025-08-21T09:56:09.342+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.403+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.404+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/cars
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.404+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@7be907ae, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/cars
+2025-08-21T09:56:09.405+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/cars using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.405+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/cars
+2025-08-21T09:56:09.409+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.473+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.474+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing PATCH /api/cars/9a056cb0-cdf0-4a49-9132-a3d1dd5dcc5c
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.474+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@5c3e0c92, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing PATCH /api/cars/9a056cb0-cdf0-4a49-9132-a3d1dd5dcc5c
+2025-08-21T09:56:09.475+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on PATCH /api/cars/9a056cb0-cdf0-4a49-9132-a3d1dd5dcc5c using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.475+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured PATCH /api/cars/9a056cb0-cdf0-4a49-9132-a3d1dd5dcc5c
+2025-08-21T09:56:09.477+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.539+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/cars/46079bff-1715-41cb-9dd0-5bc70677e632
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/cars/46079bff-1715-41cb-9dd0-5bc70677e632
+2025-08-21T09:56:09.539+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/cars/46079bff-1715-41cb-9dd0-5bc70677e632 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.539+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/cars/46079bff-1715-41cb-9dd0-5bc70677e632
+2025-08-21T09:56:09.540+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.544+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.ApiFavoriteStationTest]: ApiFavoriteStationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:09.546+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.ApiFavoriteStationTest
+2025-08-21T09:56:09.607+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.608+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.608+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/favorite-stations
+2025-08-21T09:56:09.608+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.608+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.608+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.608+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.608+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@3eebbbf5, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/favorite-stations
+2025-08-21T09:56:09.609+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/favorite-stations using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.609+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/favorite-stations
+2025-08-21T09:56:09.617+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.680+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.680+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/favorite-stations/dontexist
+2025-08-21T09:56:09.680+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.680+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.680+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.680+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.680+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/favorite-stations/dontexist
+2025-08-21T09:56:09.681+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/favorite-stations/dontexist using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.681+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/favorite-stations/dontexist
+2025-08-21T09:56:09.684+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.746+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.746+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/favorite-stations/705ede0a-aec6-4a68-8969-f4950ac65c30
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/favorite-stations/705ede0a-aec6-4a68-8969-f4950ac65c30
+2025-08-21T09:56:09.747+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/favorite-stations/705ede0a-aec6-4a68-8969-f4950ac65c30 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.747+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/favorite-stations/705ede0a-aec6-4a68-8969-f4950ac65c30
+2025-08-21T09:56:09.749+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.810+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.811+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.811+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing DELETE /api/favorite-stations/a27c38e2-7fc6-4bee-bf7b-28903126a731
+2025-08-21T09:56:09.811+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.811+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.811+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.811+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.811+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.811+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.811+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@719a208f, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing DELETE /api/favorite-stations/a27c38e2-7fc6-4bee-bf7b-28903126a731
+2025-08-21T09:56:09.812+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on DELETE /api/favorite-stations/a27c38e2-7fc6-4bee-bf7b-28903126a731 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.812+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured DELETE /api/favorite-stations/a27c38e2-7fc6-4bee-bf7b-28903126a731
+2025-08-21T09:56:09.815+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.878+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.879+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/favorite-stations
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@2c956132, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/favorite-stations
+2025-08-21T09:56:09.879+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/favorite-stations using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.879+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/favorite-stations
+2025-08-21T09:56:09.882+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:09.886+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.ApiLocationStationTest]: ApiLocationStationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:09.888+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.ApiLocationStationTest
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:09.949+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/locations/0ecfb2c4-5a04-402e-be44-248a8ccad6a3
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/locations/0ecfb2c4-5a04-402e-be44-248a8ccad6a3
+2025-08-21T09:56:09.949+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/locations/0ecfb2c4-5a04-402e-be44-248a8ccad6a3 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:09.949+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/locations/0ecfb2c4-5a04-402e-be44-248a8ccad6a3
+2025-08-21T09:56:09.952+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.014+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/locations/dontexist
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.014+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/locations/dontexist
+2025-08-21T09:56:10.015+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/locations/dontexist using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.015+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/locations/dontexist
+2025-08-21T09:56:10.017+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.075+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.077+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing DELETE /api/locations/66b5c090-8cc5-4f6f-a63e-fb0e259192b1
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.077+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@16a81f09, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.078+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.078+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.078+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.078+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing DELETE /api/locations/66b5c090-8cc5-4f6f-a63e-fb0e259192b1
+2025-08-21T09:56:10.078+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on DELETE /api/locations/66b5c090-8cc5-4f6f-a63e-fb0e259192b1 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.078+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured DELETE /api/locations/66b5c090-8cc5-4f6f-a63e-fb0e259192b1
+2025-08-21T09:56:10.079+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.140+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.142+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/locations
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@73ac846, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/locations
+2025-08-21T09:56:10.142+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/locations using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.142+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/locations
+2025-08-21T09:56:10.149+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.152+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.ApiStationAvailabilityTest]: ApiStationAvailabilityTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:10.154+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.ApiStationAvailabilityTest
+2025-08-21T09:56:10.217+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.218+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/availabilities
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@1da1a8a4, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/availabilities
+2025-08-21T09:56:10.218+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/availabilities using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.218+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/availabilities
+2025-08-21T09:56:10.224+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.285+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing DELETE /api/availabilities/436b7340-b4a8-4e11-85f2-0c40cc1db792
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.285+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@1fc52b51, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing DELETE /api/availabilities/436b7340-b4a8-4e11-85f2-0c40cc1db792
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on DELETE /api/availabilities/436b7340-b4a8-4e11-85f2-0c40cc1db792 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.287+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured DELETE /api/availabilities/436b7340-b4a8-4e11-85f2-0c40cc1db792
+2025-08-21T09:56:10.287+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.348+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/f1be4a8b-1a65-4b62-b8c4-eac5deec6833
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.348+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.349+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.349+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:10.349+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.349+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.349+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/f1be4a8b-1a65-4b62-b8c4-eac5deec6833
+2025-08-21T09:56:10.349+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/f1be4a8b-1a65-4b62-b8c4-eac5deec6833 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.349+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/f1be4a8b-1a65-4b62-b8c4-eac5deec6833
+2025-08-21T09:56:10.350+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.414+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.415+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing PATCH /api/availabilities/59fa9497-83b1-4316-8e27-b8ae282d7599
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@5508c719, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing PATCH /api/availabilities/59fa9497-83b1-4316-8e27-b8ae282d7599
+2025-08-21T09:56:10.415+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on PATCH /api/availabilities/59fa9497-83b1-4316-8e27-b8ae282d7599 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.416+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured PATCH /api/availabilities/59fa9497-83b1-4316-8e27-b8ae282d7599
+2025-08-21T09:56:10.417+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.483+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/dontexist
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.483+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/dontexist
+2025-08-21T09:56:10.484+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/dontexist using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.484+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/dontexist
+2025-08-21T09:56:10.485+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.488+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.ApiStationTest]: ApiStationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:10.489+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.ApiStationTest
+2025-08-21T09:56:10.550+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.551+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/stations/ebb48476-1c34-4007-99bb-2e0cf0fb7a32
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/stations/ebb48476-1c34-4007-99bb-2e0cf0fb7a32
+2025-08-21T09:56:10.551+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/stations/ebb48476-1c34-4007-99bb-2e0cf0fb7a32 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.551+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/stations/ebb48476-1c34-4007-99bb-2e0cf0fb7a32
+2025-08-21T09:56:10.553+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.613+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.614+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.617+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/stations
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@74d41fcf, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/stations
+2025-08-21T09:56:10.617+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/stations using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.617+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/stations
+2025-08-21T09:56:10.625+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.695+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.696+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing DELETE /api/stations/69de098b-ec67-41e5-b7e2-9f26536f2047
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@7babfd29, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing DELETE /api/stations/69de098b-ec67-41e5-b7e2-9f26536f2047
+2025-08-21T09:56:10.696+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on DELETE /api/stations/69de098b-ec67-41e5-b7e2-9f26536f2047 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.696+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured DELETE /api/stations/69de098b-ec67-41e5-b7e2-9f26536f2047
+2025-08-21T09:56:10.697+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.757+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/locations/dontexist
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/locations/dontexist
+2025-08-21T09:56:10.757+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/locations/dontexist using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.757+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/locations/dontexist
+2025-08-21T09:56:10.758+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.818+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.820+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing PATCH /api/stations/d8cdb785-6538-4f84-89ff-ac544028268e
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@1e60dce7, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing PATCH /api/stations/d8cdb785-6538-4f84-89ff-ac544028268e
+2025-08-21T09:56:10.820+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on PATCH /api/stations/d8cdb785-6538-4f84-89ff-ac544028268e using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.820+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured PATCH /api/stations/d8cdb785-6538-4f84-89ff-ac544028268e
+2025-08-21T09:56:10.823+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.826+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.ApiUserAddressTest]: ApiUserAddressTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:10.827+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.ApiUserAddressTest
+2025-08-21T09:56:10.889+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.889+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/user-addresses/dontexist
+2025-08-21T09:56:10.889+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.889+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.889+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.889+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.889+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/user-addresses/dontexist
+2025-08-21T09:56:10.890+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/user-addresses/dontexist using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.890+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/user-addresses/dontexist
+2025-08-21T09:56:10.892+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:10.950+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:10.952+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing DELETE /api/user-addresses/59790605-276b-4bd6-a931-bd7bd4754199
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@45ef4dcb, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing DELETE /api/user-addresses/59790605-276b-4bd6-a931-bd7bd4754199
+2025-08-21T09:56:10.952+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on DELETE /api/user-addresses/59790605-276b-4bd6-a931-bd7bd4754199 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:10.952+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured DELETE /api/user-addresses/59790605-276b-4bd6-a931-bd7bd4754199
+2025-08-21T09:56:10.954+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:11.014+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:11.014+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:11.014+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/user-addresses
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@5c7712f0, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/user-addresses
+2025-08-21T09:56:11.016+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/user-addresses using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:11.016+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/user-addresses
+2025-08-21T09:56:11.020+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:11.080+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/user-addresses/15bbe699-dcd9-437f-8186-6fbc52533a16
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/user-addresses/15bbe699-dcd9-437f-8186-6fbc52533a16
+2025-08-21T09:56:11.080+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/user-addresses/15bbe699-dcd9-437f-8186-6fbc52533a16 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:11.080+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/user-addresses/15bbe699-dcd9-437f-8186-6fbc52533a16
+2025-08-21T09:56:11.082+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:11.144+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:11.144+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:11.145+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/user-addresses
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@603601a1, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/user-addresses
+2025-08-21T09:56:11.145+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/user-addresses using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:11.145+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/user-addresses
+2025-08-21T09:56:11.150+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:11.211+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing PATCH /api/user-addresses/65e4a35f-fe84-46b5-b3ff-d04fd64705b5
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:11.211+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:11.212+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@626db270, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:11.212+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:11.212+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:11.212+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:11.212+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing PATCH /api/user-addresses/65e4a35f-fe84-46b5-b3ff-d04fd64705b5
+2025-08-21T09:56:11.212+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on PATCH /api/user-addresses/65e4a35f-fe84-46b5-b3ff-d04fd64705b5 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:11.212+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured PATCH /api/user-addresses/65e4a35f-fe84-46b5-b3ff-d04fd64705b5
+2025-08-21T09:56:11.214+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:11.216+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.ApiUserTest]: ApiUserTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:11.218+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.ApiUserTest
+2025-08-21T09:56:11.277+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:11.278+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:11.278+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/users/me
+2025-08-21T09:56:11.278+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:11.278+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:11.278+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:11.278+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:11.278+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@78235b90, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/users/me
+2025-08-21T09:56:11.279+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/users/me using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:11.279+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/users/me
+2025-08-21T09:56:11.283+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:11.342+02:00 TRACE 24588 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-21T09:56:11.342+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-21T09:56:11.342+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing PATCH /api/users/me
+2025-08-21T09:56:11.342+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-21T09:56:11.342+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-21T09:56:11.342+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-21T09:56:11.342+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@564c0e38, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing PATCH /api/users/me
+2025-08-21T09:56:11.343+02:00 TRACE 24588 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on PATCH /api/users/me using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012a01b37700@79ee7d2e
+2025-08-21T09:56:11.343+02:00 DEBUG 24588 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured PATCH /api/users/me
+2025-08-21T09:56:11.345+02:00 TRACE 24588 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-21T09:56:11.348+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.RefreshTokenRepositoryTest]: RefreshTokenRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:11.349+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.RefreshTokenRepositoryTest
+2025-08-21T09:56:11.367+02:00  INFO 24588 --- [Test worker] f.e.api.RefreshTokenRepositoryTest       : Starting RefreshTokenRepositoryTest using Java 21.0.5 with PID 24588 (started by patri in C:\Users\patri\Documents\elecmove-api)
+2025-08-21T09:56:11.367+02:00  INFO 24588 --- [Test worker] f.e.api.RefreshTokenRepositoryTest       : The following 1 profile is active: "local"
+2025-08-21T09:56:11.505+02:00  INFO 24588 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T09:56:11.535+02:00  INFO 24588 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 13 JPA repository interfaces.
+2025-08-21T09:56:11.590+02:00  INFO 24588 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T09:56:11.592+02:00  INFO 24588 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T09:56:11.597+02:00  INFO 24588 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T09:56:11.598+02:00  INFO 24588 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T09:56:11.866+02:00  INFO 24588 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7bcf808e
+2025-08-21T09:56:11.868+02:00  INFO 24588 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T09:56:11.909+02:00  INFO 24588 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.31
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T09:56:12.030+02:00  INFO 24588 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T09:56:12.111+02:00  INFO 24588 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T09:56:12.194+02:00 TRACE 24588 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@7a80d694}
+2025-08-21T09:56:12.194+02:00  INFO 24588 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-08-21T09:56:12.247+02:00 DEBUG 24588 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-21T09:56:12.286+02:00  INFO 24588 --- [Test worker] f.e.api.RefreshTokenRepositoryTest       : Started RefreshTokenRepositoryTest in 0.936 seconds (process running for 10.216)
+2025-08-21T09:56:12.442+02:00  INFO 24588 --- [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [fr.elecmove.api.StationRepositoryTest]: StationRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-21T09:56:12.443+02:00  INFO 24588 --- [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration fr.elecmove.api.ApiElecMove for test class fr.elecmove.api.StationRepositoryTest
+2025-08-21T09:56:12.464+02:00  INFO 24588 --- [Test worker] org.testcontainers.images.PullPolicy     : Image pull policy will be performed by: DefaultPullPolicy()
+2025-08-21T09:56:12.465+02:00  INFO 24588 --- [Test worker] o.t.utility.ImageNameSubstitutor         : Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2025-08-21T09:56:12.473+02:00  INFO 24588 --- [Test worker] org.testcontainers.DockerClientFactory   : Testcontainers version: 1.20.6
+2025-08-21T09:56:12.601+02:00  INFO 24588 --- [Test worker] .t.d.DockerMachineClientProviderStrategy : docker-machine executable was not found on PATH ([C:\wamp64\bin\php\php8.2.0, C:\Program Files\Eclipse Adoptium\jdk-21.0.6.7-hotspot\bin, C:\Program Files\Common Files\Oracle\Java\javapath, C:\Program Files\Python313\Scripts\, C:\Program Files\Python313\, C:\Windows\system32, C:\Windows, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common, C:\Program Files\dotnet\, C:\Users\patri\AppData\Roaming\nvm, C:\Program Files\nodejs, C:\ProgramData\ComposerSetup\bin, C:\WINDOWS\system32, C:\WINDOWS, C:\WINDOWS\System32\Wbem, C:\WINDOWS\System32\WindowsPowerShell\v1.0\, C:\WINDOWS\System32\OpenSSH\, C:\Program Files\PuTTY\, C:\Program Files\Docker\Docker\resources\bin, C:\Program Files\nodejs\, C:\ProgramData\chocolatey\bin, C:\Program Files\Git\cmd, C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.9\bin, C:\Program Files\Java\jdk-17.0.11\bin, , C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR, C:\Users\patri\scoop\apps\nvm\current, C:\Users\patri\scoop\apps\nvm\current\nodejs\nodejs, C:\Users\patri\scoop\apps\openssl\current\bin, C:\Users\patri\scoop\shims, C:\Users\patri\AppData\Local\Microsoft\WindowsApps, C:\Users\patri\AppData\Local\GitHubDesktop\bin, C:\Users\patri\scoop\apps\nvm\current, C:\Users\patri\scoop\persist\nvm\nodejs\nodejs, C:\Users\patri\AppData\Local\Programs\Microsoft VS Code\bin, C:\wamp64\bin\php\php8.2.0, C:\Users\patri\AppData\Roaming\Composer\vendor\bin, C:\Program Files\Git\cmd, c:\program files\python313\lib\site-packages\pip\, C:\Users\patri\AppData\Roaming\Python\Python313\Scripts, C:\Program Files\PuTTY\pscp.exe, C:\Users\patri\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe, C:\Users\patri\AppData\Roaming\npm, C:\Users\patri\AppData\Local\JetBrains\Toolbox\scripts, C:\Users\patri\AppData\Local\Programs\mongosh\, C:\Program Files\spring-3.4.5\bin, C:\Program Files\apache-maven-3.9.10\bin, C:\Program Files\Java\jdk-21\bin])
+2025-08-21T09:56:12.602+02:00 ERROR 24588 --- [Test worker] o.t.d.DockerClientProviderStrategy       : Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+As no valid configuration was found, execution cannot continue.
+See https://java.testcontainers.org/on_failure.html for more details.
+2025-08-21T09:56:12.627+02:00  INFO 24588 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T09:56:12.629+02:00  INFO 24588 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T09:56:12.630+02:00  INFO 24588 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T09:56:12.636+02:00  INFO 24588 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T09:58:34.091+02:00  INFO 33964 --- [Test worker] fr.elecmove.api.StationRepositoryTest    : Starting StationRepositoryTest using Java 21.0.6 with PID 33964 (started by patri in C:\Users\patri\Documents\elecmove-api)
+2025-08-21T09:58:34.092+02:00  INFO 33964 --- [Test worker] fr.elecmove.api.StationRepositoryTest    : The following 1 profile is active: "local"
+2025-08-21T09:58:34.736+02:00  INFO 33964 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T09:58:34.824+02:00  INFO 33964 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 13 JPA repository interfaces.
+2025-08-21T09:58:35.370+02:00  INFO 33964 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T09:58:35.416+02:00  INFO 33964 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-08-21T09:58:35.443+02:00  INFO 33964 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T09:58:35.641+02:00  INFO 33964 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T09:58:35.684+02:00  INFO 33964 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T09:58:35.905+02:00  INFO 33964 --- [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ed19540
+2025-08-21T09:58:35.907+02:00  INFO 33964 --- [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T09:58:35.970+02:00  INFO 33964 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.43
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T09:58:36.949+02:00  INFO 33964 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T09:58:38.371+02:00  INFO 33964 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T09:58:38.859+02:00  INFO 33964 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T09:58:39.557+02:00 TRACE 33964 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@aa9c6b2}
+2025-08-21T09:58:39.568+02:00  INFO 33964 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-08-21T09:58:39.978+02:00 DEBUG 33964 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-21T09:58:40.337+02:00  INFO 33964 --- [Test worker] fr.elecmove.api.StationRepositoryTest    : Started StationRepositoryTest in 6.434 seconds (process running for 38.417)
+2025-08-21T09:58:41.938+02:00  INFO 33964 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T09:58:41.939+02:00  INFO 33964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-21T09:58:41.945+02:00  INFO 33964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-21T09:59:48.542+02:00  INFO 14692 --- [main] fr.elecmove.api.ApiElecMove              : Starting ApiElecMove using Java 21.0.5 with PID 14692 (C:\Users\patri\Documents\elecmove-api\build\classes\java\main started by patri in C:\Users\patri\Documents\elecmove-api)
+2025-08-21T09:59:48.544+02:00  INFO 14692 --- [main] fr.elecmove.api.ApiElecMove              : The following 1 profile is active: "local"
+2025-08-21T09:59:48.996+02:00  INFO 14692 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-21T09:59:49.076+02:00  INFO 14692 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 13 JPA repository interfaces.
+2025-08-21T09:59:49.456+02:00  INFO 14692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-21T09:59:49.465+02:00  INFO 14692 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-21T09:59:49.465+02:00  INFO 14692 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-08-21T09:59:49.501+02:00  INFO 14692 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-21T09:59:49.501+02:00  INFO 14692 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 933 ms
+2025-08-21T09:59:49.579+02:00  INFO 14692 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-21T09:59:49.609+02:00  INFO 14692 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-08-21T09:59:49.629+02:00  INFO 14692 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-21T09:59:49.803+02:00  INFO 14692 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-21T09:59:49.821+02:00  INFO 14692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-21T09:59:50.035+02:00  INFO 14692 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5158a9f7
+2025-08-21T09:59:50.036+02:00  INFO 14692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-21T09:59:50.096+02:00  INFO 14692 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.31
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-21T09:59:50.860+02:00  INFO 14692 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-21T09:59:50.963+02:00  INFO 14692 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-21T09:59:51.208+02:00  INFO 14692 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-21T09:59:51.566+02:00 TRACE 14692 --- [main] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@e30573c}
+2025-08-21T09:59:51.570+02:00  INFO 14692 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-08-21T09:59:51.775+02:00 DEBUG 14692 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-21T09:59:51.921+02:00  INFO 14692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-08-21T09:59:51.925+02:00  INFO 14692 --- [main] fr.elecmove.api.ApiElecMove              : Started ApiElecMove in 3.681 seconds (process running for 3.876)

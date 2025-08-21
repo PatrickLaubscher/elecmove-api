@@ -22,6 +22,15 @@ public class LocationStation {
     @OneToMany(mappedBy = "location")
     private List<Station> stations;
 
+
+    public LocationStation() {
+    }
+
+    public LocationStation(Double latitude, Double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public LocationStation(String id, String address, String city, String zipcode, Double latitude, Double longitude) {
         this.id = id;
         this.address = address;
@@ -29,9 +38,6 @@ public class LocationStation {
         this.zipcode = zipcode;
         this.latitude = latitude;
         this.longitude = longitude;
-    }
-
-    public LocationStation() {
     }
 
     public String getId() {

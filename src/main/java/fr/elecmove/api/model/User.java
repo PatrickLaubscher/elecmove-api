@@ -52,6 +52,20 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Car> cars = new ArrayList<>();
 
+
+    public User() {
+    }
+
+    public User(String firstname, String lastname, String mobile, String email, Role role, String password, Boolean validated) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.mobile = mobile;
+        this.email = email;
+        this.role = role;
+        this.password = password;
+        this.validated = validated;
+    }
+
     public User(String id, String firstname, String lastname, String mobile, String email, String password, Boolean validated, LocalDateTime createdAt, LocalDateTime updatedAt, Role role) {
         this.id = id;
         this.firstname = firstname;
@@ -63,9 +77,6 @@ public class User implements UserDetails {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.role = role;
-    }
-
-    public User() {
     }
 
     public String getId() {
