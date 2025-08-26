@@ -92,7 +92,7 @@ class ApiStationAvailabilityTest {
         stationId = station1.getId();
 
         StationAvailability availability = new StationAvailability();
-        availability.setDay("day1");
+        availability.setDay("monday");
         availability.setStartLocalTime(LocalTime.of(9, 0));
         availability.setEndLocalTime(LocalTime.of(12, 0));
         availability.setStation(station1);
@@ -112,7 +112,7 @@ class ApiStationAvailabilityTest {
     void getWithIdShouldReturnAvailability() throws Exception {
         mvc.perform(get("/api/availabilities/"+availabilityId))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.day").value("day1"))
+                .andExpect(jsonPath("$.day").value("monday"))
                 .andExpect(jsonPath("$.startLocalTime").value("09:00"))
                 .andExpect(jsonPath("$.endLocalTime").value("12:00"))
                 .andExpect(jsonPath("$.station.id").value(stationId));
@@ -144,13 +144,13 @@ class ApiStationAvailabilityTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
 			{
-				"day":"day2",
+				"day":"Monday",
 				"startLocalTime":"09:00",
 			    "endLocalTime": "12:00",
 			    "stationId": "%s"
 			}""".formatted(stationId)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.day").value("day2"))
+                .andExpect(jsonPath("$.day").value("monday"))
                 .andExpect(jsonPath("$.startLocalTime").value("09:00"))
                 .andExpect(jsonPath("$.endLocalTime").value("12:00"))
                 .andExpect(jsonPath("$.station.id").value(stationId));

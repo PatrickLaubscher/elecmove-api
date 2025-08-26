@@ -5,13 +5,18 @@ import fr.elecmove.api.business.mapper.StationEntityMapper;
 import fr.elecmove.api.model.LocationStation;
 import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
+import fr.elecmove.api.repository.BookingRepository;
 import fr.elecmove.api.repository.StationRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 @Transactional
@@ -19,11 +24,12 @@ public class StationBusinessImpl implements StationBusiness {
 
 
     private final StationRepository stationRepository;
+    private final BookingRepository bookingRepository;
     private final StationEntityMapper stationEntityMapper;
 
-
-    public StationBusinessImpl(StationRepository stationRepository, StationEntityMapper stationEntityMapper) {
+    public StationBusinessImpl(StationRepository stationRepository, BookingRepository bookingRepository, StationEntityMapper stationEntityMapper) {
         this.stationRepository = stationRepository;
+        this.bookingRepository = bookingRepository;
         this.stationEntityMapper = stationEntityMapper;
     }
 
@@ -52,6 +58,21 @@ public class StationBusinessImpl implements StationBusiness {
     @Override
     public List<Station> getAllStationByLocation(double latitude, double longitude, double rayonMeters) {
         return stationRepository.findStationsNearby(latitude, longitude, rayonMeters);
+    }
+
+    @Override
+    public List<Station> checkStationBookingAvailability(LocalDate date, LocalTime startTime, LocalTime endTime) {
+
+        String weekday = date.getDayOfWeek()
+                .getDisplayName(TextStyle.FULL, Locale.ENGLISH).toLowerCase();
+
+        boolean isBooking = bookingRepository.checkExistingBooking(date, startTime, endTime);
+
+        if (!isBooking) {
+            return stationRepository.findAvailableStationsByDayAndTime(weekday, startTime, endTime);
+        }
+
+        return List.of();
     }
 
 

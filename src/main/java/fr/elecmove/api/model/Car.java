@@ -21,6 +21,13 @@ public class Car {
     public Car() {
     }
 
+    public Car(String type, String registration, String brand, User user) {
+        this.type = type;
+        this.registration = registration;
+        this.brand = brand;
+        this.user = user;
+    }
+
     public Car(String id, String type, String registration, String brand, User user) {
         this.id = id;
         this.type = type;

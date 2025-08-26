@@ -29,11 +29,11 @@ public class StationAvailabilityBusinessImpl implements StationAvailabilityBusin
 
     @Override
     public StationAvailability createStationAvailability(StationAvailability availability, String stationId) {
-
         Station station = stationRepository.findById(stationId).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The station does not exist")
         );
         availability.setStation(station);
+        availability.setDay(availability.getDay().toLowerCase());
         return availabilityRepository.save(availability);
     }
 

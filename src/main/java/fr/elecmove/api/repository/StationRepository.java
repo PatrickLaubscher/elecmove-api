@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalTime;
 import java.util.List;
 
 public interface StationRepository extends JpaRepository<Station, String> {
@@ -30,6 +31,22 @@ public interface StationRepository extends JpaRepository<Station, String> {
             @Param("longitude") double longitude,
             @Param("rayon") double rayonMeters
     );
+
+
+    @Query("""
+    SELECT s
+    FROM Station s
+    JOIN s.availabilities sa
+    WHERE sa.day = :weekday
+      AND sa.startLocalTime <= :startTime
+      AND sa.endLocalTime >= :endTime
+    """)
+    List<Station> findAvailableStationsByDayAndTime(
+            @Param("weekday") String weekday,
+            @Param("startTime") LocalTime startTime,
+            @Param("endTime") LocalTime endTime
+    );
+
 
 
 

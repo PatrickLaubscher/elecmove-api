@@ -3,11 +3,10 @@ package fr.elecmove.api.business.impl;
 
 import fr.elecmove.api.business.BookingBusiness;
 import fr.elecmove.api.business.mapper.BookingEntityMapper;
-import fr.elecmove.api.model.Booking;
-import fr.elecmove.api.model.Car;
-import fr.elecmove.api.model.Station;
-import fr.elecmove.api.model.User;
+import fr.elecmove.api.model.*;
 import fr.elecmove.api.repository.BookingRepository;
+import fr.elecmove.api.repository.BookingStatusRepository;
+import jdk.jshell.Snippet;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,10 +20,12 @@ public class BookingBusinessImpl implements BookingBusiness {
 
     BookingRepository bookingRepository;
     BookingEntityMapper bookingEntityMapper;
+    BookingStatusRepository bookingStatusRepository;
 
-    public BookingBusinessImpl(BookingRepository bookingRepository, BookingEntityMapper bookingEntityMapper) {
+    public BookingBusinessImpl(BookingRepository bookingRepository, BookingEntityMapper bookingEntityMapper, BookingStatusRepository bookingStatusRepository) {
         this.bookingRepository = bookingRepository;
         this.bookingEntityMapper = bookingEntityMapper;
+        this.bookingStatusRepository = bookingStatusRepository;
     }
 
     @Override
@@ -32,6 +33,8 @@ public class BookingBusinessImpl implements BookingBusiness {
         booking.setStation(station);
         booking.setUser(user);
         booking.setCar(car);
+        BookingStatus awaitingConfirmationStatus = bookingStatusRepository.findByName("En attente").get();
+        booking.setStatus(awaitingConfirmationStatus);
         return bookingRepository.save(booking);
     }
 

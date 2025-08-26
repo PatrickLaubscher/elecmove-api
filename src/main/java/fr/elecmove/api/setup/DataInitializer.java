@@ -18,24 +18,28 @@ public class DataInitializer implements CommandLineRunner {
     private final StationRepository stationRepository;
     private final LocationStationRepository locationStationRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CarRepository carRepository;
 
     public DataInitializer(RoleRepository roleRepository,
                            BookingStatusRepository statusRepository,
                            UserRepository userRepository,
                            StationRepository stationRepository,
                            LocationStationRepository locationStationRepository,
-                           PasswordEncoder passwordEncoder) {
+                           PasswordEncoder passwordEncoder, CarRepository carRepository) {
         this.roleRepository = roleRepository;
         this.statusRepository = statusRepository;
         this.userRepository = userRepository;
         this.stationRepository = stationRepository;
         this.locationStationRepository = locationStationRepository;
         this.passwordEncoder = passwordEncoder;
+        this.carRepository = carRepository;
     }
 
 
     @Override
     public void run(String... args) throws Exception {
+
+        User user1 = new User();
 
         // === 1. create Roles
         if (roleRepository.count() == 0) {
@@ -71,15 +75,20 @@ public class DataInitializer implements CommandLineRunner {
 
         // === 3. create Users
         if (userRepository.count() == 0) {
-            userRepository.save(new User("Alice", "Durand", "0000000", "alice@test.com",
+            user1 = userRepository.save(new User("Alice", "Durand", "0000000", "alice@test.com",
                     userRole, passwordEncoder.encode("password"), true));
 
             userRepository.save(new User("Bob", "Martin", "0000000", "bob@test.com",
                     userRole, passwordEncoder.encode("password"), true));
         }
 
+        // === 4. create car
+        if (carRepository.count() == 0) {
+            carRepository.save(new Car("Mégane","0000000", "Renault", user1));
+        }
 
-        // === 4. Stations à Lyon
+
+        // === 5. Add Stations at Lyon
         if (stationRepository.count() == 0) {
 
             createStation("Borne Bellecour", 45.7578, 4.8320, true);

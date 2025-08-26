@@ -4,6 +4,8 @@ import fr.elecmove.api.model.LocationStation;
 import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public interface StationBusiness {
@@ -43,6 +45,15 @@ public interface StationBusiness {
      */
     List<Station> getAllStationByLocation(double latitude, double longitude, double rayonMeters);
 
+
+    /**
+     *
+     * @param date
+     * @param startTime
+     * @param endTime
+     * @return
+     */
+    List<Station> checkStationBookingAvailability(LocalDate date, LocalTime startTime, LocalTime endTime);
 
 
     /**
