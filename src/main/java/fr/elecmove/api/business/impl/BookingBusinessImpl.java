@@ -6,7 +6,6 @@ import fr.elecmove.api.business.mapper.BookingEntityMapper;
 import fr.elecmove.api.model.*;
 import fr.elecmove.api.repository.BookingRepository;
 import fr.elecmove.api.repository.BookingStatusRepository;
-import jdk.jshell.Snippet;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

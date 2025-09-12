@@ -39,7 +39,7 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        User user1 = new User();
+        User user1;
 
         // === 1. create Roles
         if (roleRepository.count() == 0) {
@@ -80,6 +80,9 @@ public class DataInitializer implements CommandLineRunner {
 
             userRepository.save(new User("Bob", "Martin", "0000000", "bob@test.com",
                     userRole, passwordEncoder.encode("password"), true));
+        } else {
+            user1 = userRepository.findByEmail("alice@test.com")
+                    .orElse(userRepository.findAll().get(0)); // fallback : prends n'importe quel user
         }
 
         // === 4. create car
@@ -128,7 +131,6 @@ public class DataInitializer implements CommandLineRunner {
 
         stationRepository.save(station);
     }
-
 
 
 }
