@@ -161,6 +161,7 @@ class ApiBookingTest {
                 .andExpect(jsonPath("$.date").value("2025-01-01"))
                 .andExpect(jsonPath("$.startTime").value("09:00"))
                 .andExpect(jsonPath("$.endTime").value("12:00"))
+                .andExpect(jsonPath("$.totalPrice").value(3.0))
                 .andExpect(jsonPath("$.car.id").value(carId))
                 .andExpect(jsonPath("$.station.id").value(stationId))
                 .andExpect(jsonPath("$.user.email").value(user1.getEmail()));

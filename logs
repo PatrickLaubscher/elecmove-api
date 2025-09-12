@@ -1,452 +1,51 @@
-2025-08-22T18:06:19.596+02:00  INFO 16148 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 16148 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:06:19.603+02:00  INFO 16148 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:06:20.301+02:00  INFO 16148 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:06:20.393+02:00  INFO 16148 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:06:20.520+02:00  INFO 16148 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:06:21.197+02:00  INFO 16148 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:53820a2f-d9d4-4c27-a1b3-6f7efcff5632;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:06:21.425+02:00  INFO 16148 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:06:21.488+02:00  INFO 16148 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:06:21.517+02:00  INFO 16148 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:06:21.623+02:00  INFO 16148 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:06:21.689+02:00  INFO 16148 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@3d73cd78']
+2025-08-26T15:42:41.333+02:00  INFO 4456 --- [Test worker] fr.elecmove.api.ApiBookingTest           : Starting ApiBookingTest using Java 21.0.6 with PID 4456 (started by patri in C:\Users\patri\Documents\elecmove-api)
+2025-08-26T15:42:41.340+02:00  INFO 4456 --- [Test worker] fr.elecmove.api.ApiBookingTest           : The following 1 profile is active: "local"
+2025-08-26T15:42:42.108+02:00  INFO 4456 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-26T15:42:42.213+02:00  INFO 4456 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97 ms. Found 13 JPA repository interfaces.
+2025-08-26T15:42:42.371+02:00  INFO 4456 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2025-08-26T15:42:43.155+02:00  INFO 4456 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:fccb4431-1e07-4071-9d72-f8ee9aead004;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2025-08-26T15:42:43.427+02:00  INFO 4456 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-26T15:42:43.497+02:00  INFO 4456 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-08-26T15:42:43.532+02:00  INFO 4456 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-26T15:42:43.657+02:00  INFO 4456 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-26T15:42:43.735+02:00  INFO 4456 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@4fcedf83']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-08-22T18:06:22.466+02:00  INFO 16148 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:06:22.553+02:00  INFO 16148 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:06:22.904+02:00  INFO 16148 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:06:23.608+02:00 TRACE 16148 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@457512b}
-2025-08-22T18:06:23.619+02:00  INFO 16148 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:06:24.058+02:00 DEBUG 16148 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:06:24.441+02:00  INFO 16148 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:06:24.442+02:00  INFO 16148 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:06:24.443+02:00  INFO 16148 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-08-22T18:06:24.476+02:00  INFO 16148 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 5.135 seconds (process running for 6.156)
-2025-08-22T18:06:24.962+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:06:24.963+02:00 DEBUG 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/c533cec0-b895-47e1-8a7a-821bc40dd461
-2025-08-22T18:06:24.963+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:06:24.963+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:06:24.964+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:06:24.966+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:06:24.967+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:06:24.967+02:00 TRACE 16148 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:06:24.968+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:06:24.968+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:06:24.968+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:06:24.969+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:06:24.969+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:06:24.969+02:00 TRACE 16148 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:06:24.971+02:00 TRACE 16148 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
-2025-08-22T18:06:24.971+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:06:24.971+02:00 TRACE 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:06:24.971+02:00 TRACE 16148 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/c533cec0-b895-47e1-8a7a-821bc40dd461
-2025-08-22T18:06:24.972+02:00 TRACE 16148 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/c533cec0-b895-47e1-8a7a-821bc40dd461 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x000001b754b2c7f8@539c833d
-2025-08-22T18:06:24.973+02:00 DEBUG 16148 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/c533cec0-b895-47e1-8a7a-821bc40dd461
-2025-08-22T18:06:25.036+02:00 TRACE 16148 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:06:25.108+02:00  INFO 16148 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:08:03.307+02:00  INFO 20368 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 20368 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:08:03.308+02:00  INFO 20368 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:08:03.953+02:00  INFO 20368 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:08:04.047+02:00  INFO 20368 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:08:04.173+02:00  INFO 20368 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:08:05.516+02:00  INFO 20368 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:42866f67-79ef-4963-ad60-847f325c918d;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:08:05.876+02:00  INFO 20368 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:08:05.972+02:00  INFO 20368 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:08:06.022+02:00  INFO 20368 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:08:06.242+02:00  INFO 20368 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:08:06.369+02:00  INFO 20368 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@619854a3']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-22T18:08:07.659+02:00  INFO 20368 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:08:07.777+02:00  INFO 20368 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:08:08.403+02:00  INFO 20368 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:08:09.184+02:00 TRACE 20368 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@77784a86}
-2025-08-22T18:08:09.195+02:00  INFO 20368 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:08:09.677+02:00 DEBUG 20368 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:08:10.150+02:00  INFO 20368 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:08:10.151+02:00  INFO 20368 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:08:10.152+02:00  INFO 20368 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-08-22T18:08:10.193+02:00  INFO 20368 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 7.125 seconds (process running for 8.319)
-2025-08-22T18:08:10.815+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:08:10.816+02:00 DEBUG 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/8587ca77-9e93-4fa1-910e-cd04dbdd683c
-2025-08-22T18:08:10.817+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:08:10.818+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:08:10.821+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:08:10.823+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:08:10.825+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:08:10.825+02:00 TRACE 20368 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:08:10.825+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:08:10.825+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:08:10.825+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:08:10.827+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:08:10.827+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:08:10.828+02:00 TRACE 20368 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:08:10.830+02:00 TRACE 20368 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
-2025-08-22T18:08:10.830+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:08:10.830+02:00 TRACE 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:08:10.831+02:00 TRACE 20368 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/8587ca77-9e93-4fa1-910e-cd04dbdd683c
-2025-08-22T18:08:10.833+02:00 TRACE 20368 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/8587ca77-9e93-4fa1-910e-cd04dbdd683c using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000021419b84a08@66716c60
-2025-08-22T18:08:10.834+02:00 DEBUG 20368 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/8587ca77-9e93-4fa1-910e-cd04dbdd683c
-2025-08-22T18:08:10.948+02:00 TRACE 20368 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:08:11.111+02:00  INFO 20368 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:11:32.465+02:00  INFO 33960 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 33960 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:11:32.466+02:00  INFO 33960 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:11:33.111+02:00  INFO 33960 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:11:33.210+02:00  INFO 33960 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:11:33.345+02:00  INFO 33960 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:11:34.076+02:00  INFO 33960 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:8f816ff9-6a27-4a90-a943-29f738507808;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:11:34.345+02:00  INFO 33960 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:11:34.420+02:00  INFO 33960 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:11:34.460+02:00  INFO 33960 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:11:34.569+02:00  INFO 33960 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:11:34.632+02:00  INFO 33960 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@4d2950ed']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-22T18:11:35.563+02:00  INFO 33960 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:11:35.648+02:00  INFO 33960 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:11:36.009+02:00  INFO 33960 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:11:36.798+02:00 TRACE 33960 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@31d5ce58}
-2025-08-22T18:11:36.806+02:00  INFO 33960 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:11:37.185+02:00 DEBUG 33960 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:11:37.591+02:00  INFO 33960 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:11:37.592+02:00  INFO 33960 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:11:37.593+02:00  INFO 33960 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-08-22T18:11:37.624+02:00  INFO 33960 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 5.411 seconds (process running for 6.506)
-2025-08-22T18:11:38.141+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:11:38.142+02:00 DEBUG 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/6b51074e-6fa9-4fa8-88eb-5bea829ddc30
-2025-08-22T18:11:38.143+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:11:38.144+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:11:38.145+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:11:38.146+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:11:38.148+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:11:38.149+02:00 TRACE 33960 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:11:38.149+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:11:38.149+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:11:38.149+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:11:38.150+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:11:38.150+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:11:38.151+02:00 TRACE 33960 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:11:38.152+02:00 TRACE 33960 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
-2025-08-22T18:11:38.152+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:11:38.152+02:00 TRACE 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:11:38.153+02:00 TRACE 33960 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/6b51074e-6fa9-4fa8-88eb-5bea829ddc30
-2025-08-22T18:11:38.153+02:00 TRACE 33960 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/6b51074e-6fa9-4fa8-88eb-5bea829ddc30 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000017a33b84e68@4c49471c
-2025-08-22T18:11:38.153+02:00 DEBUG 33960 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/6b51074e-6fa9-4fa8-88eb-5bea829ddc30
-2025-08-22T18:11:38.226+02:00 TRACE 33960 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:11:38.286+02:00  INFO 33960 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:14:29.325+02:00  INFO 29396 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 29396 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:14:29.326+02:00  INFO 29396 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:14:29.947+02:00  INFO 29396 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:14:30.041+02:00  INFO 29396 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:14:30.154+02:00  INFO 29396 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:14:30.838+02:00  INFO 29396 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:871ef68e-2fd2-446a-9fac-a8b9a96c1653;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:14:31.056+02:00  INFO 29396 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:14:31.118+02:00  INFO 29396 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:14:31.147+02:00  INFO 29396 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:14:31.248+02:00  INFO 29396 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:14:31.314+02:00  INFO 29396 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@619854a3']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-22T18:14:32.138+02:00  INFO 29396 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:14:32.218+02:00  INFO 29396 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:14:32.582+02:00  INFO 29396 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:14:33.291+02:00 TRACE 29396 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@2935042e}
-2025-08-22T18:14:33.302+02:00  INFO 29396 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:14:33.805+02:00 DEBUG 29396 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:14:34.348+02:00  INFO 29396 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:14:34.349+02:00  INFO 29396 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:14:34.350+02:00  INFO 29396 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-08-22T18:14:34.393+02:00  INFO 29396 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 5.302 seconds (process running for 6.358)
-2025-08-22T18:14:34.878+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:14:34.878+02:00 DEBUG 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/a7bf31ae-87dc-4b7f-a946-51e82b111b29
-2025-08-22T18:14:34.878+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:14:34.879+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:14:34.880+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:14:34.881+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:14:34.882+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:14:34.883+02:00 TRACE 29396 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:14:34.883+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:14:34.883+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:14:34.883+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:14:34.884+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:14:34.884+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:14:34.884+02:00 TRACE 29396 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:14:34.886+02:00 TRACE 29396 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
-2025-08-22T18:14:34.886+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:14:34.886+02:00 TRACE 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:14:34.886+02:00 TRACE 29396 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/a7bf31ae-87dc-4b7f-a946-51e82b111b29
-2025-08-22T18:14:34.887+02:00 TRACE 29396 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/a7bf31ae-87dc-4b7f-a946-51e82b111b29 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000020406b85db0@45f854e9
-2025-08-22T18:14:34.887+02:00 DEBUG 29396 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/a7bf31ae-87dc-4b7f-a946-51e82b111b29
-2025-08-22T18:14:34.946+02:00 TRACE 29396 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:14:35.026+02:00  INFO 29396 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:15:05.864+02:00  INFO 8600 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 8600 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:15:05.865+02:00  INFO 8600 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:15:06.506+02:00  INFO 8600 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:15:06.600+02:00  INFO 8600 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:15:06.731+02:00  INFO 8600 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:15:07.473+02:00  INFO 8600 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:f87a733e-098b-454e-99e6-fc04d318abba;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:15:07.731+02:00  INFO 8600 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:15:07.805+02:00  INFO 8600 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:15:07.842+02:00  INFO 8600 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:15:07.960+02:00  INFO 8600 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:15:08.026+02:00  INFO 8600 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@619854a3']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-22T18:15:08.830+02:00  INFO 8600 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:15:08.903+02:00  INFO 8600 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:15:09.214+02:00  INFO 8600 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:15:09.994+02:00 TRACE 8600 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@4c879ea5}
-2025-08-22T18:15:10.000+02:00  INFO 8600 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:15:10.398+02:00 DEBUG 8600 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:15:10.774+02:00  INFO 8600 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:15:10.774+02:00  INFO 8600 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:15:10.776+02:00  INFO 8600 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2025-08-22T18:15:10.823+02:00  INFO 8600 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 5.198 seconds (process running for 6.262)
-2025-08-22T18:15:11.312+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:15:11.313+02:00 DEBUG 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/3e1ad86f-0494-476c-89d6-b3000c8e58ae
-2025-08-22T18:15:11.313+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:15:11.314+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:15:11.315+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:15:11.316+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:15:11.317+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:15:11.317+02:00 TRACE 8600 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:15:11.317+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:15:11.318+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:15:11.318+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:15:11.319+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:15:11.319+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:15:11.319+02:00 TRACE 8600 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:15:11.320+02:00 TRACE 8600 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
-2025-08-22T18:15:11.320+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:15:11.320+02:00 TRACE 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:15:11.321+02:00 TRACE 8600 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/3e1ad86f-0494-476c-89d6-b3000c8e58ae
-2025-08-22T18:15:11.322+02:00 TRACE 8600 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/3e1ad86f-0494-476c-89d6-b3000c8e58ae using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x000001e681b86268@28ab0789
-2025-08-22T18:15:11.322+02:00 DEBUG 8600 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/3e1ad86f-0494-476c-89d6-b3000c8e58ae
-2025-08-22T18:15:11.384+02:00 TRACE 8600 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:15:11.457+02:00  INFO 8600 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:19:57.659+02:00  INFO 19844 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 19844 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:19:57.660+02:00  INFO 19844 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:19:58.281+02:00  INFO 19844 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:19:58.380+02:00  INFO 19844 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:19:58.513+02:00  INFO 19844 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:19:59.212+02:00  INFO 19844 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:2180efbd-127a-4a80-a475-0c4d4e8bd18d;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:19:59.459+02:00  INFO 19844 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:19:59.528+02:00  INFO 19844 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:19:59.562+02:00  INFO 19844 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:19:59.685+02:00  INFO 19844 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:19:59.756+02:00  INFO 19844 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@c157abf']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-22T18:20:00.586+02:00  INFO 19844 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:20:00.664+02:00  INFO 19844 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:20:00.990+02:00  INFO 19844 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:20:01.762+02:00 TRACE 19844 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@7f4050f0}
-2025-08-22T18:20:01.772+02:00  INFO 19844 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:20:02.238+02:00 DEBUG 19844 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:20:02.741+02:00  INFO 19844 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:20:02.742+02:00  INFO 19844 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:20:02.743+02:00  INFO 19844 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-08-22T18:20:02.777+02:00  INFO 19844 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 5.375 seconds (process running for 6.435)
-2025-08-22T18:20:03.289+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:20:03.289+02:00 DEBUG 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/22b51994-374d-4d1b-bd1c-1d26ac661337
-2025-08-22T18:20:03.290+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:20:03.290+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:20:03.293+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:20:03.294+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:20:03.295+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:20:03.295+02:00 TRACE 19844 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:20:03.295+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:20:03.295+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:20:03.295+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:20:03.296+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:20:03.297+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:20:03.297+02:00 TRACE 19844 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:20:03.298+02:00 TRACE 19844 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
-2025-08-22T18:20:03.298+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:20:03.298+02:00 TRACE 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:20:03.299+02:00 TRACE 19844 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/22b51994-374d-4d1b-bd1c-1d26ac661337
-2025-08-22T18:20:03.300+02:00 TRACE 19844 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/22b51994-374d-4d1b-bd1c-1d26ac661337 using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x000001cbc5b84a08@964a7b0
-2025-08-22T18:20:03.301+02:00 DEBUG 19844 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/22b51994-374d-4d1b-bd1c-1d26ac661337
-2025-08-22T18:20:03.374+02:00 TRACE 19844 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:20:03.445+02:00  INFO 19844 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:24:08.390+02:00  INFO 13300 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 13300 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:24:08.391+02:00  INFO 13300 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:24:09.030+02:00  INFO 13300 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:24:09.122+02:00  INFO 13300 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:24:09.288+02:00  INFO 13300 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:24:09.981+02:00  INFO 13300 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:2ca1744d-dfe6-4cc3-995f-af25f34f5e2a;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:24:10.192+02:00  INFO 13300 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:24:10.234+02:00  INFO 13300 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:24:10.260+02:00  INFO 13300 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:24:10.354+02:00  INFO 13300 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:24:10.416+02:00  INFO 13300 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@32f14274']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-22T18:24:11.232+02:00  INFO 13300 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:24:11.327+02:00  INFO 13300 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:24:11.747+02:00  INFO 13300 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:24:12.470+02:00 TRACE 13300 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@52bd1783}
-2025-08-22T18:24:12.476+02:00  INFO 13300 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:24:12.886+02:00 DEBUG 13300 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:24:13.234+02:00  INFO 13300 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:24:13.236+02:00  INFO 13300 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:24:13.237+02:00  INFO 13300 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-08-22T18:24:13.264+02:00  INFO 13300 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 5.116 seconds (process running for 6.054)
-2025-08-22T18:24:13.752+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:24:13.753+02:00 DEBUG 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing GET /api/availabilities/ebc1a13a-5c51-4e4b-a5a6-8b7a9f7b9b5e
-2025-08-22T18:24:13.753+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:24:13.754+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:24:13.756+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:24:13.756+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:24:13.757+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:24:13.758+02:00 TRACE 13300 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:24:13.758+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:24:13.758+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:24:13.758+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:24:13.759+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:24:13.759+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:24:13.759+02:00 TRACE 13300 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:24:13.760+02:00 TRACE 13300 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]]
-2025-08-22T18:24:13.760+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:24:13.761+02:00 TRACE 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:24:13.761+02:00 TRACE 13300 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing GET /api/availabilities/ebc1a13a-5c51-4e4b-a5a6-8b7a9f7b9b5e
-2025-08-22T18:24:13.762+02:00 TRACE 13300 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on GET /api/availabilities/ebc1a13a-5c51-4e4b-a5a6-8b7a9f7b9b5e using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000016a01b25730@5f849a79
-2025-08-22T18:24:13.762+02:00 DEBUG 13300 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured GET /api/availabilities/ebc1a13a-5c51-4e4b-a5a6-8b7a9f7b9b5e
-2025-08-22T18:24:13.823+02:00 TRACE 13300 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:24:13.872+02:00  INFO 13300 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:25:01.340+02:00  INFO 30604 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 30604 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:25:01.343+02:00  INFO 30604 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:25:03.026+02:00  INFO 30604 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:25:03.172+02:00  INFO 30604 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:25:03.352+02:00  INFO 30604 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:25:04.117+02:00  INFO 30604 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:3bebb78c-c3e4-430b-a313-ccc040f0dd46;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:25:04.394+02:00  INFO 30604 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:25:04.470+02:00  INFO 30604 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:25:04.494+02:00  INFO 30604 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:25:04.609+02:00  INFO 30604 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:25:04.689+02:00  INFO 30604 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@42fa5cb']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-22T18:25:05.543+02:00  INFO 30604 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:25:05.640+02:00  INFO 30604 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:25:06.035+02:00  INFO 30604 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:25:06.726+02:00 TRACE 30604 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@52bd1783}
-2025-08-22T18:25:06.737+02:00  INFO 30604 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:25:07.175+02:00 DEBUG 30604 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:25:07.696+02:00  INFO 30604 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:25:07.696+02:00  INFO 30604 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:25:07.697+02:00  INFO 30604 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-08-22T18:25:07.729+02:00  INFO 30604 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 6.886 seconds (process running for 8.93)
-2025-08-22T18:25:08.206+02:00 TRACE 30604 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:25:08.217+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:25:08.217+02:00 DEBUG 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/availabilities
-2025-08-22T18:25:08.218+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:25:08.218+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:25:08.220+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:25:08.220+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:25:08.222+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:25:08.222+02:00 TRACE 30604 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:25:08.222+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:25:08.222+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:25:08.222+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:25:08.223+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:25:08.223+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:25:08.224+02:00 TRACE 30604 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@7f57925d, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
-2025-08-22T18:25:08.224+02:00 TRACE 30604 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
-2025-08-22T18:25:08.224+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:25:08.224+02:00 TRACE 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:25:08.224+02:00 TRACE 30604 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/availabilities
-2025-08-22T18:25:08.224+02:00 TRACE 30604 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/availabilities using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000024301b26dd8@6dafdb99
-2025-08-22T18:25:08.226+02:00 DEBUG 30604 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/availabilities
-2025-08-22T18:25:08.330+02:00 TRACE 30604 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:25:08.377+02:00  INFO 30604 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:25:47.919+02:00  INFO 23964 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Starting ApiStationAvailabilityTest using Java 21.0.6 with PID 23964 (started by patri in C:\Users\patri\Documents\elecmove-api)
-2025-08-22T18:25:47.920+02:00  INFO 23964 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : The following 1 profile is active: "local"
-2025-08-22T18:25:48.573+02:00  INFO 23964 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-08-22T18:25:48.684+02:00  INFO 23964 --- [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 13 JPA repository interfaces.
-2025-08-22T18:25:48.855+02:00  INFO 23964 --- [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2025-08-22T18:25:49.698+02:00  INFO 23964 --- [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:000e0256-ee6b-42f2-adba-a89bf4294490;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2025-08-22T18:25:49.928+02:00  INFO 23964 --- [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-08-22T18:25:49.984+02:00  INFO 23964 --- [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
-2025-08-22T18:25:50.013+02:00  INFO 23964 --- [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-08-22T18:25:50.114+02:00  INFO 23964 --- [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-08-22T18:25:50.174+02:00  INFO 23964 --- [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@619854a3']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-08-22T18:25:50.981+02:00  INFO 23964 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-08-22T18:25:51.063+02:00  INFO 23964 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-08-22T18:25:51.364+02:00  INFO 23964 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-08-22T18:25:52.078+02:00 TRACE 23964 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@33ea43a}
-2025-08-22T18:25:52.089+02:00  INFO 23964 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
-2025-08-22T18:25:52.580+02:00 DEBUG 23964 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2025-08-22T18:25:53.023+02:00  INFO 23964 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-08-22T18:25:53.024+02:00  INFO 23964 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-08-22T18:25:53.026+02:00  INFO 23964 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2025-08-22T18:25:53.054+02:00  INFO 23964 --- [Test worker] f.e.api.ApiStationAvailabilityTest       : Started ApiStationAvailabilityTest in 5.399 seconds (process running for 6.468)
-2025-08-22T18:25:53.512+02:00 TRACE 23964 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
-2025-08-22T18:25:53.526+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
-2025-08-22T18:25:53.527+02:00 DEBUG 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/availabilities
-2025-08-22T18:25:53.529+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
-2025-08-22T18:25:53.530+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
-2025-08-22T18:25:53.537+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
-2025-08-22T18:25:53.538+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
-2025-08-22T18:25:53.541+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
-2025-08-22T18:25:53.541+02:00 TRACE 23964 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
-2025-08-22T18:25:53.541+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
-2025-08-22T18:25:53.541+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
-2025-08-22T18:25:53.542+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
-2025-08-22T18:25:53.543+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
-2025-08-22T18:25:53.544+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
-2025-08-22T18:25:53.545+02:00 TRACE 23964 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@9b9a322, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
-2025-08-22T18:25:53.545+02:00 TRACE 23964 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
-2025-08-22T18:25:53.545+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
-2025-08-22T18:25:53.546+02:00 TRACE 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
-2025-08-22T18:25:53.547+02:00 TRACE 23964 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/availabilities
-2025-08-22T18:25:53.549+02:00 TRACE 23964 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/availabilities using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000012c19b75db0@6d68cbf3
-2025-08-22T18:25:53.549+02:00 DEBUG 23964 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/availabilities
-2025-08-22T18:28:14.614+02:00 TRACE 23964 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
-2025-08-22T18:28:14.662+02:00  INFO 23964 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-26T15:42:44.610+02:00  INFO 4456 --- [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-26T15:42:44.693+02:00  INFO 4456 --- [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-26T15:42:45.094+02:00  INFO 4456 --- [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-26T15:42:46.032+02:00 TRACE 4456 --- [Test worker] eGlobalAuthenticationAutowiredConfigurer : Eagerly initializing {org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration=org.springframework.boot.autoconfigure.security.servlet.SpringBootWebSecurityConfiguration$WebSecurityEnablerConfiguration@3d69bbe3}
+2025-08-26T15:42:46.041+02:00  INFO 4456 --- [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userService
+2025-08-26T15:42:46.474+02:00 DEBUG 4456 --- [Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-08-26T15:42:46.831+02:00  INFO 4456 --- [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-08-26T15:42:46.831+02:00  INFO 4456 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-08-26T15:42:46.832+02:00  INFO 4456 --- [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2025-08-26T15:42:46.873+02:00  INFO 4456 --- [Test worker] fr.elecmove.api.ApiBookingTest           : Started ApiBookingTest in 5.835 seconds (process running for 7.114)
+2025-08-26T15:42:47.381+02:00 TRACE 4456 --- [Test worker] .s.s.w.c.SupplierDeferredSecurityContext : Created SecurityContextImpl [Null authentication]
+2025-08-26T15:42:47.393+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Trying to match request against DefaultSecurityFilterChain defined as 'securityFilter' in [class path resource [fr/elecmove/api/security/SecurityConfig.class]] matching [any request] and having filters [DisableEncodeUrl, WebAsyncManagerIntegration, SecurityContextHolder, HeaderWriter, Logout, Jwt, RequestCacheAware, SecurityContextHolderAwareRequest, AnonymousAuthentication, SessionManagement, ExceptionTranslation, Authorization] (1/1)
+2025-08-26T15:42:47.394+02:00 DEBUG 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Securing POST /api/bookings
+2025-08-26T15:42:47.394+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking DisableEncodeUrlFilter (1/12)
+2025-08-26T15:42:47.395+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking WebAsyncManagerIntegrationFilter (2/12)
+2025-08-26T15:42:47.397+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderFilter (3/12)
+2025-08-26T15:42:47.398+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking HeaderWriterFilter (4/12)
+2025-08-26T15:42:47.399+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking LogoutFilter (5/12)
+2025-08-26T15:42:47.399+02:00 TRACE 4456 --- [Test worker] o.s.s.w.a.logout.LogoutFilter            : Did not match request to Or [Ant [pattern='/logout', GET], Ant [pattern='/logout', POST], Ant [pattern='/logout', PUT], Ant [pattern='/logout', DELETE]]
+2025-08-26T15:42:47.399+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking JwtFilter (6/12)
+2025-08-26T15:42:47.399+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking RequestCacheAwareFilter (7/12)
+2025-08-26T15:42:47.400+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SecurityContextHolderAwareRequestFilter (8/12)
+2025-08-26T15:42:47.401+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AnonymousAuthenticationFilter (9/12)
+2025-08-26T15:42:47.401+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking SessionManagementFilter (10/12)
+2025-08-26T15:42:47.402+02:00 TRACE 4456 --- [Test worker] o.s.s.w.a.AnonymousAuthenticationFilter  : Did not set SecurityContextHolder since already authenticated UsernamePasswordAuthenticationToken [Principal=fr.elecmove.api.model.User@2f83346f, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_USER]]
+2025-08-26T15:42:47.402+02:00 TRACE 4456 --- [Test worker] s.CompositeSessionAuthenticationStrategy : Preparing session with ChangeSessionIdAuthenticationStrategy (1/1)
+2025-08-26T15:42:47.402+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking ExceptionTranslationFilter (11/12)
+2025-08-26T15:42:47.402+02:00 TRACE 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Invoking AuthorizationFilter (12/12)
+2025-08-26T15:42:47.402+02:00 TRACE 4456 --- [Test worker] estMatcherDelegatingAuthorizationManager : Authorizing POST /api/bookings
+2025-08-26T15:42:47.403+02:00 TRACE 4456 --- [Test worker] estMatcherDelegatingAuthorizationManager : Checking authorization on POST /api/bookings using org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer$$Lambda/0x0000025fe0b8c608@4dc68ffe
+2025-08-26T15:42:47.404+02:00 DEBUG 4456 --- [Test worker] o.s.security.web.FilterChainProxy        : Secured POST /api/bookings
+2025-08-26T15:44:39.780+02:00 TRACE 4456 --- [Test worker] o.s.s.w.header.writers.HstsHeaderWriter  : Not injecting HSTS header since it did not match request to [Is Secure]
+2025-08-26T15:44:39.835+02:00  INFO 4456 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

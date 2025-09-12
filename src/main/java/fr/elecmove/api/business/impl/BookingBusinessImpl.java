@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.Duration;
 import java.util.List;
 
 @Service
@@ -33,8 +34,15 @@ public class BookingBusinessImpl implements BookingBusiness {
         booking.setStation(station);
         booking.setUser(user);
         booking.setCar(car);
+
+        // Add awaiting status to new booking
         BookingStatus awaitingConfirmationStatus = bookingStatusRepository.findByName("En attente").get();
         booking.setStatus(awaitingConfirmationStatus);
+
+        // Calculate total brut price
+        Duration duration = Duration.between(booking.getStartTime(), booking.getEndTime());
+        booking.setTotalPrice(duration.toHours() * station.getTarification());
+
         return bookingRepository.save(booking);
     }
 
@@ -63,7 +71,6 @@ public class BookingBusinessImpl implements BookingBusiness {
         bookingEntityMapper.merge(existingBooking, booking);
 
         return bookingRepository.save(booking);
-
     }
 
     @Override
