@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface StationAvailabilityRepository extends JpaRepository<StationAvailability, String> {
 
-    List<StationAvailability> findByStationId(String id);
+    List<StationAvailability> findByStationId(String stationId);
 
 }
