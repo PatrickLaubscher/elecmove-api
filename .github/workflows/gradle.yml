@@ -10,7 +10,6 @@ name: Feature branches linting
 on:
   push:
     branches:
-      - main
       - 'feature/**'
   pull_request:
     branches: 
