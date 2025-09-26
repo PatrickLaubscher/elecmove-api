@@ -10,10 +10,10 @@ name: Feature branches linting
 on:
   push:
     branches:
-      - 'feature**'
+      - 'feature/**'
   pull_request:
     branches: 
-      - 'feature**'
+      - 'feature/**'
 
 jobs:
   build:
