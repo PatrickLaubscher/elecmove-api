@@ -9,9 +9,11 @@ name: Feature branches linting
 
 on:
   push:
-    branches: ['feature/**']
+    branches: 
+      -'feature/**'
   pull_request:
-    branches: ['feature/**']
+    branches: 
+      -'feature/**'
 
 jobs:
   build:
