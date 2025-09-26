@@ -1,0 +1,86 @@
+name: Elec'move CI/CD
+
+on:
+  push:
+    branches:
+      - main   # Déclenche sur push vers main
+  workflow_dispatch: # Lancement manuel possible
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupération du code
+      - name: Checkout backend repo
+        uses: actions/checkout@v4
+        with:
+          repository: patricklaubscher/elecmove-api
+          path: backend
+
+      - name: Checkout frontend repo
+        uses: actions/checkout@v4
+        with:
+          repository: patricklaubscher/elecmove
+          path: frontend
+
+      # 2. Setup Java + Node pour tests
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # 3. Run backend tests
+      - name: Backend unit tests
+        run: |
+          cd backend
+          ./gradlew test
+
+      # 4. Run frontend tests
+      - name: Frontend unit tests
+        run: |
+          cd frontend
+          npm ci
+          npx ng test --watch=false --browsers=ChromeHeadless
+
+      # 5. Build Docker images
+      - name: Build Docker images
+        run: |
+          docker build -t elecmove-backend ./backend
+          docker build -t elecmove-frontend ./frontend
+
+      # 6. Login to Docker Hub (ou GHCR)
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # 7. Push images
+      - name: Push Docker images
+        run: |
+          docker tag elecmove-backend youruser/elecmove-backend:latest
+          docker tag elecmove-frontend youruser/elecmove-frontend:latest
+          docker push youruser/elecmove-backend:latest
+          docker push youruser/elecmove-frontend:latest
+
+      # 8. Deploy via SSH
+      - name: Deploy on server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            docker pull youruser/elecmove-backend:latest
+            docker pull youruser/elecmove-frontend:latest
+            docker rm -f elecmove-backend || true
+            docker rm -f elecmove-frontend || true
+            docker run -d --name elecmove-backend -p 8080:8080 youruser/elecmove-backend:latest
+            docker run -d --name elecmove-frontend -p 80:80 youruser/elecmove-frontend:latest

@@ -4,7 +4,7 @@
 
 Summary:
 
-Application main functionnality : booking recharge stations for electric cars
+Application main functionality : booking recharge stations for electric cars
 - Backend API: Java v21, SpringBoot v3.4.5, Gradle
 - Database: mySQL or MariaDB
 - Frontend: node.js V22.14.0, Angular v20
@@ -36,7 +36,7 @@ gradle -v
 
 - Node.js and npm
 
-Add the NodeSource respository
+Add the NodeSource repository
 ```
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 ```
@@ -146,6 +146,7 @@ frontend/dist/
 Confirm configuration:
 ```
 sudo a2ensite elecmove.conf
+sudo apachectl configtest
 sudo systemctl reload apache2
 ```
 
@@ -163,6 +164,7 @@ Add .htaccess on ```/var/www/html/elecmove```
 Enable and restart server :
 ```
 sudo a2enmod rewrite
+sudo apachectl configtest
 sudo systemctl restart apache2
 ```
 
@@ -197,7 +199,7 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 ```
-- reload server and lauch service:
+- reload server and launch service:
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable elecmove
@@ -211,6 +213,7 @@ sudo systemctl status elecmove
 ```
 sudo a2enmod proxy
 sudo a2enmod proxy_http
+sudo apachectl configtest
 sudo systemctl restart apache2
 ```
 
@@ -238,6 +241,7 @@ sudo systemctl restart apache2
 
 - reload Apache server:
 ```
+sudo apachectl configtest
 sudo systemctl reload apache2
 ```
 ***

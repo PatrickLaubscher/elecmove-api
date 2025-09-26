@@ -24,6 +24,7 @@ sudo apt install docker.io docker-compose -y
 
 ### 1.Backend (Spring Boot + Java 21)
 
+DockerFile
 ```
 # Stage 1: build
 FROM gradle:9.1.0-jdk21 AS builder
@@ -47,6 +48,7 @@ docker build -t elecmove-backend:1.0 .
 
 ### 2. Frontend (Angular 20 + Node 22.14)
 
+DockerFile
 ```
 # Stage 1: build Angular app
 FROM node:22.14 AS builder
