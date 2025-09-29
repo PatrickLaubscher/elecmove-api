@@ -35,7 +35,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 || request.getRequestURI().startsWith("/api/refresh-token")
                 || request.getRequestURI().startsWith("/api/stations/nearby")
                 || authHeader == null
-                || !authHeader.startsWith("Bearer")) {
+                || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
