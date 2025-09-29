@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -34,8 +35,9 @@ public class SecurityConfig {
     }
 
     @Bean
-    SecurityFilterChain securityFilter(HttpSecurity http) throws Exception {
+    SecurityFilterChain securityFilter(HttpSecurity http, AuthenticationEntryPoint authenticationEntryPoint) throws Exception {
         http.csrf(csrf -> csrf.disable());
+        http.exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(customAuthenticationEntryPoint()));
         http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
         http.authorizeHttpRequests(request -> request
                 .requestMatchers("/api/login", "/api/register").permitAll()
@@ -44,6 +46,11 @@ public class SecurityConfig {
                 SessionCreationPolicy.STATELESS));
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
+    }
+
+    @Bean
+    public CustomAuthenticationEntryPoint customAuthenticationEntryPoint() {
+        return new CustomAuthenticationEntryPoint();
     }
 
     @Bean

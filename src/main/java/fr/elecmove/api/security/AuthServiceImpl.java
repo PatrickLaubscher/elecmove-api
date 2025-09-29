@@ -8,9 +8,11 @@ import fr.elecmove.api.model.RefreshToken;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.repository.RefreshTokenRepository;
 import fr.elecmove.api.repository.UserRepository;
+import fr.elecmove.api.security.exception.AccountNotValidatedException;
 import fr.elecmove.api.security.jwt.JwtUtil;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -57,6 +59,12 @@ public class AuthServiceImpl implements AuthService {
         }
 
         User user = (User) principal;
+
+        // Si le compte n’est pas validé
+        if (!user.getValidated()) {
+            throw new AccountNotValidatedException("Vous devez valider votre compte par mail avant de vous connecter.");
+        }
+
         String token = jwtUtil.generateToken(user);
         UserConnectedDTO userConnectedDTO = userMapper.toConnectedDto(user);
 
