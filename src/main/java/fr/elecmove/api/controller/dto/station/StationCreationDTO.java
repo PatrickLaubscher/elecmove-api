@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 
 public class StationCreationDTO {
 
-    @NotBlank
+    
     @Size(min = 1, max = 30)
     private String name;
     @NotNull

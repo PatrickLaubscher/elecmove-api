@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin
+
 @RestController
 @RequestMapping("/api/stations")
 public class StationController {
@@ -61,7 +61,7 @@ public class StationController {
     }
 
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public StationDTO updateStation(@PathVariable String id, @RequestBody StationCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
         User user = (User) userDetails;
         return stationMapper.toDto(
