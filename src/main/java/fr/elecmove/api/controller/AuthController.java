@@ -32,9 +32,9 @@ public class AuthController {
 
         return ResponseCookie.from("refresh-token", refreshToken)
                 .httpOnly(true)
-                .secure(false) // il faudra le mettre en sécurisé, pas tant qu'on est en dev car pas en HTTPS
-                .sameSite(SameSiteCookies.NONE.toString())
-                .path("/api/refresh-token")
+                .secure(false) // change to true when we will in https
+                .sameSite("Lax")
+                .path("/")
                 .build()
                 ;
     }

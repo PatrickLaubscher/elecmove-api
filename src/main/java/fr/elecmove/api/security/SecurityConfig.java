@@ -42,7 +42,8 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable());
         http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
         http.authorizeHttpRequests(request -> request
-                .requestMatchers("/api/login").permitAll()
+                .requestMatchers(HttpMethod.POST,"/api/login").permitAll()
+                .requestMatchers(HttpMethod.POST,"/api/refresh-token").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
                 .anyRequest().authenticated());
         http.exceptionHandling(e -> e
