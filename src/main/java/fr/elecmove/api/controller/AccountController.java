@@ -14,7 +14,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+
 @RestController
 @RequestMapping("/api/account")
 public class AccountController {
@@ -27,7 +27,7 @@ public class AccountController {
         this.userMapper = userMapper;
     }
 
-    @PostMapping
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public UserResponseDTO register(@RequestBody @Valid UserCreationDTO dto) {
         return userMapper.toDto(

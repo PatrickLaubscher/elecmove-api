@@ -54,7 +54,7 @@ public class CarController {
     }
 
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public CarDTO updateCar(@PathVariable String id, @RequestBody CarCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
         User user = (User) userDetails;
         return carMapper.toDto(

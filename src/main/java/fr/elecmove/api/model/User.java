@@ -27,6 +27,7 @@ public class User implements UserDetails {
     private String mobile;
     private String email;
     private String password;
+    private String role;
 
     @Column(name = "is_validated")
     private Boolean validated;
@@ -38,10 +39,6 @@ public class User implements UserDetails {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Role role;
 
     @OneToMany(mappedBy = "user")
     private List<UserAddress> userAddresses;
@@ -56,7 +53,7 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String firstname, String lastname, String mobile, String email, Role role, String password, Boolean validated) {
+    public User(String firstname, String lastname, String mobile, String email, String role, String password, Boolean validated) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.mobile = mobile;
@@ -66,7 +63,7 @@ public class User implements UserDetails {
         this.validated = validated;
     }
 
-    public User(String id, String firstname, String lastname, String mobile, String email, String password, Boolean validated, LocalDateTime createdAt, LocalDateTime updatedAt, Role role) {
+    public User(String id, String firstname, String lastname, String mobile, String email, String password, Boolean validated, LocalDateTime createdAt, LocalDateTime updatedAt, String role) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -151,11 +148,11 @@ public class User implements UserDetails {
         this.updatedAt = updatedAt;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
@@ -182,12 +179,14 @@ public class User implements UserDetails {
     public void setCars(List<Car> cars) {
         this.cars = cars;
     }
-
-
+    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.getName()));
+        return List.of(
+                new SimpleGrantedAuthority(role)
+        );
     }
+
 
     @Override
     public String getUsername() {

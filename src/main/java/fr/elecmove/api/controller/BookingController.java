@@ -64,7 +64,7 @@ public class BookingController {
     }
 
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public BookingDTO updateBooking(@PathVariable String id, @RequestBody BookingCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
         User user = (User) userDetails;
         return bookingMapper.toDto(

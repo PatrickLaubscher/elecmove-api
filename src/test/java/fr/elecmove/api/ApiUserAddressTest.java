@@ -2,10 +2,8 @@ package fr.elecmove.api;
 
 
 import fr.elecmove.api.messaging.MailService;
-import fr.elecmove.api.model.Role;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.model.UserAddress;
-import fr.elecmove.api.repository.RoleRepository;
 import fr.elecmove.api.repository.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -29,6 +27,7 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -50,9 +49,6 @@ class ApiUserAddressTest {
     private MailService mailService;
 
     @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -64,19 +60,13 @@ class ApiUserAddressTest {
     @BeforeEach
     void setUp() throws Exception {
 
-        Role roleUser = roleRepository.findByName("ROLE_USER").orElseGet(() -> {
-            Role r = new Role();
-            r.setName("ROLE_USER");
-            return roleRepository.save(r);
-        });
-
         doNothing().when(mailService).sendEmailValidation(any(User.class), anyString());
 
         user1.setFirstname("firstname1");
         user1.setLastname("lastname1");
         user1.setEmail("firstname1@test.com");
         user1.setPassword(passwordEncoder.encode("password"));
-        user1.setRole(roleUser);
+        user1.setRole("ROLE_USER");
         user1.setValidated(true);
         em.persist(user1);
 
@@ -155,8 +145,8 @@ class ApiUserAddressTest {
     }
 
     @Test
-    void patchShouldUpdateUserAddress() throws Exception {
-        mvc.perform(patch("/api/user-addresses/"+userAddressId)
+    void putShouldUpdateUserAddress() throws Exception {
+        mvc.perform(put("/api/user-addresses/"+userAddressId)
                         .with(user(user1))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""

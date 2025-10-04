@@ -11,6 +11,7 @@ public class LoginResponseDTO {
         this.token = token;
         this.user = user;
     }
+
     public String getToken() {
         return token;
     }

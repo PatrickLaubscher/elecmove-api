@@ -55,7 +55,7 @@ public class UserAddressController {
     }
 
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public UserAddressDTO updateUserAddress(@PathVariable String id, @RequestBody UserAddressCreationDTO dto, @AuthenticationPrincipal UserDetails userDetails) {
         User user = (User) userDetails;
         return userAddressMapper.toDto(

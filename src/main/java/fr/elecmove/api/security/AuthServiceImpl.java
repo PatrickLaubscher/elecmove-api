@@ -46,29 +46,16 @@ public class AuthServiceImpl implements AuthService {
     }
 
 
+    @Override
     public LoginResponseDTO login(LoginCredentialsDTO credentials) {
-
         Authentication authentication = authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(credentials.getEmail(), credentials.getPassword())
-        );
-
-        Object principal = authentication.getPrincipal();
-
-        if (!(principal instanceof User)) {
-            throw new RuntimeException("L'objet authentifié n'est pas de type User.");
-        }
-
-        User user = (User) principal;
-
-        // Si le compte n’est pas validé
-        if (!user.getValidated()) {
-            throw new AccountNotValidatedException("Vous devez valider votre compte par mail avant de vous connecter.");
-        }
+                new UsernamePasswordAuthenticationToken(
+                        credentials.getEmail(),
+                        credentials.getPassword()));
+        User user = (User) authentication.getPrincipal();
 
         String token = jwtUtil.generateToken(user);
-        UserConnectedDTO userConnectedDTO = userMapper.toConnectedDto(user);
-
-        return new LoginResponseDTO(token, userConnectedDTO);
+        return new LoginResponseDTO(token, userMapper.toConnectedDto(user));
     }
 
 

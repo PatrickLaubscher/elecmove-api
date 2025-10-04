@@ -1,14 +1,14 @@
 package fr.elecmove.api.security;
 
-
 import fr.elecmove.api.repository.UserRepository;
-import org.springframework.security.core.userdetails.*;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
-
 @Service
-public class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService{
 
     private UserRepository repo;
 
@@ -22,4 +22,7 @@ public class UserService implements UserDetailsService {
                 () -> new UsernameNotFoundException("User not found")
         );
     }
+
 }
+
+

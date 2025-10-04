@@ -12,7 +12,6 @@ import java.util.Random;
 @Component
 public class DataInitializer implements CommandLineRunner {
 
-    private final RoleRepository roleRepository;
     private final BookingStatusRepository statusRepository;
     private final UserRepository userRepository;
     private final StationRepository stationRepository;
@@ -20,13 +19,11 @@ public class DataInitializer implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
     private final CarRepository carRepository;
 
-    public DataInitializer(RoleRepository roleRepository,
-                           BookingStatusRepository statusRepository,
+    public DataInitializer(BookingStatusRepository statusRepository,
                            UserRepository userRepository,
                            StationRepository stationRepository,
                            LocationStationRepository locationStationRepository,
                            PasswordEncoder passwordEncoder, CarRepository carRepository) {
-        this.roleRepository = roleRepository;
         this.statusRepository = statusRepository;
         this.userRepository = userRepository;
         this.stationRepository = stationRepository;
@@ -40,21 +37,6 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         User user1;
-
-        // === 1. create Roles
-        if (roleRepository.count() == 0) {
-            Role adminRole = new Role();
-            adminRole.setName("ROLE_ADMIN");
-
-            Role userRole = new Role();
-            userRole.setName("ROLE_USER");
-
-            roleRepository.save(adminRole);
-            roleRepository.save(userRole);
-
-        }
-
-        Role userRole = roleRepository.findByName("ROLE_USER").orElseThrow();
 
         // === 2. create Booking status
         if  (statusRepository.count() == 0) {
@@ -76,10 +58,10 @@ public class DataInitializer implements CommandLineRunner {
         // === 3. create Users
         if (userRepository.count() == 0) {
             user1 = userRepository.save(new User("Alice", "Durand", "0000000", "alice@test.com",
-                    userRole, passwordEncoder.encode("password"), true));
+                    "ROLE_USER", passwordEncoder.encode("password"), true));
 
             userRepository.save(new User("Bob", "Martin", "0000000", "bob@test.com",
-                    userRole, passwordEncoder.encode("password"), true));
+                    "ROLE_USER", passwordEncoder.encode("password"), true));
         } else {
             user1 = userRepository.findByEmail("alice@test.com")
                     .orElse(userRepository.findAll().get(0)); // fallback : prends n'importe quel user

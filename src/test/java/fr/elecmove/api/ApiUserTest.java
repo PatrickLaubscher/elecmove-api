@@ -2,9 +2,7 @@ package fr.elecmove.api;
 
 
 import fr.elecmove.api.messaging.MailService;
-import fr.elecmove.api.model.Role;
 import fr.elecmove.api.model.User;
-import fr.elecmove.api.repository.RoleRepository;
 import fr.elecmove.api.repository.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -27,6 +25,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -45,9 +44,6 @@ class ApiUserTest {
     private MailService mailService;
 
     @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -58,19 +54,13 @@ class ApiUserTest {
     @BeforeEach
     void setUp() throws Exception {
 
-        Role roleUser = roleRepository.findByName("ROLE_USER").orElseGet(() -> {
-            Role r = new Role();
-            r.setName("ROLE_USER");
-            return roleRepository.save(r);
-        });
-
         doNothing().when(mailService).sendEmailValidation(any(User.class), anyString());
 
         user1.setFirstname("firstname1");
         user1.setLastname("lastname1");
         user1.setEmail("firstname1@test.com");
         user1.setPassword(passwordEncoder.encode("password"));
-        user1.setRole(roleUser);
+        user1.setRole("ROLE_USER");
         user1.setValidated(true);
         em.persist(user1);
 
@@ -94,8 +84,8 @@ class ApiUserTest {
     }
 
     @Test
-    void patchUserShouldUpdateUser() throws Exception {
-        mvc.perform(patch("/api/users/me")
+    void putUserShouldUpdateUser() throws Exception {
+        mvc.perform(put("/api/users/me")
                 .with(user(user1))
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("""

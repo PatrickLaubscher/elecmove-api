@@ -53,7 +53,7 @@ public class StationAvailabilityController {
     }
 
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     @Secured("ROLE_USER")
     public StationAvailabilityDTO updateAvailability(@PathVariable String id, @RequestBody StationAvailabilityCreationDTO dto) {
         return stationAvailabilityMapper.toDto(

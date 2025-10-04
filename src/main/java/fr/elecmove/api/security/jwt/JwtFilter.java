@@ -1,10 +1,8 @@
 package fr.elecmove.api.security.jwt;
 
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authorization.AuthorizationDeniedException;
@@ -13,13 +11,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import java.io.IOException;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
-    private JwtUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
     public JwtFilter(JwtUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
@@ -31,22 +32,23 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String authHeader = request.getHeader("Authorization");
 
-        if (request.getRequestURI().startsWith("/api/login")
+        if (request.getRequestURI().startsWith("/api/account/register")
                 || request.getRequestURI().startsWith("/api/refresh-token")
-                || request.getRequestURI().startsWith("/api/stations/nearby")
+                || request.getRequestURI().startsWith("/api/login")
                 || authHeader == null
-                || !authHeader.startsWith("Bearer ")) {
+                || !authHeader.startsWith("Bearer")) {
             filterChain.doFilter(request, response);
             return;
         }
-        String jwt = authHeader.substring(7);
+        String jwt = authHeader.split(" ")[1];
 
         try {
             UserDetails user = jwtUtil.validateToken(jwt);
             SecurityContextHolder.getContext().setAuthentication(
-                    new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities()));
+                    new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities())
+            );
             filterChain.doFilter(request, response);
-        } catch (AuthorizationDeniedException e) {
+        } catch(AuthorizationDeniedException e) {
             response.sendError(HttpStatus.FORBIDDEN.value(), e.getMessage());
         }
 
