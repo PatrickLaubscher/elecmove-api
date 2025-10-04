@@ -45,3 +45,4 @@ out/
 /.gradle/
 /*.iml
 /.idea/
+logs
