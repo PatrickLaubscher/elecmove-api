@@ -27,7 +27,7 @@ public class AccountController {
         this.userMapper = userMapper;
     }
 
-    @PostMapping
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public UserResponseDTO register(@RequestBody @Valid UserCreationDTO dto) {
         return userMapper.toDto(

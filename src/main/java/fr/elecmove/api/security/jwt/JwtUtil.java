@@ -1,35 +1,43 @@
 package fr.elecmove.api.security.jwt;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import fr.elecmove.api.security.UserService;
 import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
+
 
 @Service
 public class JwtUtil {
 
-    private UserService userService;
-    private KeyManager keyManager;
+    private final UserService userService;
+    private final KeyManager keyManager;
 
     public JwtUtil(UserService userService, KeyManager keyManager) {
         this.userService = userService;
         this.keyManager = keyManager;
     }
 
-
     public String generateToken(UserDetails user) {
         return generateToken(user, Instant.now().plus(30, ChronoUnit.MINUTES));
     }
-
-
 
     public String generateToken(UserDetails user, Instant expiration) {
 
@@ -38,7 +46,6 @@ public class JwtUtil {
                 .withExpiresAt(expiration)
                 .sign(keyManager.getAlgorithm());
     }
-
 
     public UserDetails validateToken(String token) {
         try {

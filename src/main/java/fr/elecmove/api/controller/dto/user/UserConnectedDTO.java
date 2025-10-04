@@ -1,6 +1,5 @@
 package fr.elecmove.api.controller.dto.user;
 
-import fr.elecmove.api.controller.dto.role.RoleDTO;
 
 public class UserConnectedDTO {
 
@@ -9,7 +8,7 @@ public class UserConnectedDTO {
     private String lastname;
     private String email;
     private String mobile;
-    private RoleDTO role;
+    private String role;
 
     public String getId() {
         return id;
@@ -51,11 +50,11 @@ public class UserConnectedDTO {
         this.mobile = mobile;
     }
 
-    public RoleDTO getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(RoleDTO role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }

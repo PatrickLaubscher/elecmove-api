@@ -1,6 +1,5 @@
 package fr.elecmove.api.controller.dto.user;
 
-import fr.elecmove.api.controller.dto.role.RoleDTO;
 
 public class UserResponseDTO {
 
@@ -11,7 +10,7 @@ public class UserResponseDTO {
     private Boolean validated;
     private String createdAt;
     private String updatedAt;
-    private RoleDTO role;
+    private String role;
 
 
     public String getFirstname() { return firstname; }
@@ -40,10 +39,10 @@ public class UserResponseDTO {
     public String getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(String updatedAt) { this.updatedAt = updatedAt; }
 
-    public RoleDTO getRole() {
+    public String getRole() {
         return role;
     }
-    public void setRole(RoleDTO role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }

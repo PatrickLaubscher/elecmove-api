@@ -1,17 +1,19 @@
 package fr.elecmove.api.security;
 
-
 import fr.elecmove.api.security.jwt.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -19,29 +21,33 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 
-
 @Configuration
 public class SecurityConfig {
 
-    private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
     private final JwtFilter jwtFilter;
+    private final AuthenticationConfiguration authenticationConfiguration;
+    private final AccessDeniedHandler accessDeniedHandler;
+    private final CustomerAuthenticationEntryPoint authenticationEntryPoint;
 
 
-    public SecurityConfig(UserService userService, PasswordEncoder passwordEncoder, JwtFilter jwtFilter) {
-        this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
+    public SecurityConfig(JwtFilter jwtFilter, AuthenticationConfiguration authenticationConfiguration, AccessDeniedHandler accessDeniedHandler, CustomerAuthenticationEntryPoint authenticationEntryPoint) {
         this.jwtFilter = jwtFilter;
+        this.authenticationConfiguration = authenticationConfiguration;
+        this.accessDeniedHandler = accessDeniedHandler;
+        this.authenticationEntryPoint = authenticationEntryPoint;
     }
 
     @Bean
-    SecurityFilterChain securityFilter(HttpSecurity http, AuthenticationEntryPoint authenticationEntryPoint) throws Exception {
+    SecurityFilterChain securityFilter(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable());
-        http.exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(customAuthenticationEntryPoint()));
         http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
         http.authorizeHttpRequests(request -> request
-                .requestMatchers("/api/login", "/api/register").permitAll()
-                .anyRequest().permitAll());
+                .requestMatchers("/api/login").permitAll()
+                .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
+                .anyRequest().authenticated());
+        http.exceptionHandling(e -> e
+                .accessDeniedHandler(accessDeniedHandler)
+                .authenticationEntryPoint(authenticationEntryPoint));
         http.sessionManagement(session -> session.sessionCreationPolicy(
                 SessionCreationPolicy.STATELESS));
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
@@ -49,15 +55,13 @@ public class SecurityConfig {
     }
 
     @Bean
-    public CustomAuthenticationEntryPoint customAuthenticationEntryPoint() {
-        return new CustomAuthenticationEntryPoint();
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-        AuthenticationManagerBuilder builder = http.getSharedObject(AuthenticationManagerBuilder.class);
-        builder.userDetailsService(userService).passwordEncoder(passwordEncoder);
-        return builder.build();
+    AuthenticationManager getManager() throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
@@ -73,3 +77,4 @@ public class SecurityConfig {
     }
 
 }
+

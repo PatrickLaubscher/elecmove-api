@@ -31,7 +31,7 @@ public class UserController {
     }
 
 
-    @PatchMapping("/me")
+    @PutMapping("/me")
     public UserResponseDTO updateUser(@AuthenticationPrincipal UserDetails userDetails, @RequestBody UserPatchDTO dto) {
         User user = (User) userDetails;
         return userMapper.toDto(
