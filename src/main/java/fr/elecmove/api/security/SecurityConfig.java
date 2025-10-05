@@ -45,7 +45,10 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST,"/api/login").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/refresh-token").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
-                .requestMatchers("/api/stations/nearby").permitAll()
+                .requestMatchers(HttpMethod.GET,"/api/stations").permitAll()
+                .requestMatchers(HttpMethod.GET,"/api/locations").permitAll()
+                .requestMatchers(HttpMethod.GET,"/api/availabilities").permitAll()
+                .requestMatchers(HttpMethod.GET,"/api/stations/nearby").permitAll()
                 .anyRequest().authenticated());
         http.exceptionHandling(e -> e
                 .accessDeniedHandler(accessDeniedHandler)

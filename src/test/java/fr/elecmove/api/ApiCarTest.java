@@ -83,7 +83,7 @@ class ApiCarTest {
 
     @Test
     void getWithIdShouldReturnCar() throws Exception {
-        mvc.perform(get("/api/cars/"+carId))
+        mvc.perform(get("/api/cars/"+carId).with(user(user1)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.brand").value("brand1"))
                 .andExpect(jsonPath("$.registration").value("registration1"))
@@ -92,7 +92,7 @@ class ApiCarTest {
 
     @Test
     void getWithIdShouldThrow404IfNoCar() throws Exception {
-        mvc.perform(get("/api/cars/dontexist"))
+        mvc.perform(get("/api/cars/dontexist").with(user(user1)))
                 .andExpect(status().isNotFound());
     }
 

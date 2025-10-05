@@ -114,7 +114,7 @@ class ApiStationTest {
 
     @Test
     void getWithIdShouldReturnLocationStation() throws Exception {
-        mvc.perform(get("/api/stations/"+stationId))
+        mvc.perform(get("/api/stations/"+stationId).with(user(user1)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("station1"))
                 .andExpect(jsonPath("$.tarification").value(1.0))
@@ -128,7 +128,7 @@ class ApiStationTest {
 
     @Test
     void getWithIdShouldThrow404IfNoLocationStation() throws Exception {
-        mvc.perform(get("/api/locations/dontexist"))
+        mvc.perform(get("/api/locations/dontexist").with(user(user1)))
                 .andExpect(status().isNotFound());
     }
 

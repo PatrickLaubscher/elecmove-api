@@ -121,7 +121,7 @@ class ApiBookingTest {
 
     @Test
     void getWithIdShouldReturnBooking() throws Exception {
-        mvc.perform(get("/api/bookings/"+bookingId))
+        mvc.perform(get("/api/bookings/"+bookingId).with(user(user1)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.date").value("2025-01-01"))
                 .andExpect(jsonPath("$.startTime").value("09:00"))
@@ -130,7 +130,7 @@ class ApiBookingTest {
 
     @Test
     void getWithIdShouldThrow404IfNoBooking() throws Exception {
-        mvc.perform(get("/api/bookings/dontexist"))
+        mvc.perform(get("/api/bookings/dontexist").with(user(user1)))
                 .andExpect(status().isNotFound());
     }
 
