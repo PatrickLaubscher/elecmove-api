@@ -48,7 +48,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET,"/api/stations").permitAll()
                 .requestMatchers(HttpMethod.GET,"/api/locations").permitAll()
                 .requestMatchers(HttpMethod.GET,"/api/availabilities").permitAll()
-                .requestMatchers(HttpMethod.GET,"/api/stations/nearby").permitAll()
+                .requestMatchers(HttpMethod.POST,"/api/stations/nearby").permitAll()
                 .anyRequest().authenticated());
         http.exceptionHandling(e -> e
                 .accessDeniedHandler(accessDeniedHandler)
