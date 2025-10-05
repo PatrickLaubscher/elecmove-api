@@ -99,7 +99,7 @@ class ApiStationAvailabilityTest {
 
     @Test
     void getWithIdShouldReturnAvailability() throws Exception {
-        mvc.perform(get("/api/availabilities/"+availabilityId))
+        mvc.perform(get("/api/availabilities/"+availabilityId).with(user(user1)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.day").value("monday"))
                 .andExpect(jsonPath("$.startLocalTime").value("09:00"))
@@ -109,7 +109,7 @@ class ApiStationAvailabilityTest {
 
     @Test
     void getWithIdShouldThrow404IfNoAvailability() throws Exception {
-        mvc.perform(get("/api/availabilities/dontexist"))
+        mvc.perform(get("/api/availabilities/dontexist").with(user(user1)))
                 .andExpect(status().isNotFound());
     }
 

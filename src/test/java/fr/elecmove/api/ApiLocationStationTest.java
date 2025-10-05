@@ -92,7 +92,7 @@ class ApiLocationStationTest {
 
     @Test
     void getWithIdShouldReturnLocationStation() throws Exception {
-        mvc.perform(get("/api/locations/"+locationId))
+        mvc.perform(get("/api/locations/"+locationId).with(user(user1)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.address").value("address1"))
                 .andExpect(jsonPath("$.city").value("city1"))
@@ -103,7 +103,7 @@ class ApiLocationStationTest {
 
     @Test
     void getWithIdShouldThrow404IfNoLocationStation() throws Exception {
-        mvc.perform(get("/api/locations/dontexist"))
+        mvc.perform(get("/api/locations/dontexist").with(user(user1)))
                 .andExpect(status().isNotFound());
     }
 

@@ -93,7 +93,7 @@ class ApiUserAddressTest {
 
     @Test
     void getWithIdShouldReturnUserAddress() throws Exception {
-        mvc.perform(get("/api/user-addresses/"+userAddressId))
+        mvc.perform(get("/api/user-addresses/"+userAddressId).with(user(user1)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.addressName").value("address1"))
                 .andExpect(jsonPath("$.address").value("address1"))
@@ -105,7 +105,7 @@ class ApiUserAddressTest {
 
     @Test
     void getWithIdShouldThrow404IfNoUserAddress() throws Exception {
-        mvc.perform(get("/api/user-addresses/dontexist"))
+        mvc.perform(get("/api/user-addresses/dontexist").with(user(user1)))
                 .andExpect(status().isNotFound());
     }
 

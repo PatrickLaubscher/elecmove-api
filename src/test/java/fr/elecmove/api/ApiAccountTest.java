@@ -81,14 +81,15 @@ class ApiAccountTest {
 
     @Test
     void postShouldPersistUserAndSendEmail() throws Exception {
-        mvc.perform(post("/api/account")
+        mvc.perform(post("/api/account/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
 			{
 				"firstname":"firstname2",
 				"lastname":"lastname2",
 				"email":"firstname2@test.com",
-				"password": "test"
+				"password": "test",
+			    "role": "ROlE_USER"
 			}"""))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.firstname").value("firstname2"))

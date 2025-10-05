@@ -106,7 +106,7 @@ class ApiFavoriteStationTest {
 
     @Test
     void getWithIdShouldReturnFavoriteStationWithRightUserAndRightStation() throws Exception {
-        mvc.perform(get("/api/favorite-stations/"+favoriteId))
+        mvc.perform(get("/api/favorite-stations/"+favoriteId).with(user(user1)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.station.name").value(station1.getName()))
                 .andExpect(jsonPath("$.user.email").value(user1.getEmail()));
@@ -114,7 +114,7 @@ class ApiFavoriteStationTest {
 
     @Test
     void getWithIdShouldThrow404IfNoFavoriteStation() throws Exception {
-        mvc.perform(get("/api/favorite-stations/dontexist"))
+        mvc.perform(get("/api/favorite-stations/dontexist").with(user(user1)))
                 .andExpect(status().isNotFound());
     }
 
