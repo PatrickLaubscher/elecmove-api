@@ -3,6 +3,7 @@ package fr.elecmove.api.setup;
 
 import fr.elecmove.api.model.*;
 import fr.elecmove.api.repository.*;
+import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -21,8 +22,9 @@ public class DataInitializer implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
     private final CarRepository carRepository;
     private final BookingRepository bookingRepository;
+    private final StationExceptionRepository stationExceptionRepository;
 
-    public DataInitializer(BookingStatusRepository statusRepository, UserRepository userRepository, StationRepository stationRepository, LocationStationRepository locationStationRepository, PasswordEncoder passwordEncoder, CarRepository carRepository, BookingRepository bookingRepository) {
+    public DataInitializer(BookingStatusRepository statusRepository, UserRepository userRepository, StationRepository stationRepository, LocationStationRepository locationStationRepository, PasswordEncoder passwordEncoder, CarRepository carRepository, BookingRepository bookingRepository, StationExceptionRepository stationExceptionRepository) {
         this.statusRepository = statusRepository;
         this.userRepository = userRepository;
         this.stationRepository = stationRepository;
@@ -30,14 +32,18 @@ public class DataInitializer implements CommandLineRunner {
         this.passwordEncoder = passwordEncoder;
         this.carRepository = carRepository;
         this.bookingRepository = bookingRepository;
+        this.stationExceptionRepository = stationExceptionRepository;
     }
 
+    @Transactional
     @Override
     public void run(String... args) throws Exception {
 
         BookingStatus status1;
         BookingStatus status2;
         BookingStatus status3;
+        BookingStatus status4;
+        BookingStatus status5;
         User user1;
         User user2;
         Car car1;
@@ -60,14 +66,24 @@ public class DataInitializer implements CommandLineRunner {
             status3 = new BookingStatus();
             status3.setName("Payé");
 
+            status4 = new BookingStatus();
+            status4.setName("Refusé");
+
+            status5 = new BookingStatus();
+            status5.setName("Annulé");
+
             statusRepository.save(status1);
             statusRepository.save(status2);
             statusRepository.save(status3);
+            statusRepository.save(status4);
+            statusRepository.save(status5);
 
         } else {
             status1 = statusRepository.findByName("En attente").orElse(statusRepository.findAll().get(0));
             status2 = statusRepository.findByName("Confimé").orElse(statusRepository.findAll().get(1));
             status3 = statusRepository.findByName("Payé").orElse(statusRepository.findAll().get(2));
+            status4 = statusRepository.findByName("Refusé").orElse(statusRepository.findAll().get(2));
+            status5 = statusRepository.findByName("Annulé").orElse(statusRepository.findAll().get(2));
         }
 
         // === 3. Users
@@ -122,7 +138,8 @@ public class DataInitializer implements CommandLineRunner {
             station1 = stationRepository.findStationByUserEmail("alice@test.com").get(0);
         }
 
-        // === 6. Availabilities
+
+        // === 6. Add station exceptions
 
 
         // === 7. Add Bookings

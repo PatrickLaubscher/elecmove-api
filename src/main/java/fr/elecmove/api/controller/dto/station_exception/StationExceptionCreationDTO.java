@@ -1,29 +1,24 @@
-package fr.elecmove.api.controller.dto.station_availability;
-
+package fr.elecmove.api.controller.dto.station_exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import fr.elecmove.api.controller.dto.station.StationDTO;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalTime;
 
-public class StationAvailabilityDTO {
 
-    private String id;
+public class StationExceptionCreationDTO {
+
+    @NotBlank
     private String day;
+    @NotNull
     @JsonFormat(pattern = "HH:mm")
     private LocalTime startLocalTime;
+    @NotNull
     @JsonFormat(pattern = "HH:mm")
     private LocalTime endLocalTime;
-    private StationDTO station;
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    @NotBlank
+    private String stationId;
 
     public String getDay() {
         return day;
@@ -49,11 +44,11 @@ public class StationAvailabilityDTO {
         this.endLocalTime = endLocalTime;
     }
 
-    public StationDTO getStation() {
-        return station;
+    public String getStationId() {
+        return stationId;
     }
 
-    public void setStation(StationDTO station) {
-        this.station = station;
+    public void setStationId(String stationId) {
+        this.stationId = stationId;
     }
 }

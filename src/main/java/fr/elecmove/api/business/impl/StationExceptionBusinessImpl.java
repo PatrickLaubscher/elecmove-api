@@ -1,10 +1,10 @@
 package fr.elecmove.api.business.impl;
 
-import fr.elecmove.api.business.StationAvailabilityBusiness;
-import fr.elecmove.api.business.mapper.StationAvailabilityEntityMapper;
-import fr.elecmove.api.model.StationAvailability;
+import fr.elecmove.api.business.StationExceptionBusiness;
+import fr.elecmove.api.business.mapper.StationExceptionEntityMapper;
 import fr.elecmove.api.model.Station;
-import fr.elecmove.api.repository.StationAvailabilityRepository;
+import fr.elecmove.api.model.StationException;
+import fr.elecmove.api.repository.StationExceptionRepository;
 import fr.elecmove.api.repository.StationRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
@@ -15,20 +15,20 @@ import java.util.List;
 
 @Service
 @Transactional
-public class StationAvailabilityBusinessImpl implements StationAvailabilityBusiness {
+public class StationExceptionBusinessImpl implements StationExceptionBusiness {
 
-    StationAvailabilityRepository availabilityRepository;
+    StationExceptionRepository availabilityRepository;
     StationRepository stationRepository;
-    StationAvailabilityEntityMapper stationAvailabilityEntityMapper;
+    StationExceptionEntityMapper stationExceptionEntityMapper;
 
-    public StationAvailabilityBusinessImpl(StationAvailabilityRepository availabilityRepository, StationRepository stationRepository, StationAvailabilityEntityMapper stationAvailabilityEntityMapper) {
+    public StationExceptionBusinessImpl(StationExceptionRepository availabilityRepository, StationRepository stationRepository, StationExceptionEntityMapper stationExceptionEntityMapper) {
         this.availabilityRepository = availabilityRepository;
         this.stationRepository = stationRepository;
-        this.stationAvailabilityEntityMapper = stationAvailabilityEntityMapper;
+        this.stationExceptionEntityMapper = stationExceptionEntityMapper;
     }
 
     @Override
-    public StationAvailability createStationAvailability(StationAvailability availability, String stationId) {
+    public StationException createStationAvailability(StationException availability, String stationId) {
         Station station = stationRepository.findById(stationId).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The station does not exist")
         );
@@ -38,25 +38,25 @@ public class StationAvailabilityBusinessImpl implements StationAvailabilityBusin
     }
 
     @Override
-    public StationAvailability getStationAvailability(String id) {
+    public StationException getStationAvailability(String id) {
         return availabilityRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The availability does not exist")
         );
     }
 
     @Override
-    public List<StationAvailability> getAllAvailabilityByStation(String stationId) {
+    public List<StationException> getAllAvailabilityByStation(String stationId) {
         return availabilityRepository.findByStationId(stationId);
     }
 
     @Override
-    public StationAvailability updateStationAvailability(StationAvailability availability, String availabilityId) {
+    public StationException updateStationAvailability(StationException availability, String availabilityId) {
 
-        StationAvailability existingAvailability = availabilityRepository.findById(availabilityId).orElseThrow(
+        StationException existingAvailability = availabilityRepository.findById(availabilityId).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The availability does not exist")
         );
 
-        stationAvailabilityEntityMapper.merge(existingAvailability, availability);
+        stationExceptionEntityMapper.merge(existingAvailability, availability);
         return availabilityRepository.save(availability);
     }
 

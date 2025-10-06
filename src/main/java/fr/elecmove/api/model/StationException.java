@@ -8,13 +8,13 @@ import java.time.LocalTime;
 
 
 @Entity
-@Table(name = "station_availability")
-public class StationAvailability {
+@Table(name = "station_exception")
+public class StationException {
 
     @Id
     @UuidGenerator
     private String id;
-    @Column(name = "availability_day")
+    @Column(name = "exception_day")
     private String day;
     @JsonFormat(pattern = "HH:mm")
     @Column(name = "start_time")
@@ -27,11 +27,11 @@ public class StationAvailability {
     private Station station;
 
 
-    public StationAvailability() {
+    public StationException() {
     }
 
 
-    public StationAvailability(String id, String day, LocalTime startLocalTime, LocalTime endLocalTime, Station station) {
+    public StationException(String id, String day, LocalTime startLocalTime, LocalTime endLocalTime, Station station) {
         this.id = id;
         this.day = day;
         this.startLocalTime = startLocalTime;

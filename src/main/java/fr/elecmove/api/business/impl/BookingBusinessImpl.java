@@ -83,6 +83,19 @@ public class BookingBusinessImpl implements BookingBusiness {
     }
 
     @Override
+    public Booking updateBookingStatus(String id, int statusId) {
+
+        Booking existingBooking = bookingRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The booking does not exist")
+        );
+        existingBooking.setStatus(
+                bookingStatusRepository.findById(statusId).orElseThrow()
+        );
+
+        return bookingRepository.save(existingBooking);
+    }
+
+    @Override
     public void deleteBooking(String id, User user) {
 
         Booking existingBooking = getBooking(id);

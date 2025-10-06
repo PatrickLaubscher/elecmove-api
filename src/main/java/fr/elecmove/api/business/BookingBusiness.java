@@ -64,6 +64,13 @@ public interface BookingBusiness {
     Booking updateBooking(String id, Booking booking, User user);
 
 
+    /**
+     *
+     * @param id
+     * @param statusId
+     * @return
+     */
+    Booking updateBookingStatus(String id, int statusId);
 
     /**
      *

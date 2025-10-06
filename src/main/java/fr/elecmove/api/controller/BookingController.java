@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -86,6 +87,14 @@ public class BookingController {
         User user = (User) userDetails;
         return bookingMapper.toDto(
                 bookingBusiness.updateBooking(id, bookingMapper.toEntity(dto), user)
+        );
+    }
+
+    @PatchMapping("/{id}/updateStatus")
+    public BookingDTO updateBookingStatus(@PathVariable String id, @RequestBody Map<String, Integer> body) {
+        Integer statusId = body.get("statusId");
+        return bookingMapper.toDto(
+                bookingBusiness.updateBookingStatus(id, statusId)
         );
     }
 

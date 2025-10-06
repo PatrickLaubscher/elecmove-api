@@ -36,10 +36,11 @@ public interface StationRepository extends JpaRepository<Station, String> {
     @Query("""
     SELECT s
     FROM Station s
-    JOIN s.availabilities sa
-    WHERE sa.day = :weekday
-      AND sa.startLocalTime <= :startTime
-      AND sa.endLocalTime >= :endTime
+    LEFT JOIN s.exceptions se
+      ON se.day = :weekday
+      AND se.startLocalTime <= :startTime
+      AND se.endLocalTime >= :endTime
+    WHERE se.id IS NULL
     """)
     List<Station> findAvailableStationsByDayAndTime(
             @Param("weekday") String weekday,
