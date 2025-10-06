@@ -18,14 +18,4 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
 
     List<Booking> findByStationIdAndStatusId(String stationId, int statusId);
 
-    @Query("""
-    SELECT COUNT(b) > 0
-    FROM Booking b
-    WHERE b.date = :date
-      AND ( :startTime < b.endTime AND :endTime > b.startTime )
-    """)
-    boolean checkExistingBooking(@Param("date") LocalDate date,
-                          @Param("startTime") LocalTime startTime,
-                          @Param("endTime") LocalTime endTime);
-
 }

@@ -135,7 +135,7 @@ public class DataInitializer implements CommandLineRunner {
             }
 
         } else {
-            station1 = stationRepository.findStationByUserEmail("alice@test.com").get(0);
+            station1 = stationRepository.findStationByUserEmailWithExceptions("alice@test.com").get(0);
         }
 
 

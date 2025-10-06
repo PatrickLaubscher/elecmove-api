@@ -5,12 +5,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 public interface StationRepository extends JpaRepository<Station, String> {
 
-    List<Station> findStationByUserEmail(String email);
+    @Query("SELECT s FROM Station s LEFT JOIN FETCH s.exceptions WHERE s.user.email = :email")
+    List<Station> findStationByUserEmailWithExceptions(@Param("email") String email);
 
     @Query(value = """
     SELECT s.*
@@ -49,6 +51,23 @@ public interface StationRepository extends JpaRepository<Station, String> {
     );
 
 
-
+    @Query("""
+    SELECT s
+    FROM Station s
+    WHERE s.id IN :stationIds
+    AND NOT EXISTS (
+        SELECT b
+        FROM Booking b
+        WHERE b.station = s
+          AND b.date = :date
+          AND (:startTime < b.endTime AND :endTime > b.startTime)
+    )
+    """)
+    List<Station> filterStationsWithoutBooking(
+            @Param("stationIds") List<String> stationIds,
+            @Param("date") LocalDate date,
+            @Param("startTime") LocalTime startTime,
+            @Param("endTime") LocalTime endTime
+    );
 
 }

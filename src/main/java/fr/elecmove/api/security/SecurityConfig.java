@@ -43,7 +43,6 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST,"/api/login").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/refresh-token").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
-                .requestMatchers(HttpMethod.GET,"/api/stations/*").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/stations/nearby").permitAll()
                 .anyRequest().authenticated());
         http.exceptionHandling(e -> e

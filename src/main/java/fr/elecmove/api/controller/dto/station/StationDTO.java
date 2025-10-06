@@ -22,7 +22,7 @@ public class StationDTO {
     private LocalDateTime updatedAt;
     private UserSingleDTO user;
     private LocationStationDTO location;
-    private List<StationExceptionDTO> availabilities;
+    private List<StationExceptionDTO> exceptions;
 
     public String getId() {
         return id;
@@ -121,10 +121,10 @@ public class StationDTO {
     }
 
     public List<StationExceptionDTO> getAvailabilities() {
-        return availabilities;
+        return exceptions;
     }
 
-    public void setAvailabilities(List<StationExceptionDTO> availabilities) {
-        this.availabilities = availabilities;
+    public void setAvailabilities(List<StationExceptionDTO> exceptions) {
+        this.exceptions = exceptions;
     }
 }

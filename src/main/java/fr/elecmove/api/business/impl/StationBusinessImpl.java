@@ -14,9 +14,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.TextStyle;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -51,7 +51,7 @@ public class StationBusinessImpl implements StationBusiness {
 
     @Override
     public List<Station> getAllStationByEmail(String email) {
-        return stationRepository.findStationByUserEmail(email);
+        return stationRepository.findStationByUserEmailWithExceptions(email);
     }
 
 
@@ -61,20 +61,23 @@ public class StationBusinessImpl implements StationBusiness {
     }
 
     @Override
-    public List<Station> checkStationBookingAvailability(LocalDate date, LocalTime startTime, LocalTime endTime) {
+    public List<Station> getNearbyAvailableStations(double latitude, double longitude, double rayonMeters, LocalDate date, LocalTime startTime, LocalTime endTime) {
 
-        String weekday = date.getDayOfWeek()
-                .getDisplayName(TextStyle.FULL, Locale.ENGLISH).toLowerCase();
+        List<Station> nearbyStations = stationRepository.findStationsNearby(latitude, longitude, rayonMeters);
 
-        boolean isBooking = bookingRepository.checkExistingBooking(date, startTime, endTime);
+        String weekday = date.getDayOfWeek().name();
+        Set<Station> stationsWithoutExceptions = new HashSet<>(
+                stationRepository.findAvailableStationsByDayAndTime(weekday, startTime, endTime)
+        );
 
-        if (!isBooking) {
-            return stationRepository.findAvailableStationsByDayAndTime(weekday, startTime, endTime);
-        }
+        List<Station> withoutExceptions = nearbyStations.stream()
+                .filter(stationsWithoutExceptions::contains)
+                .toList();
 
-        return List.of();
+        List<String> availableStationId = withoutExceptions.stream().map(Station::getId).toList();
+
+        return stationRepository.filterStationsWithoutBooking(availableStationId, date, startTime, endTime);
     }
-
 
     @Override
     public Station updateStation(String id, Station station, User user) {

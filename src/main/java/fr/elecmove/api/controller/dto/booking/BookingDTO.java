@@ -5,6 +5,7 @@ import fr.elecmove.api.controller.dto.booking_status.BookingStatusDTO;
 import fr.elecmove.api.controller.dto.car.CarDTO;
 import fr.elecmove.api.controller.dto.payment.PaymentSingleDTO;
 import fr.elecmove.api.controller.dto.station.StationDTO;
+import fr.elecmove.api.controller.dto.station.StationSingleDTO;
 import fr.elecmove.api.controller.dto.user.UserSingleDTO;
 
 import java.time.LocalDate;
@@ -25,9 +26,8 @@ public class BookingDTO {
     private LocalDateTime updatedAt;
     private UserSingleDTO user;
     private CarDTO car;
-    private StationDTO station;
+    private StationSingleDTO station;
     private BookingStatusDTO status;
-    private List<PaymentSingleDTO> payments;
 
 
     public String getId() {
@@ -102,11 +102,11 @@ public class BookingDTO {
         this.car = car;
     }
 
-    public StationDTO getStation() {
+    public StationSingleDTO getStation() {
         return station;
     }
 
-    public void setStation(StationDTO station) {
+    public void setStation(StationSingleDTO station) {
         this.station = station;
     }
 
@@ -118,11 +118,4 @@ public class BookingDTO {
         this.status = status;
     }
 
-    public List<PaymentSingleDTO> getPayments() {
-        return payments;
-    }
-
-    public void setPayments(List<PaymentSingleDTO> payments) {
-        this.payments = payments;
-    }
 }
