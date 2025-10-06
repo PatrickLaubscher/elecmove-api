@@ -45,12 +45,22 @@ public class BookingController {
 
 
     @GetMapping
-    public List<BookingDTO> getAllBookings(@AuthenticationPrincipal UserDetails user) {
+    public List<BookingDTO> getAllBookings(
+            @AuthenticationPrincipal UserDetails user) {
         List<BookingDTO> bookingDTOS = new ArrayList<>();
         for(Booking station : bookingBusiness.getAllBookingByEmail(user.getUsername())){
             bookingDTOS.add(bookingMapper.toDto(station));
         }
         return bookingDTOS;
+    }
+
+    @GetMapping("/upcoming")
+    public List<BookingDTO> getAllUpcomingBookings(@AuthenticationPrincipal UserDetails user) {
+        return bookingBusiness
+                .getAllUpComingBookingByEmail(user.getUsername())
+                .stream()
+                .map(bookingMapper::toDto)
+                .toList();
     }
 
     @GetMapping("/station/{id}")
@@ -62,13 +72,23 @@ public class BookingController {
         return bookingDTOS;
     }
 
-    @GetMapping("/station/{stationId}/status/{statusId}")
-    public List<BookingDTO> getAllBookingsByStationId(@PathVariable String stationId,@PathVariable int statusId) {
-        List<BookingDTO> bookingDTOS = new ArrayList<>();
-        for(Booking station : bookingBusiness.getAllBookingByStationIdAndStatusId(stationId, statusId)){
-            bookingDTOS.add(bookingMapper.toDto(station));
-        }
-        return bookingDTOS;
+    @GetMapping("/status/{statusId}")
+    public List<BookingDTO> getAllBookingsByStatus(@AuthenticationPrincipal UserDetails user, @PathVariable int statusId) {
+        return bookingBusiness
+                .getAllBookingByEmailAndStatusId(user.getUsername(), statusId)
+                .stream()
+                .map(bookingMapper::toDto)
+                .toList();
+    }
+
+
+    @GetMapping("/stations/user/status/{statusId}")
+    public List<BookingDTO> getAllBookingsByStationOwnerAndByStatus(@AuthenticationPrincipal UserDetails user, @PathVariable int statusId) {
+        return bookingBusiness
+                .getAllBookingByStationOwnerAndStatusId(user.getUsername(), statusId)
+                .stream()
+                .map(bookingMapper::toDto)
+                .toList();
     }
 
     @PostMapping

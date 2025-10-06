@@ -40,6 +40,14 @@ public interface BookingBusiness {
 
     /**
      *
+     * @param email
+     * @return
+     */
+    List<Booking> getAllUpComingBookingByEmail(String email);
+
+
+    /**
+     *
      * @param stationId
      * @return
      */
@@ -48,11 +56,20 @@ public interface BookingBusiness {
 
     /**
      *
-     * @param stationId
+     * @param email
      * @param statusId
      * @return
      */
-    List<Booking> getAllBookingByStationIdAndStatusId(String stationId, int statusId);
+    List<Booking> getAllBookingByEmailAndStatusId(String email, int statusId);
+
+
+    /**
+     *
+     * @param email
+     * @param statusId
+     * @return
+     */
+    List<Booking> getAllBookingByStationOwnerAndStatusId(String email, int statusId);
 
     /**
      *

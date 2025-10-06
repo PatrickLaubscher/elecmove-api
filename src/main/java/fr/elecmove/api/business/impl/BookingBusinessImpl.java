@@ -58,13 +58,23 @@ public class BookingBusinessImpl implements BookingBusiness {
     }
 
     @Override
+    public List<Booking> getAllUpComingBookingByEmail(String email) {
+        return bookingRepository.findUpcomingBookingsByUserEmail(email);
+    }
+
+    @Override
     public List<Booking> getAllBookingByStationId(String id) {
         return bookingRepository.findByStationId(id);
     }
 
     @Override
-    public List<Booking> getAllBookingByStationIdAndStatusId(String stationId, int statusId) {
-        return bookingRepository.findByStationIdAndStatusId(stationId, statusId);
+    public List<Booking> getAllBookingByEmailAndStatusId(String email, int statusId) {
+        return bookingRepository.findByUserEmailAndStatusId(email, statusId);
+    }
+
+    @Override
+    public List<Booking> getAllBookingByStationOwnerAndStatusId(String email, int statusId) {
+        return bookingRepository.findByStationOwnerEmailAndStatusId(email, statusId);
     }
 
     @Override
