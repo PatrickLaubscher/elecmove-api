@@ -44,13 +44,30 @@ public class BookingController {
 
     @GetMapping
     public List<BookingDTO> getAllBookings(@AuthenticationPrincipal UserDetails user) {
-        List<BookingDTO> stationDTOS = new ArrayList<>();
+        List<BookingDTO> bookingDTOS = new ArrayList<>();
         for(Booking station : bookingBusiness.getAllBookingByEmail(user.getUsername())){
-            stationDTOS.add(bookingMapper.toDto(station));
+            bookingDTOS.add(bookingMapper.toDto(station));
         }
-        return stationDTOS;
+        return bookingDTOS;
     }
 
+    @GetMapping("/station/{id}")
+    public List<BookingDTO> getAllBookingsByStationId(@PathVariable String id) {
+        List<BookingDTO> bookingDTOS = new ArrayList<>();
+        for(Booking station : bookingBusiness.getAllBookingByStationId(id)){
+            bookingDTOS.add(bookingMapper.toDto(station));
+        }
+        return bookingDTOS;
+    }
+
+    @GetMapping("/station/{stationId}/status/{statusId}")
+    public List<BookingDTO> getAllBookingsByStationId(@PathVariable String stationId,@PathVariable int statusId) {
+        List<BookingDTO> bookingDTOS = new ArrayList<>();
+        for(Booking station : bookingBusiness.getAllBookingByStationIdAndStatusId(stationId, statusId)){
+            bookingDTOS.add(bookingMapper.toDto(station));
+        }
+        return bookingDTOS;
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

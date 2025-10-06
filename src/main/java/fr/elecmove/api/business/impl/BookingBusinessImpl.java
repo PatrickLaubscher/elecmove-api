@@ -58,6 +58,16 @@ public class BookingBusinessImpl implements BookingBusiness {
     }
 
     @Override
+    public List<Booking> getAllBookingByStationId(String id) {
+        return bookingRepository.findByStationId(id);
+    }
+
+    @Override
+    public List<Booking> getAllBookingByStationIdAndStatusId(String stationId, int statusId) {
+        return bookingRepository.findByStationIdAndStatusId(stationId, statusId);
+    }
+
+    @Override
     public Booking updateBooking(String id, Booking booking, User user) {
 
         Booking existingBooking = bookingRepository.findById(id).orElseThrow(

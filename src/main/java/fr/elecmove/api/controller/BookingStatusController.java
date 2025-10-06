@@ -30,7 +30,7 @@ public class BookingStatusController {
     }
 
     @GetMapping("/{id}")
-    public BookingStatusDTO getBookingStatus(@PathVariable String id) {
+    public BookingStatusDTO getBookingStatus(@PathVariable int id) {
         return bookingStatusMapper.toDto(bookingStatusBusiness.getBookingStatus(id));
     }
 
