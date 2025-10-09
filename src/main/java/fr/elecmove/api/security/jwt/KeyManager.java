@@ -28,6 +28,10 @@ public class KeyManager {
 
     @PostConstruct
     private void initialize() throws Exception {
+        if (Files.notExists(keyLocation)) {
+            Files.createDirectories(keyLocation);
+        }
+
         Path pubFile = keyLocation.resolve("public.key");
         Path privFile = keyLocation.resolve("private.key");
         KeyPair keyPair;
