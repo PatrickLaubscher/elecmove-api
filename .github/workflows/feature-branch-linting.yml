@@ -30,14 +30,6 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        env:
-          SPRING_PROFILES_ACTIVE: test
-          SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
-          SPRING_DATASOURCE_DRIVERCLASSNAME: org.h2.Driver
-          SPRING_DATASOURCE_USERNAME: sa
-          SPRING_DATASOURCE_PASSWORD: ""
-          SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
-          SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
         run: ./gradlew build
 
       - name: SonarQube Scan
