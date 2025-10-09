@@ -1,10 +1,10 @@
 package fr.elecmove.api.business;
 
-import fr.elecmove.api.model.StationAvailability;
+import fr.elecmove.api.model.StationException;
 
 import java.util.List;
 
-public interface StationAvailabilityBusiness {
+public interface StationExceptionBusiness {
 
 
     /**
@@ -13,7 +13,7 @@ public interface StationAvailabilityBusiness {
      * @param stationId
      * @return
      */
-    StationAvailability createStationAvailability(StationAvailability availability, String stationId);
+    StationException createStationAvailability(StationException availability, String stationId);
 
 
     /**
@@ -21,7 +21,7 @@ public interface StationAvailabilityBusiness {
      * @param id
      * @return
      */
-    StationAvailability getStationAvailability(String id);
+    StationException getStationAvailability(String id);
 
 
     /**
@@ -29,7 +29,7 @@ public interface StationAvailabilityBusiness {
      * @param stationId
      * @return
      */
-    List<StationAvailability> getAllAvailabilityByStation(String stationId);
+    List<StationException> getAllAvailabilityByStation(String stationId);
 
 
     /**
@@ -38,7 +38,7 @@ public interface StationAvailabilityBusiness {
      * @param availabilityId
      * @return
      */
-    StationAvailability updateStationAvailability(StationAvailability availability, String availabilityId);
+    StationException updateStationAvailability(StationException availability, String availabilityId);
 
 
     /**

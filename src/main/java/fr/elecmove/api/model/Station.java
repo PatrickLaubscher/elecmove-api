@@ -45,7 +45,7 @@ public class Station {
     private LocationStation location;
 
     @OneToMany(mappedBy = "station")
-    private List<StationAvailability> availabilities = new ArrayList<>();
+    private List<StationException> exceptions = new ArrayList<>();
 
     @OneToMany(mappedBy = "station")
     private List<Picture> pictures = new ArrayList<>();
@@ -164,12 +164,12 @@ public class Station {
         this.location = location;
     }
 
-    public List<StationAvailability> getAvailabilities() {
-        return availabilities;
+    public List<StationException> getAvailabilities() {
+        return exceptions;
     }
 
-    public void setAvailabilities(List<StationAvailability> availabilities) {
-        this.availabilities = availabilities;
+    public void setAvailabilities(List<StationException> exceptions) {
+        this.exceptions = exceptions;
     }
 
     public List<Picture> getPictures() {

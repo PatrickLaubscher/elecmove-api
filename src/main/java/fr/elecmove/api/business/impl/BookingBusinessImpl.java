@@ -58,6 +58,26 @@ public class BookingBusinessImpl implements BookingBusiness {
     }
 
     @Override
+    public List<Booking> getAllUpComingBookingByEmail(String email) {
+        return bookingRepository.findUpcomingBookingsByUserEmail(email);
+    }
+
+    @Override
+    public List<Booking> getAllBookingByStationId(String id) {
+        return bookingRepository.findByStationId(id);
+    }
+
+    @Override
+    public List<Booking> getAllBookingByEmailAndStatusId(String email, int statusId) {
+        return bookingRepository.findByUserEmailAndStatusId(email, statusId);
+    }
+
+    @Override
+    public List<Booking> getAllBookingByStationOwnerAndStatusId(String email, int statusId) {
+        return bookingRepository.findByStationOwnerEmailAndStatusId(email, statusId);
+    }
+
+    @Override
     public Booking updateBooking(String id, Booking booking, User user) {
 
         Booking existingBooking = bookingRepository.findById(id).orElseThrow(
@@ -70,6 +90,19 @@ public class BookingBusinessImpl implements BookingBusiness {
         bookingEntityMapper.merge(existingBooking, booking);
 
         return bookingRepository.save(booking);
+    }
+
+    @Override
+    public Booking updateBookingStatus(String id, int statusId) {
+
+        Booking existingBooking = bookingRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The booking does not exist")
+        );
+        existingBooking.setStatus(
+                bookingStatusRepository.findById(statusId).orElseThrow()
+        );
+
+        return bookingRepository.save(existingBooking);
     }
 
     @Override

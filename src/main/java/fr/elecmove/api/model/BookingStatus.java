@@ -1,35 +1,31 @@
 package fr.elecmove.api.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import org.hibernate.annotations.UuidGenerator;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "booking_status")
 public class BookingStatus {
 
     @Id
-    @UuidGenerator
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @Column(nullable = false, updatable = false, unique = true)
     private String name;
 
     public BookingStatus() {
     }
 
-    public BookingStatus(String id, String name) {
+    public BookingStatus(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

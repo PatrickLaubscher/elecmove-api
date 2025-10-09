@@ -11,7 +11,7 @@ public interface BookingStatusBusiness {
      * @param id
      * @return
      */
-    BookingStatus getBookingStatus(String id);
+    BookingStatus getBookingStatus(int id);
 
 
     /**

@@ -1,6 +1,7 @@
 package fr.elecmove.api.repository;
 
 import fr.elecmove.api.model.Booking;
+import fr.elecmove.api.model.Station;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -13,14 +14,29 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
 
     List<Booking> findByUserEmail(String email);
 
+    List<Booking> findByStationId(String stationId);
+
     @Query("""
-    SELECT COUNT(b) > 0
-    FROM Booking b
-    WHERE b.date = :date
-      AND ( :startTime < b.endTime AND :endTime > b.startTime )
+    SELECT b FROM Booking b
+    WHERE b.user.email = :email
+    AND b.date >= CURRENT_DATE
     """)
-    boolean checkExistingBooking(@Param("date") LocalDate date,
-                          @Param("startTime") LocalTime startTime,
-                          @Param("endTime") LocalTime endTime);
+    List<Booking> findUpcomingBookingsByUserEmail(@Param("email") String email);
+
+    @Query("""
+    SELECT b
+    FROM Booking b
+    WHERE b.user = :email 
+    AND b.status.id = :statusId
+    """)
+    List<Booking> findByUserEmailAndStatusId(@Param("email") String email, @Param("statusId") int statusId);
+
+    @Query("""
+    SELECT b
+    FROM Booking b
+    WHERE b.station.user.email = :email
+    AND b.status.id = :statusId
+    """)
+    List<Booking> findByStationOwnerEmailAndStatusId(@Param("email") String email, @Param("statusId") int statusId);
 
 }

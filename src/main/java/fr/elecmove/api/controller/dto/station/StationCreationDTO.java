@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 
 public class StationCreationDTO {
 
-    
+    @NotNull
     @Size(min = 1, max = 30)
     private String name;
     @NotNull
@@ -20,8 +20,6 @@ public class StationCreationDTO {
     private Boolean freeStanding;
     @NotNull
     private Boolean available;
-    @NotBlank
-    private String type;
     @NotBlank
     private String locationStationId;
 
@@ -71,14 +69,6 @@ public class StationCreationDTO {
 
     public void setAvailable(Boolean available) {
         this.available = available;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getLocationStationId() {

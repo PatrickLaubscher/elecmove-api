@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface BookingStatusRepository extends JpaRepository<BookingStatus, String> {
+public interface BookingStatusRepository extends JpaRepository<BookingStatus, Integer> {
     Optional<BookingStatus> findByName(String name);
 }

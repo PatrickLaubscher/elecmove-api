@@ -3,7 +3,7 @@ package fr.elecmove.api;
 
 import fr.elecmove.api.messaging.MailService;
 import fr.elecmove.api.model.Station;
-import fr.elecmove.api.model.StationAvailability;
+import fr.elecmove.api.model.StationException;
 import fr.elecmove.api.model.User;
 import fr.elecmove.api.repository.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -20,7 +20,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 
 import java.time.LocalTime;
 
@@ -39,7 +38,7 @@ import static org.mockito.Mockito.doNothing;
 @AutoConfigureTestDatabase
 @AutoConfigureMockMvc
 @Transactional
-class ApiStationAvailabilityTest {
+class ApiStationExceptionTest {
 
 
     @Autowired
@@ -80,7 +79,7 @@ class ApiStationAvailabilityTest {
         em.persist(station1);
         stationId = station1.getId();
 
-        StationAvailability availability = new StationAvailability();
+        StationException availability = new StationException();
         availability.setDay("monday");
         availability.setStartLocalTime(LocalTime.of(9, 0));
         availability.setEndLocalTime(LocalTime.of(12, 0));

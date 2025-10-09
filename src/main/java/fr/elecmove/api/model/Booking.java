@@ -51,30 +51,17 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String id, LocalDate date, LocalTime startTime, LocalTime endTime, Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
+    public Booking(LocalDate date, LocalTime startTime, LocalTime endTime, Double totalPrice, User user, Car car, Station station, BookingStatus status) {
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.totalPrice = totalPrice;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
-    public Booking(String id, LocalDate date, LocalTime startTime, LocalTime endTime, Double totalPrice, LocalDateTime createdAt, LocalDateTime updatedAt, User user, Car car, Station station, BookingStatus status, List<Payment> payments) {
-        this.id = id;
-        this.date = date;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.totalPrice = totalPrice;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
         this.user = user;
         this.car = car;
         this.station = station;
         this.status = status;
-        this.payments = payments;
     }
+
 
     public String getId() {
         return id;

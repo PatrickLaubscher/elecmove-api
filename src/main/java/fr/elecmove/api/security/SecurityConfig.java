@@ -4,7 +4,6 @@ import fr.elecmove.api.security.jwt.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
-import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -27,10 +25,10 @@ public class SecurityConfig {
     private final JwtFilter jwtFilter;
     private final AuthenticationConfiguration authenticationConfiguration;
     private final AccessDeniedHandler accessDeniedHandler;
-    private final CustomerAuthenticationEntryPoint authenticationEntryPoint;
+    private final CustomAuthenticationEntryPoint authenticationEntryPoint;
 
 
-    public SecurityConfig(JwtFilter jwtFilter, AuthenticationConfiguration authenticationConfiguration, AccessDeniedHandler accessDeniedHandler, CustomerAuthenticationEntryPoint authenticationEntryPoint) {
+    public SecurityConfig(JwtFilter jwtFilter, AuthenticationConfiguration authenticationConfiguration, AccessDeniedHandler accessDeniedHandler, CustomAuthenticationEntryPoint authenticationEntryPoint) {
         this.jwtFilter = jwtFilter;
         this.authenticationConfiguration = authenticationConfiguration;
         this.accessDeniedHandler = accessDeniedHandler;
@@ -45,10 +43,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST,"/api/login").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/refresh-token").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
-                .requestMatchers(HttpMethod.GET,"/api/stations").permitAll()
-                .requestMatchers(HttpMethod.GET,"/api/locations").permitAll()
-                .requestMatchers(HttpMethod.GET,"/api/availabilities").permitAll()
-                .requestMatchers(HttpMethod.GET,"/api/stations/nearby").permitAll()
+                .requestMatchers(HttpMethod.POST,"/api/stations/nearby").permitAll()
                 .anyRequest().authenticated());
         http.exceptionHandling(e -> e
                 .accessDeniedHandler(accessDeniedHandler)
