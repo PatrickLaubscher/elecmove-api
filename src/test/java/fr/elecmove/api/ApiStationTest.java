@@ -77,7 +77,6 @@ class ApiStationTest {
         Station station = new Station();
         station.setName("station1");
         station.setTarification(1.0);
-        station.setType("type1");
         station.setPower("power1");
         station.setInstruction("instruction1");
         station.setFreeStanding(true);
@@ -118,7 +117,6 @@ class ApiStationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("station1"))
                 .andExpect(jsonPath("$.tarification").value(1.0))
-                .andExpect(jsonPath("$.type").value("type1"))
                 .andExpect(jsonPath("$.power").value("power1"))
                 .andExpect(jsonPath("$.instruction").value("instruction1"))
                 .andExpect(jsonPath("$.freeStanding").value(true))
@@ -143,7 +141,6 @@ class ApiStationTest {
 			{
 				"name": "station2",
 				"tarification": 1.5,
-			    "type": "type2",
 			    "power": "power2",
 			    "instruction": "instruction2",
 				"freeStanding": false,
@@ -153,7 +150,6 @@ class ApiStationTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name").value("station2"))
                 .andExpect(jsonPath("$.tarification").value(1.5))
-                .andExpect(jsonPath("$.type").value("type2"))
                 .andExpect(jsonPath("$.power").value("power2"))
                 .andExpect(jsonPath("$.instruction").value("instruction2"))
                 .andExpect(jsonPath("$.freeStanding").value(false))

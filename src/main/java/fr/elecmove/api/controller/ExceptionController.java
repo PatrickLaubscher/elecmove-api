@@ -3,6 +3,7 @@ package fr.elecmove.api.controller;
 
 import fr.elecmove.api.business.exception.BusinessException;
 import fr.elecmove.api.security.exception.AccountNotValidatedException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -10,8 +11,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.naming.AuthenticationException;
+import java.util.NoSuchElementException;
 
 
 @RestControllerAdvice
@@ -27,6 +30,24 @@ public class ExceptionController {
             default:
                 return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, "Unknown server problem");
         }
+    }
+
+    @ExceptionHandler(ResponseStatusException.class)
+    public ProblemDetail handleResponseStatusException(ResponseStatusException e) {
+        logger.debug("ResponseStatusException: {}", e.getReason());
+        return ProblemDetail.forStatusAndDetail(
+                e.getStatusCode(),
+                e.getReason() != null ? e.getReason() : "Erreur"
+        );
+    }
+
+    @ExceptionHandler({EntityNotFoundException.class, NoSuchElementException.class})
+    public ProblemDetail handleNotFound(RuntimeException e) {
+        logger.debug("Ressource non trouvée: {}", e.getMessage());
+        return ProblemDetail.forStatusAndDetail(
+                HttpStatus.NOT_FOUND,
+                e.getMessage() != null ? e.getMessage() : "Ressource non trouvée"
+        );
     }
 
     @ExceptionHandler(AccountNotValidatedException.class)
