@@ -14,10 +14,12 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -43,14 +45,51 @@ public class BookingController {
 
 
     @GetMapping
-    public List<BookingDTO> getAllBookings(@AuthenticationPrincipal UserDetails user) {
-        List<BookingDTO> stationDTOS = new ArrayList<>();
+    public List<BookingDTO> getAllBookings(
+            @AuthenticationPrincipal UserDetails user) {
+        List<BookingDTO> bookingDTOS = new ArrayList<>();
         for(Booking station : bookingBusiness.getAllBookingByEmail(user.getUsername())){
-            stationDTOS.add(bookingMapper.toDto(station));
+            bookingDTOS.add(bookingMapper.toDto(station));
         }
-        return stationDTOS;
+        return bookingDTOS;
     }
 
+    @GetMapping("/upcoming")
+    public List<BookingDTO> getAllUpcomingBookings(@AuthenticationPrincipal UserDetails user) {
+        return bookingBusiness
+                .getAllUpComingBookingByEmail(user.getUsername())
+                .stream()
+                .map(bookingMapper::toDto)
+                .toList();
+    }
+
+    @GetMapping("/station/{id}")
+    public List<BookingDTO> getAllBookingsByStationId(@PathVariable String id) {
+        List<BookingDTO> bookingDTOS = new ArrayList<>();
+        for(Booking station : bookingBusiness.getAllBookingByStationId(id)){
+            bookingDTOS.add(bookingMapper.toDto(station));
+        }
+        return bookingDTOS;
+    }
+
+    @GetMapping("/status/{statusId}")
+    public List<BookingDTO> getAllBookingsByStatus(@AuthenticationPrincipal UserDetails user, @PathVariable int statusId) {
+        return bookingBusiness
+                .getAllBookingByEmailAndStatusId(user.getUsername(), statusId)
+                .stream()
+                .map(bookingMapper::toDto)
+                .toList();
+    }
+
+
+    @GetMapping("/stations/user/status/{statusId}")
+    public List<BookingDTO> getAllBookingsByStationOwnerAndByStatus(@AuthenticationPrincipal UserDetails user, @PathVariable int statusId) {
+        return bookingBusiness
+                .getAllBookingByStationOwnerAndStatusId(user.getUsername(), statusId)
+                .stream()
+                .map(bookingMapper::toDto)
+                .toList();
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -69,6 +108,14 @@ public class BookingController {
         User user = (User) userDetails;
         return bookingMapper.toDto(
                 bookingBusiness.updateBooking(id, bookingMapper.toEntity(dto), user)
+        );
+    }
+
+    @PatchMapping("/{id}/updateStatus")
+    public BookingDTO updateBookingStatus(@PathVariable String id, @RequestBody Map<String, Integer> body) {
+        Integer statusId = body.get("statusId");
+        return bookingMapper.toDto(
+                bookingBusiness.updateBookingStatus(id, statusId)
         );
     }
 

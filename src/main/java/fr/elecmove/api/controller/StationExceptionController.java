@@ -1,11 +1,11 @@
 package fr.elecmove.api.controller;
 
 
-import fr.elecmove.api.business.StationAvailabilityBusiness;
+import fr.elecmove.api.business.StationExceptionBusiness;
 import fr.elecmove.api.controller.dto.mapper.StationAvailabilityMapper;
-import fr.elecmove.api.controller.dto.station_availability.StationAvailabilityCreationDTO;
-import fr.elecmove.api.controller.dto.station_availability.StationAvailabilityDTO;
-import fr.elecmove.api.model.StationAvailability;
+import fr.elecmove.api.controller.dto.station_exception.StationExceptionCreationDTO;
+import fr.elecmove.api.controller.dto.station_exception.StationExceptionDTO;
+import fr.elecmove.api.model.StationException;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
@@ -16,27 +16,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/availabilities")
-public class StationAvailabilityController {
+public class StationExceptionController {
 
-    StationAvailabilityBusiness stationAvailabilityBusiness;
+    StationExceptionBusiness stationAvailabilityBusiness;
     StationAvailabilityMapper stationAvailabilityMapper;
 
-    public StationAvailabilityController(StationAvailabilityBusiness stationAvailabilityBusiness, StationAvailabilityMapper stationAvailabilityMapper) {
+    public StationExceptionController(StationExceptionBusiness stationAvailabilityBusiness, StationAvailabilityMapper stationAvailabilityMapper) {
         this.stationAvailabilityBusiness = stationAvailabilityBusiness;
         this.stationAvailabilityMapper = stationAvailabilityMapper;
     }
 
 
     @GetMapping("/{id}")
-    public StationAvailabilityDTO getAvailability(@PathVariable String id) {
+    public StationExceptionDTO getAvailability(@PathVariable String id) {
         return stationAvailabilityMapper.toDto(stationAvailabilityBusiness.getStationAvailability(id));
     }
 
 
     @GetMapping
-    public List<StationAvailabilityDTO> getAllAvailabilities(@RequestParam String stationId) {
-        List<StationAvailabilityDTO> availabilityDTOS = new ArrayList<>();
-        for(StationAvailability availability : stationAvailabilityBusiness.getAllAvailabilityByStation(stationId)){
+    public List<StationExceptionDTO> getAllAvailabilities(@RequestParam String stationId) {
+        List<StationExceptionDTO> availabilityDTOS = new ArrayList<>();
+        for(StationException availability : stationAvailabilityBusiness.getAllAvailabilityByStation(stationId)){
             availabilityDTOS.add(stationAvailabilityMapper.toDto(availability));
         }
         return availabilityDTOS;
@@ -46,7 +46,7 @@ public class StationAvailabilityController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Secured("ROLE_USER")
-    public StationAvailabilityDTO createAvailability(@RequestBody @Valid StationAvailabilityCreationDTO dto) {
+    public StationExceptionDTO createAvailability(@RequestBody @Valid StationExceptionCreationDTO dto) {
         return stationAvailabilityMapper.toDto(
                 stationAvailabilityBusiness.createStationAvailability(stationAvailabilityMapper.toEntity(dto), dto.getStationId())
         );
@@ -55,7 +55,7 @@ public class StationAvailabilityController {
 
     @PutMapping("/{id}")
     @Secured("ROLE_USER")
-    public StationAvailabilityDTO updateAvailability(@PathVariable String id, @RequestBody StationAvailabilityCreationDTO dto) {
+    public StationExceptionDTO updateAvailability(@PathVariable String id, @RequestBody StationExceptionCreationDTO dto) {
         return stationAvailabilityMapper.toDto(
                 stationAvailabilityBusiness.updateStationAvailability(stationAvailabilityMapper.toEntity(dto), id)
         );

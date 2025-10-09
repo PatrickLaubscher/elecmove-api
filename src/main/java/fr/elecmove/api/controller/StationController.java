@@ -15,6 +15,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -42,13 +43,14 @@ public class StationController {
 
 
     @GetMapping
-    public List<StationDTO> getAllStations(@AuthenticationPrincipal UserDetails user) {
+    public List<StationDTO> getAllStations(@AuthenticationPrincipal UserDetails userDetails) {
         List<StationDTO> stationDTOS = new ArrayList<>();
-        for(Station station : stationBusiness.getAllStationByEmail(user.getUsername())){
+        for(Station station : stationBusiness.getAllStationByEmail(userDetails.getUsername())){
             stationDTOS.add(stationMapper.toDto(station));
         }
         return stationDTOS;
     }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

@@ -9,6 +9,7 @@ public class UserConnectedDTO {
     private String email;
     private String mobile;
     private String role;
+    private Boolean validated;
 
     public String getId() {
         return id;
@@ -56,5 +57,13 @@ public class UserConnectedDTO {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Boolean getValidated() {
+        return validated;
+    }
+
+    public void setValidated(Boolean validated) {
+        this.validated = validated;
     }
 }

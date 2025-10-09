@@ -12,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.server.ResponseStatusException;
@@ -40,14 +41,24 @@ public class AuthController {
     }
 
     @PostMapping("/api/login")
-    public ResponseEntity<LoginResponseDTO> login(@RequestBody @Valid LoginCredentialsDTO credentials) {
-        LoginResponseDTO responseDTO = authservice.login(credentials);
-        String refreshToken = authservice.generateRefreshToken(responseDTO.getUser().getId());
-        ResponseCookie refreshCookie = generateCookie(refreshToken);
-        return ResponseEntity
-                .ok()
-                .header(HttpHeaders.SET_COOKIE, refreshCookie.toString())
-                .body(responseDTO);
+    public ResponseEntity<?> login(@RequestBody @Valid LoginCredentialsDTO credentials) {
+        try {
+            LoginResponseDTO responseDTO = authservice.login(credentials);
+
+            if (!responseDTO.getUser().getValidated()) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                        .body("Vous devez valider votre compte par mail avant de vous connecter.");
+            }
+
+            String refreshToken = authservice.generateRefreshToken(responseDTO.getUser().getId());
+            ResponseCookie refreshCookie = generateCookie(refreshToken);
+            return ResponseEntity
+                    .ok()
+                    .header(HttpHeaders.SET_COOKIE, refreshCookie.toString())
+                    .body(responseDTO);
+        } catch (BadCredentialsException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Identifiants incorrects");
+        }
     }
 
     @PostMapping("/api/refresh-token")

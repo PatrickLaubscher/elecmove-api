@@ -48,12 +48,16 @@ public interface StationBusiness {
 
     /**
      *
+     * @param latitude
+     * @param longitude
+     * @param rayonMeters
      * @param date
      * @param startTime
      * @param endTime
      * @return
      */
-    List<Station> checkStationBookingAvailability(LocalDate date, LocalTime startTime, LocalTime endTime);
+    List<Station> getNearbyAvailableStations(double latitude, double longitude, double rayonMeters,
+                                       LocalDate date, LocalTime startTime, LocalTime endTime);
 
 
     /**

@@ -5,6 +5,7 @@ import fr.elecmove.api.model.Car;
 import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BookingBusiness {
@@ -39,6 +40,39 @@ public interface BookingBusiness {
 
     /**
      *
+     * @param email
+     * @return
+     */
+    List<Booking> getAllUpComingBookingByEmail(String email);
+
+
+    /**
+     *
+     * @param stationId
+     * @return
+     */
+    List<Booking> getAllBookingByStationId(String stationId);
+
+
+    /**
+     *
+     * @param email
+     * @param statusId
+     * @return
+     */
+    List<Booking> getAllBookingByEmailAndStatusId(String email, int statusId);
+
+
+    /**
+     *
+     * @param email
+     * @param statusId
+     * @return
+     */
+    List<Booking> getAllBookingByStationOwnerAndStatusId(String email, int statusId);
+
+    /**
+     *
      * @param id
      * @param booking
      * @param user
@@ -47,6 +81,13 @@ public interface BookingBusiness {
     Booking updateBooking(String id, Booking booking, User user);
 
 
+    /**
+     *
+     * @param id
+     * @param statusId
+     * @return
+     */
+    Booking updateBookingStatus(String id, int statusId);
 
     /**
      *

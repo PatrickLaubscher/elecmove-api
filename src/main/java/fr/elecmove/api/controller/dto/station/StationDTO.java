@@ -1,7 +1,7 @@
 package fr.elecmove.api.controller.dto.station;
 
 import fr.elecmove.api.controller.dto.location_station.LocationStationDTO;
-import fr.elecmove.api.controller.dto.station_availability.StationAvailabilityDTO;
+import fr.elecmove.api.controller.dto.station_exception.StationExceptionDTO;
 import fr.elecmove.api.controller.dto.user.UserSingleDTO;
 
 
@@ -17,12 +17,11 @@ public class StationDTO {
     private String instruction;
     private Boolean freeStanding;
     private Boolean available;
-    private String type;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private UserSingleDTO user;
     private LocationStationDTO location;
-    private List<StationAvailabilityDTO> availabilities;
+    private List<StationExceptionDTO> exceptions;
 
     public String getId() {
         return id;
@@ -80,14 +79,6 @@ public class StationDTO {
         this.available = available;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -120,11 +111,11 @@ public class StationDTO {
         this.location = location;
     }
 
-    public List<StationAvailabilityDTO> getAvailabilities() {
-        return availabilities;
+    public List<StationExceptionDTO> getAvailabilities() {
+        return exceptions;
     }
 
-    public void setAvailabilities(List<StationAvailabilityDTO> availabilities) {
-        this.availabilities = availabilities;
+    public void setAvailabilities(List<StationExceptionDTO> exceptions) {
+        this.exceptions = exceptions;
     }
 }

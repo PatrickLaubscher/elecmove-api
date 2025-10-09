@@ -21,7 +21,7 @@ public class BookingStatusBusinessImpl implements BookingStatusBusiness {
     }
 
     @Override
-    public BookingStatus getBookingStatus(String id) {
+    public BookingStatus getBookingStatus(int id) {
         return bookingStatusRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The car does not exist")
         );
