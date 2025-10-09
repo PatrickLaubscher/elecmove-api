@@ -17,7 +17,6 @@ public class StationDTO {
     private String instruction;
     private Boolean freeStanding;
     private Boolean available;
-    private String type;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private UserSingleDTO user;
@@ -78,14 +77,6 @@ public class StationDTO {
 
     public void setAvailable(Boolean available) {
         this.available = available;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public LocalDateTime getCreatedAt() {
