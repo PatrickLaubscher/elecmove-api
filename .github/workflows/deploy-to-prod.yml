@@ -44,7 +44,6 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: ./gradlew sonarqube -Dsonar.login=$SONAR_TOKEN
 
-
     - name : deploy
       uses: appleboy/ssh-action@v1.2.0
       with:

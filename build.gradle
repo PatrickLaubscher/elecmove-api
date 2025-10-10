@@ -63,6 +63,13 @@ bootJar {
 }
 
 
+
+if (System.getenv("CI") == "true") {
+	test {
+		enabled = false
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }

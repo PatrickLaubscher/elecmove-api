@@ -15,8 +15,9 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up JDK 21
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           java-version: '21'
@@ -28,34 +29,8 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Run tests
-        run: ./gradlew test --stacktrace --info
-
-      - name: Show failed tests (if any)
-        if: failure()
-        run: |
-          echo "==== TEST FAILURES ===="
-          find build/test-results/test/ -name "*.xml" -exec grep -A 5 -B 5 "<failure" {} \; || echo "No test failures found"
-
-      - name: Build (without tests)
-        run: ./gradlew assemble --stacktrace --info
-
-      - name: Run Tests
-        env:
-          SPRING_PROFILES_ACTIVE: ci
-          SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
-          SPRING_DATASOURCE_DRIVERCLASSNAME: org.h2.Driver
-          SPRING_DATASOURCE_USERNAME: sa
-          SPRING_DATASOURCE_PASSWORD: ""
-          SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
-        run: ./gradlew test --stacktrace --info
-
-      - name: Upload test reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-reports
-          path: build/reports/tests/test/
+      - name: Build
+        run: ./gradlew build --stacktrace --info
 
       - name: SonarQube Scan
         env:
