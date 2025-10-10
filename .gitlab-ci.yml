@@ -15,7 +15,7 @@ build_app:
     - chmod +x gradlew
     - ./gradlew clean test
   only:
-    - feature/**
+    - /^feature\/.*$/
 
 analyse_build:
   stage: analyse
@@ -24,6 +24,6 @@ analyse_build:
     - chmod +x gradlew
     - ./gradlew sonarqube
   only:
-    - feature/**
+    - /^feature\/.*$/
   dependencies:
     - build_app
