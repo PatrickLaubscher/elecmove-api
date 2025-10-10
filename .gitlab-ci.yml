@@ -27,4 +27,3 @@ analyse_build:
     - /^feature\/.*$/
   dependencies:
     - build_app
-    
