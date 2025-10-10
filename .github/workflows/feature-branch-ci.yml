@@ -11,8 +11,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+
+    services:
+      docker:
+        image: docker:dind
+        options: --privileged
 
     steps:
       - name: Checkout sources
@@ -29,6 +32,11 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Build
-        run: ./gradlew build --stacktrace --info
+      - name: Build (skip tests for faster feedback)
+        run: ./gradlew build -x test
+
+      - name: Run tests with Testcontainers
+        env:
+          SPRING_PROFILES_ACTIVE: test
+        run: ./gradlew test --info
 
