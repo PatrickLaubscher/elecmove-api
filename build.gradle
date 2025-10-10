@@ -18,6 +18,7 @@ sonarqube {
 	properties {
 		property "sonar.projectKey", "elecmove-api"
 		property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.organization", "PatrickLaubscher_elecmove-api"
 		property "sonar.login", System.getenv("SONAR_TOKEN")
 	}
 }
