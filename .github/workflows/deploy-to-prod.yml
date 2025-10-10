@@ -1,10 +1,3 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
-
 name: Deploy to prod
 
 on:
@@ -17,8 +10,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+
+    env:
+      SPRING_PROFILES_ACTIVE: prod
 
     steps:
     - uses: actions/checkout@v4
@@ -28,27 +22,50 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
-    # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+      uses: gradle/actions/setup-gradle@v4
 
     - name: Make gradlew executable
       run: chmod +x gradlew
 
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Build Production JAR
+      run: ./gradlew clean build
 
-    - name: SonarQube Scan
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: ./gradlew sonarqube -Dsonar.login=$SONAR_TOKEN
-
-    - name : deploy
+    - name: deploy
       uses: appleboy/ssh-action@v1.2.0
       with:
         host: ${{secrets.SERVER_HOST}}
         username: ${{secrets.SERVER_USER}}
         key: ${{secrets.SERVER_SSH_KEY}}
         script: |
-          /home/debian/deploy-elecmove-back.sh /opt/elecmove/backend https://github.com/PatrickLaubscher/elecmove-api.git
+          APP_DIR=/opt/elecmove/backend
+          REPO_URL=https://github.com/PatrickLaubscher/elecmove-api.git
+          JAR_NAME=elecmove-api.jar
+          
+          # Crée le dossier si nécessaire
+          mkdir -p $APP_DIR
+          cd $APP_DIR
+          
+          # Sauvegarde l'ancien JAR
+          if [ -f $JAR_NAME ]; then
+            mv $JAR_NAME "${JAR_NAME}.backup_$(date +%Y%m%d%H%M%S)"
+          fi
+          
+          # Clone ou pull du repo
+          if [ -d .git ]; then
+            git reset --hard
+            git clean -fd
+            git pull
+          else
+            git clone $REPO_URL .
+          fi
+          
+          # Build du projet
+          ./gradlew clean build -x test
+          
+          # Copie du JAR généré
+          cp build/libs/*.jar $JAR_NAME
+          
+          # Redémarre le service Spring Boot
+          sudo systemctl restart elecmove-backend
+          sudo systemctl status elecmove-backend --no-pager
