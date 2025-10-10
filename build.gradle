@@ -75,9 +75,4 @@ test {
 		jvmArgs += "-javaagent:${byteBuddyAgent.absolutePath}"
 	}
 
-	if ("true" == System.getenv("CI")) {
-		filter {
-			excludeTestsMatching "*IntegrationTest"
-		}
-	}
 }

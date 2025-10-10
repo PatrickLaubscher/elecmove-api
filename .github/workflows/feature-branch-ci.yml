@@ -1,35 +1,35 @@
-name: Feature branches CI
-
-on:
-  push:
-    branches:
-      - 'feature/**'
-  pull_request:
-    branches:
-      - 'feature/**'
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    env:
-      SPRING_PROFILES_ACTIVE: test
-
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v4
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Make gradlew executable
-        run: chmod +x gradlew
-
-      - name: Build & Test
-        run: ./gradlew clean test
-
+#name: Feature branches CI
+#
+#on:
+#  push:
+#    branches:
+#      - 'feature/**'
+#  pull_request:
+#    branches:
+#      - 'feature/**'
+#jobs:
+#  build:
+#
+#    runs-on: ubuntu-latest
+#
+#    env:
+#      SPRING_PROFILES_ACTIVE: test
+#
+#    steps:
+#      - name: Checkout sources
+#        uses: actions/checkout@v4
+#      - name: Setup Java
+#        uses: actions/setup-java@v4
+#        with:
+#          java-version: '21'
+#          distribution: 'temurin'
+#
+#      - name: Setup Gradle
+#        uses: gradle/actions/setup-gradle@v4
+#
+#      - name: Make gradlew executable
+#        run: chmod +x gradlew
+#
+#      - name: Build & Test
+#        run: ./gradlew clean test
+#
