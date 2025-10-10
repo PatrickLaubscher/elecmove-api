@@ -27,7 +27,7 @@ analyse_build:
   image: gradle:8.4-jdk21
   script:
     - chmod +x gradlew
-    - ./gradlew sonarqube
+    - ./gradlew sonar
   only:
     - /^feature\/.*$/
   dependencies:
