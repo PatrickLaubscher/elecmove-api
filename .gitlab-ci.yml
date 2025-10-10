@@ -1,15 +1,15 @@
 stages:
+  - test
   - build
-  - analyse
   - package
   - deploy
 
 variables:
   SPRING_PROFILES_ACTIVE: test
-  SONAR_TOKEN: $SONAR_TOKEN
 
-build_app:
-  stage: build
+
+test_app:
+  stage: test
   image: gradle:8.4-jdk21
   services:
     - docker:24-dind
@@ -22,13 +22,19 @@ build_app:
   only:
     - /^feature\/.*$/
 
-analyse_build:
-  stage: analyse
+build_app:
+  stage: build
   image: gradle:8.4-jdk21
+  services:
+    - docker:24-dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
   script:
     - chmod +x gradlew
-    - ./gradlew sonar
+    - ./gradlew clean build -x test
+    - /^feature\/.*$/
   only:
     - /^feature\/.*$/
   dependencies:
-    - build_app
+    - test_app
