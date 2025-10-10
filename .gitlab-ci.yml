@@ -1,6 +1,6 @@
 stages:
-  - analyse
   - build
+  - analyse
   - package
   - deploy
 
