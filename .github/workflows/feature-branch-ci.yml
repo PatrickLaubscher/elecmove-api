@@ -32,7 +32,3 @@ jobs:
       - name: Build
         run: ./gradlew build --stacktrace --info
 
-      - name: SonarQube Scan
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew sonar --info
