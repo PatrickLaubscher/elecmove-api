@@ -33,7 +33,6 @@ build_app:
   script:
     - chmod +x gradlew
     - ./gradlew clean build -x test
-    - /^feature\/.*$/
   only:
     - /^feature\/.*$/
   dependencies:
