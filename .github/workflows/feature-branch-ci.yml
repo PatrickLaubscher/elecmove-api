@@ -32,7 +32,7 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Build (skip tests for faster feedback)
+      - name: Build
         run: ./gradlew build -x test
 
       - name: Run tests with Testcontainers
