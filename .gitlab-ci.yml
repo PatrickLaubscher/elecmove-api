@@ -1,0 +1,29 @@
+stages:
+  - analyse
+  - build
+  - package
+  - deploy
+
+variables:
+    SPRING_PROFILES_ACTIVE: test
+    SONAR_TOKEN: $SONAR_TOKEN
+
+build_app:
+    stage: build
+    image: gradle:8.4-jdk21
+    script:
+        - chmod +x gradlew
+        - ./gradlew clean test
+    only:
+        - /^feature\/.*$/
+
+analyse_build:
+    stage: analyse
+    image: gradle:8.4-jdk21
+    script:
+        - chmod +x gradlew
+        - ./gradlew sonarqube
+    only:
+        - /^feature\/.*$/
+    dependencies: 
+        - build_app
