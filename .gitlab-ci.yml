@@ -13,6 +13,9 @@ build_app:
   image: gradle:8.4-jdk21
   services:
     - docker:24-dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
   script:
     - chmod +x gradlew
     - ./gradlew clean test
