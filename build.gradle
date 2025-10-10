@@ -65,20 +65,19 @@ bootJar {
 
 
 
-if (System.getenv("CI") == "true") {
-	test {
-		enabled = false
-	}
-}
-
-tasks.named('test') {
-	useJUnitPlatform()
-}
-
 test {
+
+	useJUnitPlatform()
+
 	// Cherche automatiquement le jar byte-buddy-agent dans les dépendances de test
 	def byteBuddyAgent = configurations.testRuntimeClasspath.find { it.name.contains("byte-buddy-agent") }
 	if (byteBuddyAgent != null) {
 		jvmArgs += "-javaagent:${byteBuddyAgent.absolutePath}"
+	}
+
+	if ("true".equals(System.getenv("CI"))) {
+		filter {
+			excludeTestsMatching "*IntegrationTest"
+		}
 	}
 }
