@@ -16,9 +16,9 @@ java {
 
 sonarqube {
 	properties {
-		property "sonar.projectKey", "elecmove-api"
+		property "sonar.projectKey", "PatrickLaubscher_elecmove-api"
+		property "sonar.organization", "patricklaubscher"
 		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.organization", "PatrickLaubscher_elecmove-api"
 		property "sonar.login", System.getenv("SONAR_TOKEN")
 	}
 }
