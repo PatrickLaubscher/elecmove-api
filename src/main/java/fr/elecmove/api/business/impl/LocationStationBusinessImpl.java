@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
+import java.util.Optional;
+
 
 @Service
 @Transactional
@@ -29,6 +32,11 @@ public class LocationStationBusinessImpl implements LocationStationBusiness {
         return locationStationRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The location does not exist")
         );
+    }
+
+    @Override
+    public Optional<LocationStation> getLocationByLatitudeAndLongitude(BigDecimal latitude, BigDecimal longitude) {
+        return locationStationRepository.findByLatitudeAndLongitude(latitude, longitude);
     }
 
     @Override

@@ -43,9 +43,7 @@ public class StationBusinessImpl implements StationBusiness {
 
     @Override
     public Station getStation(String id) {
-        return stationRepository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The station does not exist")
-        );
+        return stationRepository.findOneStationByIdWithExceptions(id);
     }
 
 

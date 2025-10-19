@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Length;
 
+import java.math.BigDecimal;
+
 public class LocationStationCreationDTO {
 
     @NotBlank
@@ -17,9 +19,9 @@ public class LocationStationCreationDTO {
     @Length(max = 5)
     private String zipcode;
     @NotNull
-    private Double latitude;
+    private BigDecimal latitude;
     @NotNull
-    private Double longitude;
+    private BigDecimal longitude;
 
     public String getAddress() {
         return address;
@@ -45,19 +47,19 @@ public class LocationStationCreationDTO {
         this.zipcode = zipcode;
     }
 
-    public Double getLatitude() {
+    public BigDecimal getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(BigDecimal latitude) {
         this.latitude = latitude;
     }
 
-    public Double getLongitude() {
+    public BigDecimal getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(BigDecimal longitude) {
         this.longitude = longitude;
     }
 }
