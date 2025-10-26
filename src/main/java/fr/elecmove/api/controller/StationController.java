@@ -4,6 +4,8 @@ package fr.elecmove.api.controller;
 import fr.elecmove.api.business.LocationStationBusiness;
 import fr.elecmove.api.business.StationBusiness;
 import fr.elecmove.api.controller.dto.CoordinatesWithRadiusDTO;
+import fr.elecmove.api.controller.dto.prebooking.PrebookingEstimateDTO;
+import fr.elecmove.api.controller.dto.prebooking.PrebookingEstimateRequestDTO;
 import fr.elecmove.api.controller.dto.station.StationCreationDTO;
 import fr.elecmove.api.controller.dto.station.StationDTO;
 import fr.elecmove.api.controller.dto.mapper.StationMapper;
@@ -18,6 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,6 +90,23 @@ public class StationController {
             stationDTOS.add(stationMapper.toSingleDto(station));
         }
         return stationDTOS;
+    }
+
+    @PostMapping("/{id}/prebooking/estimate")
+    public PrebookingEstimateDTO getPrebookingEstimate(@PathVariable String id, @RequestBody @Valid PrebookingEstimateRequestDTO dto) {
+
+        if (dto.getBookingStartTime() == null || dto.getBookingEndTime() == null) {
+            throw new IllegalArgumentException("Start time and end time must not be null");
+        }
+        if (dto.getBookingEndTime().isBefore(dto.getBookingStartTime())) {
+            throw new IllegalArgumentException("End time must be after start time");
+        }
+
+        Double bookingEstimatePrice = stationBusiness.bookingEstimatePrice(id, dto.getBookingStartTime(), dto.getBookingEndTime());
+
+        Duration bookingDuration = Duration.between(dto.getBookingStartTime(), dto.getBookingEndTime());
+
+        return new PrebookingEstimateDTO(bookingDuration, bookingEstimatePrice);
     }
 
 }

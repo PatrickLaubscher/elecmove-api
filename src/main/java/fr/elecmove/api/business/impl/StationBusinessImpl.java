@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
@@ -76,6 +77,24 @@ public class StationBusinessImpl implements StationBusiness {
 
         return stationRepository.filterStationsWithoutBooking(availableStationId, date, startTime, endTime);
     }
+
+    @Override
+    public Double bookingEstimatePrice(String id, LocalTime bookingStartTime, LocalTime bookingEndTime) {
+        Station station = stationRepository.findOneStationByIdWithExceptions(id);
+
+        if (bookingEndTime.isBefore(bookingStartTime)) {
+            bookingEndTime = bookingEndTime.plusHours(24);
+        }
+
+        Duration bookingDuration = Duration.between(bookingStartTime, bookingEndTime);
+
+        // Convert duration in hours
+        double hours = bookingDuration.toMinutes() / 60.0;
+
+        // Estimation price calculation
+        return hours * station.getTarification();
+    }
+
 
     @Override
     public Station updateStation(String id, Station station, User user) {

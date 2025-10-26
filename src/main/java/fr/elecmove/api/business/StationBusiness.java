@@ -58,6 +58,14 @@ public interface StationBusiness {
     List<Station> getNearbyAvailableStations(double latitude, double longitude, double rayonMeters,
                                        LocalDate date, LocalTime startTime, LocalTime endTime);
 
+    /**
+     *
+     * @param id
+     * @param bookingStartTime
+     * @param bookingEndTime
+     * @return
+     */
+    Double bookingEstimatePrice(String id, LocalTime bookingStartTime, LocalTime bookingEndTime);
 
     /**
      *
