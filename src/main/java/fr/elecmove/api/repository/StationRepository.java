@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 public interface StationRepository extends JpaRepository<Station, String> {
 
@@ -68,6 +69,31 @@ public interface StationRepository extends JpaRepository<Station, String> {
     """)
     List<Station> filterStationsWithoutBooking(
             @Param("stationIds") List<String> stationIds,
+            @Param("date") LocalDate date,
+            @Param("startTime") LocalTime startTime,
+            @Param("endTime") LocalTime endTime
+    );
+
+
+    @Query("""
+    SELECT s
+    FROM Station s
+    LEFT JOIN s.exceptions se
+        ON se.day = :weekday
+        AND se.startLocalTime <= :startTime
+        AND se.endLocalTime >= :endTime
+    LEFT JOIN Booking b
+        ON b.station = s
+        AND b.date = :date
+        AND b.startTime < :endTime
+        AND b.endTime > :startTime
+    WHERE s.id = :stationId
+      AND se.id IS NULL
+      AND b.id IS NULL
+""")
+    Optional<Station> findAvailableStationByIdAndTime(
+            @Param("stationId") String stationId,
+            @Param("weekday") String weekday,
             @Param("date") LocalDate date,
             @Param("startTime") LocalTime startTime,
             @Param("endTime") LocalTime endTime

@@ -103,10 +103,12 @@ public class StationController {
         }
 
         Double bookingEstimatePrice = stationBusiness.bookingEstimatePrice(id, dto.getBookingStartTime(), dto.getBookingEndTime());
-
         Duration bookingDuration = Duration.between(dto.getBookingStartTime(), dto.getBookingEndTime());
 
         return new PrebookingEstimateDTO(bookingDuration, bookingEstimatePrice);
     }
+
+    @PostMapping("/{id}/prebooking/availability")
+    public
 
 }
