@@ -11,6 +11,9 @@ import java.util.List;
 
 public interface StationRepository extends JpaRepository<Station, String> {
 
+    @Query("SELECT s FROM Station s LEFT JOIN FETCH s.exceptions WHERE s.id = :id")
+    Station findOneStationByIdWithExceptions(@Param("id") String id);
+
     @Query("SELECT s FROM Station s LEFT JOIN FETCH s.exceptions WHERE s.user.email = :email")
     List<Station> findStationByUserEmailWithExceptions(@Param("email") String email);
 

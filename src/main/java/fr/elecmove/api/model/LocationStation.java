@@ -4,6 +4,7 @@ package fr.elecmove.api.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -16,8 +17,10 @@ public class LocationStation {
     private String address;
     private String city;
     private String zipcode;
-    private Double latitude;
-    private Double longitude;
+    @Column(precision = 9, scale = 6)
+    private BigDecimal latitude;
+    @Column(precision = 9, scale = 6)
+    private BigDecimal longitude;
 
     @OneToMany(mappedBy = "location")
     private List<Station> stations;
@@ -26,12 +29,12 @@ public class LocationStation {
     public LocationStation() {
     }
 
-    public LocationStation(Double latitude, Double longitude) {
+    public LocationStation(BigDecimal latitude, BigDecimal longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public LocationStation(String id, String address, String city, String zipcode, Double latitude, Double longitude) {
+    public LocationStation(String id, String address, String city, String zipcode, BigDecimal latitude, BigDecimal longitude) {
         this.id = id;
         this.address = address;
         this.city = city;
@@ -72,19 +75,19 @@ public class LocationStation {
         this.zipcode = zipcode;
     }
 
-    public Double getLatitude() {
+    public BigDecimal getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(BigDecimal latitude) {
         this.latitude = latitude;
     }
 
-    public Double getLongitude() {
+    public BigDecimal getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(BigDecimal longitude) {
         this.longitude = longitude;
     }
 

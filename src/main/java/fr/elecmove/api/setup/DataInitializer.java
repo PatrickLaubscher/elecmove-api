@@ -5,9 +5,12 @@ import fr.elecmove.api.model.*;
 import fr.elecmove.api.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Random;
@@ -129,13 +132,14 @@ public class DataInitializer implements CommandLineRunner {
                 double latitude = minLat + (maxLat - minLat) * random.nextDouble();
                 double longitude = minLon + (maxLon - minLon) * random.nextDouble();
 
-                boolean available = random.nextBoolean();
+                // boolean available = random.nextBoolean();
+                boolean available = true;
 
                 createStation("Borne Lyon " + i, latitude, longitude, available, user1);
             }
 
         } else {
-            station1 = stationRepository.findStationByUserEmailWithExceptions("alice@test.com").get(0);
+            station1 = stationRepository.findStationByUserEmailWithExceptions("alice@test.com").getFirst();
         }
 
 
@@ -152,7 +156,9 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     private Station createStation(String name, double latitude, double longitude, boolean available, User user) {
-        LocationStation location = new LocationStation(latitude, longitude);
+        LocationStation location = new LocationStation(
+                BigDecimal.valueOf(latitude).setScale(6, RoundingMode.HALF_UP),
+                BigDecimal.valueOf(longitude).setScale(6, RoundingMode.HALF_UP));
         locationStationRepository.save(location);
 
         Station station = new Station();

@@ -3,7 +3,6 @@ package fr.elecmove.api.business;
 import fr.elecmove.api.model.LocationStation;
 import fr.elecmove.api.model.Station;
 import fr.elecmove.api.model.User;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
