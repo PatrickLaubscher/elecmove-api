@@ -6,6 +6,7 @@ import fr.elecmove.api.model.User;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
 public interface StationBusiness {
 
@@ -55,8 +56,8 @@ public interface StationBusiness {
      * @param endTime
      * @return
      */
-    List<Station> getNearbyAvailableStations(double latitude, double longitude, double rayonMeters,
-                                       LocalDate date, LocalTime startTime, LocalTime endTime);
+    Map<Station, Boolean> getNearbyAvailableStations(double latitude, double longitude, double rayonMeters,
+                                                     LocalDate date, LocalTime startTime, LocalTime endTime);
 
     /**
      *

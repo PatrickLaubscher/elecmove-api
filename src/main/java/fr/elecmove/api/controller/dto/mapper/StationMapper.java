@@ -16,4 +16,11 @@ public interface StationMapper {
     StationDTO toDto(Station station);
     StationSingleDTO toSingleDto(Station station);
 
+    // Méthode par défaut qui utilise le mapping de base
+    default StationSingleDTO toSingleDtoWithAvailability(Station station, boolean availableAtGivenSlot) {
+        StationSingleDTO dto = toSingleDto(station);
+        dto.setAvailableAtGivenSlot(availableAtGivenSlot);
+        return dto;
+    }
+
 }

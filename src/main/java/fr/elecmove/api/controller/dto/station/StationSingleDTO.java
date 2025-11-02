@@ -7,7 +7,12 @@ public class StationSingleDTO {
 
     private String id;
     private String name;
+    private Double tarification;
+    private String power;
+    private Boolean available;
+    private Boolean freeStanding;
     private LocationStationDTO location;
+    private Boolean availableAtGivenSlot;
 
     public String getId() {
         return id;
@@ -23,6 +28,46 @@ public class StationSingleDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Double getTarification() {
+        return tarification;
+    }
+
+    public void setTarification(Double tarification) {
+        this.tarification = tarification;
+    }
+
+    public String getPower() {
+        return power;
+    }
+
+    public void setPower(String power) {
+        this.power = power;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
+    public Boolean getFreeStanding() {
+        return freeStanding;
+    }
+
+    public void setFreeStanding(Boolean freeStanding) {
+        this.freeStanding = freeStanding;
+    }
+
+    public Boolean getAvailableAtGivenSlot() {
+        return availableAtGivenSlot;
+    }
+
+    public void setAvailableAtGivenSlot(Boolean availableAtGivenSlot) {
+        this.availableAtGivenSlot = availableAtGivenSlot;
     }
 
     public LocationStationDTO getLocation() {

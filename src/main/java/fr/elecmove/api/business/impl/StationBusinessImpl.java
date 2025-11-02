@@ -17,7 +17,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -60,22 +62,36 @@ public class StationBusinessImpl implements StationBusiness {
     }
 
     @Override
-    public List<Station> getNearbyAvailableStations(double latitude, double longitude, double rayonMeters, LocalDate date, LocalTime startTime, LocalTime endTime) {
+    public Map<Station, Boolean> getNearbyAvailableStations(double latitude, double longitude, double rayonMeters, LocalDate date, LocalTime startTime, LocalTime endTime) {
 
+        // get all nearby stations
         List<Station> nearbyStations = stationRepository.findStationsNearby(latitude, longitude, rayonMeters);
 
+        // filter by planning exceptions
         String weekday = date.getDayOfWeek().name();
         Set<Station> stationsWithoutExceptions = new HashSet<>(
                 stationRepository.findAvailableStationsByDayAndTime(weekday, startTime, endTime)
         );
-
         List<Station> withoutExceptions = nearbyStations.stream()
                 .filter(stationsWithoutExceptions::contains)
                 .toList();
 
-        List<String> availableStationId = withoutExceptions.stream().map(Station::getId).toList();
+        // filter by existing booking
+        List<String> availableStationIds = withoutExceptions.stream()
+                .map(Station::getId)
+                .toList();
 
-        return stationRepository.filterStationsWithoutBooking(availableStationId, date, startTime, endTime);
+        Set<String> fullyAvailableIds = stationRepository
+                .filterStationsWithoutBooking(availableStationIds, date, startTime, endTime)
+                .stream()
+                .map(Station::getId)
+                .collect(Collectors.toSet());
+
+        return nearbyStations.stream()
+                .collect(Collectors.toMap(
+                        station -> station,
+                        station -> fullyAvailableIds.contains(station.getId()))
+                );
     }
 
     @Override

@@ -4,6 +4,7 @@ package fr.elecmove.api.controller;
 import fr.elecmove.api.business.LocationStationBusiness;
 import fr.elecmove.api.business.StationBusiness;
 import fr.elecmove.api.controller.dto.CoordinatesWithRadiusDTO;
+import fr.elecmove.api.controller.dto.CoordinatesWithRadiusAndTimeSlotsDTO;
 import fr.elecmove.api.controller.dto.prebooking.PrebookingEstimateDTO;
 import fr.elecmove.api.controller.dto.prebooking.PrebookingEstimateRequestDTO;
 import fr.elecmove.api.controller.dto.station.StationCreationDTO;
@@ -17,12 +18,12 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -92,6 +93,23 @@ public class StationController {
         return stationDTOS;
     }
 
+    @PostMapping("/nearby-available")
+    public List<StationSingleDTO> getAllNearbyStationWithAvailability(@RequestBody @Valid CoordinatesWithRadiusAndTimeSlotsDTO dto) {
+
+        Map<Station, Boolean> stationsMap = stationBusiness.getNearbyAvailableStations(
+                dto.getLatitude(), dto.getLongitude(), dto.getRayonMeters(),
+                dto.getDate(), dto.getStartTime(), dto.getEndTime()
+        );
+
+        return stationsMap.entrySet().stream()
+                .map(entry -> stationMapper.toSingleDtoWithAvailability(
+                        entry.getKey(),
+                        entry.getValue()
+                ))
+                .toList();
+
+    }
+
     @PostMapping("/{id}/prebooking/estimate")
     public PrebookingEstimateDTO getPrebookingEstimate(@PathVariable String id, @RequestBody @Valid PrebookingEstimateRequestDTO dto) {
 
@@ -108,7 +126,6 @@ public class StationController {
         return new PrebookingEstimateDTO(bookingDuration, bookingEstimatePrice);
     }
 
-    @PostMapping("/{id}/prebooking/availability")
-    public
+
 
 }
