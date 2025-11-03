@@ -45,6 +45,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST,"/api/refresh-token").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/stations/nearby").permitAll()
+                .requestMatchers(HttpMethod.POST,"/api/stations/nearby-available").permitAll()
                 .anyRequest().authenticated());
         http.exceptionHandling(e -> e
                 .accessDeniedHandler(accessDeniedHandler)
