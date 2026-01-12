@@ -22,7 +22,8 @@ public class BookingBusinessImpl implements BookingBusiness {
     BookingEntityMapper bookingEntityMapper;
     BookingStatusRepository bookingStatusRepository;
 
-    public BookingBusinessImpl(BookingRepository bookingRepository, BookingEntityMapper bookingEntityMapper, BookingStatusRepository bookingStatusRepository) {
+    public BookingBusinessImpl(BookingRepository bookingRepository, BookingEntityMapper bookingEntityMapper,
+                               BookingStatusRepository bookingStatusRepository) {
         this.bookingRepository = bookingRepository;
         this.bookingEntityMapper = bookingEntityMapper;
         this.bookingStatusRepository = bookingStatusRepository;

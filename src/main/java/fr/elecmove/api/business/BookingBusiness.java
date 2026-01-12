@@ -17,7 +17,7 @@ public interface BookingBusiness {
      * @param station
      * @param user
      * @param car
-     * @return
+     * @return Booking
      */
     Booking createBooking(Booking booking, Station station, User user, Car car);
 
@@ -25,7 +25,7 @@ public interface BookingBusiness {
     /**
      *
      * @param id
-     * @return
+     * @return Booking
      */
     Booking getBooking(String id);
 
