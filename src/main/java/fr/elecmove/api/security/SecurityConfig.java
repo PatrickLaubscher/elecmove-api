@@ -44,6 +44,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST,"/api/login").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/refresh-token").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
+                .requestMatchers("/api/account/validate/**").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/stations/nearby").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/stations/nearby-available").permitAll()
                 .anyRequest().authenticated());
