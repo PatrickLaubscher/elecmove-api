@@ -74,7 +74,6 @@ class ApiFavoriteStationTest {
 
         station1.setName("station1");
         station1.setTarification(1.0);
-        station1.setType("type1");
         station1.setPower("power1");
         station1.setInstruction("instruction1");
         station1.setFreeStanding(true);
@@ -83,7 +82,6 @@ class ApiFavoriteStationTest {
 
         station2.setName("station2");
         station2.setTarification(1.0);
-        station2.setType("type1");
         station2.setPower("power1");
         station2.setInstruction("instruction1");
         station2.setFreeStanding(true);

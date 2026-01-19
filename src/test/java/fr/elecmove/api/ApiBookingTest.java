@@ -92,7 +92,6 @@ class ApiBookingTest {
         Station station = new Station();
         station.setName("station1");
         station.setTarification(1.0);
-        station.setType("type1");
         station.setPower("power1");
         station.setInstruction("instruction1");
         station.setFreeStanding(true);
