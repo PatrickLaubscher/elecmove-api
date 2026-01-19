@@ -19,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -84,8 +85,8 @@ class ApiBookingTest {
         location.setAddress("address1");
         location.setCity("city1");
         location.setZipcode("zipcode1");
-        location.setLatitude(10.0);
-        location.setLongitude(10.0);
+        location.setLatitude(BigDecimal.valueOf(10.0));
+        location.setLongitude(BigDecimal.valueOf(10.0));
         em.persist(location);
 
         Station station = new Station();
@@ -95,6 +96,7 @@ class ApiBookingTest {
         station.setPower("power1");
         station.setInstruction("instruction1");
         station.setFreeStanding(true);
+        station.setAvailable(true);
         station.setLocation(location);
         station.setUser(user1);
         em.persist(station);

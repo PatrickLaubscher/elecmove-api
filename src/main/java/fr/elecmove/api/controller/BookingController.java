@@ -63,6 +63,15 @@ public class BookingController {
                 .toList();
     }
 
+    @GetMapping("/past")
+    public List<BookingDTO> getAllPastBookings(@AuthenticationPrincipal UserDetails user) {
+        return bookingBusiness
+                .getAllPastBookingByEmail(user.getUsername())
+                .stream()
+                .map(bookingMapper::toDto)
+                .toList();
+    }
+
     @GetMapping("/station/{id}")
     public List<BookingDTO> getAllBookingsByStationId(@PathVariable String id) {
         List<BookingDTO> bookingDTOS = new ArrayList<>();

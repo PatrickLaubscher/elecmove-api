@@ -16,6 +16,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -48,8 +49,8 @@ class StationRepositoryTest {
     @Test
     void shouldFindStationsNearby() {
 
-        LocationStation loc1 = new LocationStation(45.7578, 4.8320); // Bellecour
-        LocationStation loc2 = new LocationStation(45.7600, 4.8610); // Part-Dieu
+        LocationStation loc1 = new LocationStation(BigDecimal.valueOf(45.7578), BigDecimal.valueOf(4.8320)); // Bellecour
+        LocationStation loc2 = new LocationStation(BigDecimal.valueOf(45.7600), BigDecimal.valueOf(4.8610)); // Part-Dieu
         locationRepository.saveAll(List.of(loc1, loc2));
 
         Station s1 = new Station();

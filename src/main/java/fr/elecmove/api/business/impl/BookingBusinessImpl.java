@@ -64,6 +64,11 @@ public class BookingBusinessImpl implements BookingBusiness {
     }
 
     @Override
+    public List<Booking> getAllPastBookingByEmail(String email) {
+        return bookingRepository.findPastBookingsByUserEmail(email);
+    }
+
+    @Override
     public List<Booking> getAllBookingByStationId(String id) {
         return bookingRepository.findByStationId(id);
     }

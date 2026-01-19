@@ -24,6 +24,14 @@ public interface BookingRepository extends JpaRepository<Booking, String> {
     List<Booking> findUpcomingBookingsByUserEmail(@Param("email") String email);
 
     @Query("""
+    SELECT b FROM Booking b
+    WHERE b.user.email = :email
+    AND b.date < CURRENT_DATE
+    ORDER BY b.date DESC
+    """)
+    List<Booking> findPastBookingsByUserEmail(@Param("email") String email);
+
+    @Query("""
     SELECT b
     FROM Booking b
     WHERE b.user = :email 

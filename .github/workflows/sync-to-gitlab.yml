@@ -5,10 +5,12 @@ on:
     branches:
       - 'feature/**'
       - 'main'
+      - 'dev'
   pull_request:
     branches:
       - 'feature/**'
       - 'main'
+      - 'dev'
 
 jobs:
   sync:

@@ -58,7 +58,6 @@ public class Station {
         this.instruction = instruction;
         this.freeStanding = freeStanding;
         this.available = available;
-        this.type = type;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.user = user;
@@ -122,14 +121,6 @@ public class Station {
 
     public void setAvailable(Boolean available) {
         this.available = available;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public LocalDateTime getCreatedAt() {

@@ -47,6 +47,14 @@ public interface BookingBusiness {
 
 
     /**
+     * Get all past bookings for a user by email
+     * @param email User email
+     * @return List of past bookings ordered by date descending
+     */
+    List<Booking> getAllPastBookingByEmail(String email);
+
+
+    /**
      *
      * @param stationId
      * @return

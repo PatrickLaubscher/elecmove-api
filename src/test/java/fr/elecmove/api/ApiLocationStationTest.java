@@ -18,6 +18,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.math.BigDecimal;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doNothing;
@@ -76,8 +78,8 @@ class ApiLocationStationTest {
         location.setAddress("address1");
         location.setCity("city1");
         location.setZipcode("zipcode1");
-        location.setLatitude(10.0);
-        location.setLongitude(10.0);
+        location.setLatitude(BigDecimal.valueOf(10.0));
+        location.setLongitude(BigDecimal.valueOf(10.0));
         em.persist(location);
         locationId = location.getId();
 
