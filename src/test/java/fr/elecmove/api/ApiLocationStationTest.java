@@ -32,6 +32,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.math.BigDecimal;
 
 
 @SpringBootTest
@@ -76,8 +77,8 @@ class ApiLocationStationTest {
         location.setAddress("address1");
         location.setCity("city1");
         location.setZipcode("zipcode1");
-        location.setLatitude(10.0);
-        location.setLongitude(10.0);
+        location.setLatitude(BigDecimal.valueOf(10.0));
+        location.setLongitude(BigDecimal.valueOf(10.0));
         em.persist(location);
         locationId = location.getId();
 
