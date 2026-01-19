@@ -118,18 +118,18 @@ class ApiLocationStationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
 			{
-				"address":"4 rue de l'adresse",
+				"address":"4 rue de la paix",
 			    "city": "ville",
 			    "zipcode": "12345",
-			    "latitude": 10.00,
-				"longitude": 10.00
+			    "latitude": 11.00,
+				"longitude": 11.00
 			}"""))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.address").value("4 rue de l'adresse"))
+                .andExpect(jsonPath("$.address").value("4 rue de la paix"))
                 .andExpect(jsonPath("$.city").value("ville"))
                 .andExpect(jsonPath("$.zipcode").value("12345"))
-                .andExpect(jsonPath("$.latitude").value(10.00))
-                .andExpect(jsonPath("$.longitude").value(10.00));
+                .andExpect(jsonPath("$.latitude").value(11.00))
+                .andExpect(jsonPath("$.longitude").value(11.00));
     }
 
     @Test
