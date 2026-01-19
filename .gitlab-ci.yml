@@ -107,7 +107,11 @@ deploy_production:
   before_script:
     - apt-get update && apt-get install -y openssh-client curl
     - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    # Création d'un fichier temporaire pour forcer le bon formatage
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > /tmp/id_rsa
+    - chmod 600 /tmp/id_rsa
+    # ssh-add lira le fichier directement au lieu du flux stdin
+    - ssh-add /tmp/id_rsa
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
