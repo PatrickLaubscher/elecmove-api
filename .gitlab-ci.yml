@@ -163,12 +163,15 @@ rollback_production:
   stage: deploy
   image: ubuntu:22.04
   before_script:
-    - apt-get update && apt-get install -y openssh-client
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    # On utilise la syntaxe suivante pour s'assurer que le format est respecté
+    - echo "${SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
+    # Utilisation de -p si votre port SSH n'est pas 22
+    - ssh-keyscan $SERVER_HOST >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
   script:
     - echo "⏪ Rollback vers la version précédente..."
     - |
