@@ -10,7 +10,7 @@ variables:
   ARTIFACT_NAME: "elecmove-api"
 
 # ========================================
-# STAGE: TEST (feature branches)
+# STAGE: TEST
 # ========================================
 test_app:
   stage: test
@@ -25,8 +25,6 @@ test_app:
   script:
     - chmod +x gradlew
     - ./gradlew clean test --info
-  after_script:
-    - echo "✅ Tests terminés"
   artifacts:
     when: always
     reports:
@@ -46,7 +44,7 @@ test_app:
       - .gradle/caches
 
 # ========================================
-# STAGE: BUILD (feature branches)
+# STAGE: BUILD
 # ========================================
 build_app:
   stage: build
@@ -61,7 +59,6 @@ build_app:
   script:
     - chmod +x gradlew
     - ./gradlew clean build -x test --info
-    - echo "✅ Build réussi"
   artifacts:
     paths:
       - build/libs/*.jar
@@ -90,7 +87,6 @@ package_jar:
     - chmod +x gradlew
     - ./gradlew bootJar
     - ls -lh build/libs/
-    - echo "✅ JAR packagé"
   artifacts:
     name: "${ARTIFACT_NAME}-${CI_COMMIT_SHORT_SHA}"
     paths:
@@ -115,40 +111,28 @@ deploy_production:
     - chmod 700 ~/.ssh
     - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
   script:
-    - echo "🚀 Déploiement sur le serveur de production..."
-
-    # 1. Créer le répertoire de backup
+    - echo "Déploiement sur le serveur de production..."
     - ssh $SERVER_USER@$SERVER_HOST "mkdir -p /opt/elecmove/backend/backups"
-
-    # 2. Backup de l'ancienne version
     - |
       ssh $SERVER_USER@$SERVER_HOST "
         if [ -f /opt/elecmove/backend/elecmove-api.jar ]; then
-          sudo mv /opt/elecmove/backend/elecmove-api.jar /opt/elecmove/backend/backups/elecmove-api-$(date +%Y%m%d-%H%M%S).jar
-          echo '✅ Backup créé'
+          sudo mv /opt/elecmove/backend/elecmove-api.jar /opt/elecmove/backend/backups/elecmove-api-\$(date +%Y%m%d-%H%M%S).jar
+          echo 'Backup créé'
         fi
       "
-
-    # 3. Copier le nouveau JAR
     - scp build/libs/*.jar $SERVER_USER@$SERVER_HOST:/tmp/elecmove-api-new.jar
     - ssh $SERVER_USER@$SERVER_HOST "sudo mv /tmp/elecmove-api-new.jar /opt/elecmove/backend/elecmove-api.jar"
     - ssh $SERVER_USER@$SERVER_HOST "sudo chown debian:debian /opt/elecmove/backend/elecmove-api.jar"
-
-    # 4. Redémarrer le service
     - ssh $SERVER_USER@$SERVER_HOST "sudo systemctl restart elecmove-api"
-
-    # 5. Attendre le démarrage
-    - echo "⏳ Attente du démarrage de l'application..."
+    - echo "Attente du démarrage..."
     - sleep 15
-
-    # 6. Health check
     - |
       ssh $SERVER_USER@$SERVER_HOST "
         if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
-          echo '✅ Application démarrée avec succès'
+          echo 'Application démarrée avec succès'
           sudo systemctl status elecmove-api --no-pager
         else
-          echo '❌ Erreur: Application non accessible'
+          echo 'Erreur: Application non accessible'
           echo 'Rollback en cours...'
           sudo systemctl stop elecmove-api
           sudo cp /opt/elecmove/backend/backups/\$(ls -t /opt/elecmove/backend/backups/ | head -1) /opt/elecmove/backend/elecmove-api.jar
@@ -156,26 +140,20 @@ deploy_production:
           exit 1
         fi
       "
-
-    # 7. Nettoyage des anciens backups (garde les 5 derniers)
     - |
       ssh $SERVER_USER@$SERVER_HOST "
         cd /opt/elecmove/backend/backups
         ls -t | tail -n +6 | xargs -r rm --
-        echo '🧹 Anciens backups nettoyés'
+        echo 'Anciens backups nettoyés'
       "
-      
   environment:
     name: production
     url: http://$SERVER_HOST:8080
-
   only:
     - main
-
   dependencies:
     - package_jar
-
-  when: manual  # Déploiement manuel pour plus de contrôle
+  when: manual
 
 # ========================================
 # STAGE: ROLLBACK (en cas de problème)
@@ -191,49 +169,25 @@ rollback_production:
     - chmod 700 ~/.ssh
     - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
   script:
-    - echo "⏪ Rollback vers la version précédente..."
+    - echo "Rollback vers la version précédente..."
     - |
       ssh $SERVER_USER@$SERVER_HOST "
         sudo systemctl stop elecmove-api
         LAST_BACKUP=\$(ls -t /opt/elecmove/backend/backups/ | head -1)
         if [ -z \"\$LAST_BACKUP\" ]; then
-          echo '❌ Aucun backup disponible'
+          echo 'Aucun backup disponible'
           exit 1
         fi
         sudo cp /opt/elecmove/backend/backups/\$LAST_BACKUP /opt/elecmove/backend/elecmove-api.jar
         sudo systemctl start elecmove-api
         sleep 10
         if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
-          echo '✅ Rollback réussi'
+          echo 'Rollback réussi'
         else
-          echo '❌ Erreur après rollback'
+          echo 'Erreur après rollback'
           exit 1
         fi
       "
   only:
     - main
   when: manual
-
-# ========================================
-# NOTIFICATION (optionnel)
-# ========================================
-notify_success:
-  stage: .post
-  image: alpine:latest
-  script:
-    - echo "✅ Pipeline terminé avec succès pour $CI_COMMIT_REF_NAME"
-    - echo "Commit: $CI_COMMIT_SHORT_SHA - $CI_COMMIT_MESSAGE"
-    - echo "Par: $CI_COMMIT_AUTHOR"
-  only:
-    - main
-  when: on_success
-
-notify_failure:
-  stage: .post
-  image: alpine:latest
-  script:
-    - echo "❌ Pipeline échoué pour $CI_COMMIT_REF_NAME"
-    - echo "Commit: $CI_COMMIT_SHORT_SHA - $CI_COMMIT_MESSAGE"
-  only:
-    - main
-  when: on_failure
