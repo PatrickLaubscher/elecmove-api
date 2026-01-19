@@ -164,12 +164,7 @@ deploy_production:
         ls -t | tail -n +6 | xargs -r rm --
         echo '🧹 Anciens backups nettoyés'
       "
-
-  after_script:
-    - echo "🎉 Déploiement terminé !"
-    - echo "Backend: http://$SERVER_HOST:8080"
-    - echo "Health: http://$SERVER_HOST:8080/actuator/health"
-
+      
   environment:
     name: production
     url: http://$SERVER_HOST:8080
