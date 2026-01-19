@@ -25,7 +25,7 @@ test_app:
   script:
     - chmod +x gradlew
     - ./gradlew clean test --info --continue
-  allow_failure: true  # Permet de continuer même si tests échouent
+  allow_failure: true
   artifacts:
     when: always
     reports:
@@ -107,16 +107,14 @@ deploy_production:
   before_script:
     - apt-get update && apt-get install -y openssh-client curl
     - eval $(ssh-agent -s)
-    # Création d'un fichier temporaire pour forcer le bon formatage
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > /tmp/id_rsa
-    - chmod 600 /tmp/id_rsa
-    # ssh-add lira le fichier directement au lieu du flux stdin
-    - ssh-add /tmp/id_rsa
+    # SSH_PRIVATE_KEY est un fichier (type File dans GitLab)
+    - chmod 600 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
   script:
-    - echo "🚀 Déploiement sur le serveur de production..."
+    - echo "Déploiement sur le serveur de production..."
     - ssh $SERVER_USER@$SERVER_HOST "mkdir -p /opt/elecmove/backend/backups"
     - |
       ssh $SERVER_USER@$SERVER_HOST "
@@ -167,17 +165,16 @@ rollback_production:
   stage: deploy
   image: ubuntu:22.04
   before_script:
-    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - apt-get update && apt-get install -y openssh-client
     - eval $(ssh-agent -s)
-    # On utilise la syntaxe suivante pour s'assurer que le format est respecté
-    - echo "${SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add -
+    # SSH_PRIVATE_KEY est un fichier (type File dans GitLab)
+    - chmod 600 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    # Utilisation de -p si votre port SSH n'est pas 22
-    - ssh-keyscan $SERVER_HOST >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
+    - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
   script:
-    - echo "⏪ Rollback vers la version précédente..."
+    - echo "Rollback vers la version précédente..."
     - |
       ssh $SERVER_USER@$SERVER_HOST "
         sudo systemctl stop elecmove-api
