@@ -105,23 +105,15 @@ deploy_production:
   stage: deploy
   image: ubuntu:22.04
   before_script:
-    - apt-get update && apt-get install -y openssh-client curl
+    - apt-get update && apt-get install -y openssh-client curl file
     - eval $(ssh-agent -s)
 
-    # DEBUG: Vérifier que la variable est bien un fichier
-    - echo "Type de SSH_PRIVATE_KEY:"
-    - file "$SSH_PRIVATE_KEY"
-    - echo "Première ligne:"
-    - head -n 1 "$SSH_PRIVATE_KEY"
+    - chmod 600 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
 
-    - chmod 600 "$SSH_PRIVATE_KEY"
-    - ssh-add "$SSH_PRIVATE_KEY"
-    # SSH_PRIVATE_KEY est un fichier (type File dans GitLab)
-    - chmod 600 "$SSH_PRIVATE_KEY"
-    - ssh-add "$SSH_PRIVATE_KEY"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
+    - ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
   script:
     - echo "Déploiement sur le serveur de production..."
     - ssh $SERVER_USER@$SERVER_HOST "mkdir -p /opt/elecmove/backend/backups"
