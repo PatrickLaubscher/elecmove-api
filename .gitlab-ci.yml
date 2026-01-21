@@ -131,7 +131,7 @@ deploy_production:
         fi
       "
     - |
-      JAR_FILE=$(ls build/libs/*.jar | head -n 1)
+      JAR_FILE=$(ls build/libs/*.jar | grep -v 'plain' | head -n 1)
       echo "Fichier JAR à déployer: $JAR_FILE"
       scp "$JAR_FILE" $SERVER_USER@$SERVER_HOST:/home/debian/elecmove-api-new.jar
     - ssh $SERVER_USER@$SERVER_HOST "sudo mv /home/debian/elecmove-api-new.jar /opt/elecmove/backend/elecmove-api.jar"
