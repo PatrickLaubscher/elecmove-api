@@ -114,7 +114,15 @@ deploy_production:
     - ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
   script:
     - echo "Déploiement sur le serveur de production..."
+
+    # DEBUG: Vérifier que le JAR existe
+    - echo "Contenu de build/libs/ :"
+    - ls -lh build/libs/
+    - echo "Fichiers JAR trouvés :"
+    - ls -1 build/libs/*.jar
+
     - ssh $SERVER_USER@$SERVER_HOST "mkdir -p /opt/elecmove/backend/backups"
+    - ssh $SERVER_USER@$SERVER_HOST "mkdir -p /tmp"
     - |
       ssh $SERVER_USER@$SERVER_HOST "
         if [ -f /opt/elecmove/backend/elecmove-api.jar ]; then
@@ -122,8 +130,11 @@ deploy_production:
           echo 'Backup cree'
         fi
       "
-    - scp build/libs/*.jar $SERVER_USER@$SERVER_HOST:~/elecmove-api-new.jar
-    - ssh $SERVER_USER@$SERVER_HOST "sudo mv /tmp/elecmove-api-new.jar /opt/elecmove/backend/elecmove-api.jar"
+    - |
+      JAR_FILE=$(ls build/libs/*.jar | head -n 1)
+      echo "Fichier JAR à déployer: $JAR_FILE"
+      scp "$JAR_FILE" $SERVER_USER@$SERVER_HOST:/home/debian/elecmove-api-new.jar
+    - ssh $SERVER_USER@$SERVER_HOST "sudo mv /home/debian/elecmove-api-new.jar /opt/elecmove/backend/elecmove-api.jar"
     - ssh $SERVER_USER@$SERVER_HOST "sudo chown debian:debian /opt/elecmove/backend/elecmove-api.jar"
     - ssh $SERVER_USER@$SERVER_HOST "sudo systemctl restart elecmove-api"
     - echo "Attente du demarrage..."
