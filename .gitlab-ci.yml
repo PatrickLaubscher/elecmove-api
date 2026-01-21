@@ -130,26 +130,39 @@ deploy_production:
           echo 'Backup cree'
         fi
       "
-    - |
-      JAR_FILE=$(ls build/libs/*.jar | grep -v 'plain' | head -n 1)
-      echo "Fichier JAR à déployer: $JAR_FILE"
-      scp "$JAR_FILE" $SERVER_USER@$SERVER_HOST:/home/debian/elecmove-api-new.jar
+    - JAR_FILE=$(ls build/libs/*.jar | grep -v 'plain' | head -n 1)
+    - echo "Fichier JAR à déployer: $JAR_FILE"
+    - echo "Taille du fichier:"
+    - ls -lh "$JAR_FILE"
+    - scp "$JAR_FILE" $SERVER_USER@$SERVER_HOST:/home/debian/elecmove-api-new.jar
     - ssh $SERVER_USER@$SERVER_HOST "sudo mv /home/debian/elecmove-api-new.jar /opt/elecmove/backend/elecmove-api.jar"
     - ssh $SERVER_USER@$SERVER_HOST "sudo chown debian:debian /opt/elecmove/backend/elecmove-api.jar"
     - ssh $SERVER_USER@$SERVER_HOST "sudo systemctl restart elecmove-api"
     - echo "Attente du demarrage..."
-    - sleep 15
+    - sleep 30
     - |
       ssh $SERVER_USER@$SERVER_HOST "
-        if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
-          echo 'Application demarree avec succes'
-          sudo systemctl status elecmove-api --no-pager
+        # Vérifier que le processus tourne
+        if sudo systemctl is-active --quiet elecmove-api; then
+          echo 'Service actif'
+      
+          # Attendre encore un peu pour le démarrage complet
+          sleep 15
+      
+          # Tenter le health check
+          if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
+            echo 'Application demarree avec succes'
+            sudo systemctl status elecmove-api --no-pager
+          else
+            echo 'Attention: Service actif mais health check echoue'
+            echo 'Logs des 50 dernieres lignes:'
+            sudo journalctl -u elecmove-api -n 50 --no-pager
+            exit 1
+          fi
         else
-          echo 'Erreur: Application non accessible'
-          echo 'Rollback en cours...'
-          sudo systemctl stop elecmove-api
-          sudo cp /opt/elecmove/backend/backups/\$(ls -t /opt/elecmove/backend/backups/ | head -1) /opt/elecmove/backend/elecmove-api.jar
-          sudo systemctl start elecmove-api
+          echo 'Erreur: Service non actif'
+          echo 'Logs:'
+          sudo journalctl -u elecmove-api -n 50 --no-pager
           exit 1
         fi
       "
