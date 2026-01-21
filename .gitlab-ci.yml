@@ -105,17 +105,12 @@ deploy_production:
   stage: deploy
   image: ubuntu:22.04
   before_script:
-    - apt-get update && apt-get install -y openssh-client
+    - apt-get update && apt-get install -y openssh-client curl
     - eval $(ssh-agent -s)
-
+    - chmod 600 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-
-    # Nettoyage CRLF + installation clé
-    - tr -d '\r' < "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
-    - ssh-add ~/.ssh/id_rsa
-
     - ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
   script:
     - echo "Déploiement sur le serveur de production..."
@@ -124,19 +119,19 @@ deploy_production:
       ssh $SERVER_USER@$SERVER_HOST "
         if [ -f /opt/elecmove/backend/elecmove-api.jar ]; then
           sudo mv /opt/elecmove/backend/elecmove-api.jar /opt/elecmove/backend/backups/elecmove-api-\$(date +%Y%m%d-%H%M%S).jar
-          echo 'Backup créé'
+          echo 'Backup cree'
         fi
       "
     - scp build/libs/*.jar $SERVER_USER@$SERVER_HOST:/tmp/elecmove-api-new.jar
     - ssh $SERVER_USER@$SERVER_HOST "sudo mv /tmp/elecmove-api-new.jar /opt/elecmove/backend/elecmove-api.jar"
     - ssh $SERVER_USER@$SERVER_HOST "sudo chown debian:debian /opt/elecmove/backend/elecmove-api.jar"
     - ssh $SERVER_USER@$SERVER_HOST "sudo systemctl restart elecmove-api"
-    - echo "Attente du démarrage..."
+    - echo "Attente du demarrage..."
     - sleep 15
     - |
       ssh $SERVER_USER@$SERVER_HOST "
         if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
-          echo 'Application démarrée avec succès'
+          echo 'Application demarree avec succes'
           sudo systemctl status elecmove-api --no-pager
         else
           echo 'Erreur: Application non accessible'
@@ -151,7 +146,7 @@ deploy_production:
       ssh $SERVER_USER@$SERVER_HOST "
         cd /opt/elecmove/backend/backups
         ls -t | tail -n +6 | xargs -r rm --
-        echo 'Anciens backups nettoyés'
+        echo 'Anciens backups nettoyes'
       "
   environment:
     name: production
@@ -171,14 +166,13 @@ rollback_production:
   before_script:
     - apt-get update && apt-get install -y openssh-client
     - eval $(ssh-agent -s)
-    # SSH_PRIVATE_KEY est un fichier (type File dans GitLab)
     - chmod 600 "$SSH_PRIVATE_KEY"
     - ssh-add "$SSH_PRIVATE_KEY"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan -H $SERVER_HOST >> ~/.ssh/known_hosts
+    - ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
   script:
-    - echo "Rollback vers la version précédente..."
+    - echo "Rollback vers la version precedente..."
     - |
       ssh $SERVER_USER@$SERVER_HOST "
         sudo systemctl stop elecmove-api
@@ -191,9 +185,9 @@ rollback_production:
         sudo systemctl start elecmove-api
         sleep 10
         if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
-          echo 'Rollback réussi'
+          echo 'Rollback reussi'
         else
-          echo 'Erreur après rollback'
+          echo 'Erreur apres rollback'
           exit 1
         fi
       "
