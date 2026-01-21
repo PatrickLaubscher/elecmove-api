@@ -9,9 +9,6 @@ variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
   ARTIFACT_NAME: "elecmove-api"
 
-# ========================================
-# STAGE: TEST
-# ========================================
 test_app:
   stage: test
   image: gradle:8.4-jdk21
@@ -44,9 +41,6 @@ test_app:
       - .gradle/wrapper
       - .gradle/caches
 
-# ========================================
-# STAGE: BUILD
-# ========================================
 build_app:
   stage: build
   image: gradle:8.4-jdk21
@@ -76,9 +70,6 @@ build_app:
       - .gradle/wrapper
       - .gradle/caches
 
-# ========================================
-# STAGE: PACKAGE (main uniquement)
-# ========================================
 package_jar:
   stage: package
   image: gradle:8.4-jdk21
@@ -98,9 +89,6 @@ package_jar:
   dependencies:
     - build_app
 
-# ========================================
-# STAGE: DEPLOY PRODUCTION (main uniquement)
-# ========================================
 deploy_production:
   stage: deploy
   image: ubuntu:22.04
@@ -113,26 +101,13 @@ deploy_production:
     - chmod 700 ~/.ssh
     - ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
   script:
-    - echo "Déploiement sur le serveur de production..."
-
-    # DEBUG: Vérifier que le JAR existe
-    - echo "Contenu de build/libs/ :"
+    - echo "Deploiement sur le serveur de production..."
+    - echo "Contenu de build/libs :"
     - ls -lh build/libs/
-    - echo "Fichiers JAR trouvés :"
-    - ls -1 build/libs/*.jar
-
     - ssh $SERVER_USER@$SERVER_HOST "mkdir -p /opt/elecmove/backend/backups"
-    - ssh $SERVER_USER@$SERVER_HOST "mkdir -p /tmp"
-    - |
-      ssh $SERVER_USER@$SERVER_HOST "
-        if [ -f /opt/elecmove/backend/elecmove-api.jar ]; then
-          sudo mv /opt/elecmove/backend/elecmove-api.jar /opt/elecmove/backend/backups/elecmove-api-\$(date +%Y%m%d-%H%M%S).jar
-          echo 'Backup cree'
-        fi
-      "
-    - JAR_FILE=$(ls build/libs/*.jar | grep -v 'plain' | head -n 1)
-    - echo "Fichier JAR à déployer: $JAR_FILE"
-    - echo "Taille du fichier:"
+    - ssh $SERVER_USER@$SERVER_HOST "if [ -f /opt/elecmove/backend/elecmove-api.jar ]; then sudo mv /opt/elecmove/backend/elecmove-api.jar /opt/elecmove/backend/backups/elecmove-api-\$(date +%Y%m%d-%H%M%S).jar; echo 'Backup cree'; fi"
+    - export JAR_FILE=$(ls build/libs/*.jar | grep -v 'plain' | head -n 1)
+    - echo "Fichier JAR a deployer $JAR_FILE"
     - ls -lh "$JAR_FILE"
     - scp "$JAR_FILE" $SERVER_USER@$SERVER_HOST:/home/debian/elecmove-api-new.jar
     - ssh $SERVER_USER@$SERVER_HOST "sudo mv /home/debian/elecmove-api-new.jar /opt/elecmove/backend/elecmove-api.jar"
@@ -140,38 +115,8 @@ deploy_production:
     - ssh $SERVER_USER@$SERVER_HOST "sudo systemctl restart elecmove-api"
     - echo "Attente du demarrage..."
     - sleep 30
-    - |
-      ssh $SERVER_USER@$SERVER_HOST "
-        # Vérifier que le processus tourne
-        if sudo systemctl is-active --quiet elecmove-api; then
-          echo 'Service actif'
-      
-          # Attendre encore un peu pour le démarrage complet
-          sleep 15
-      
-          # Tenter le health check
-          if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
-            echo 'Application demarree avec succes'
-            sudo systemctl status elecmove-api --no-pager
-          else
-            echo 'Attention: Service actif mais health check echoue'
-            echo 'Logs des 50 dernieres lignes:'
-            sudo journalctl -u elecmove-api -n 50 --no-pager
-            exit 1
-          fi
-        else
-          echo 'Erreur: Service non actif'
-          echo 'Logs:'
-          sudo journalctl -u elecmove-api -n 50 --no-pager
-          exit 1
-        fi
-      "
-    - |
-      ssh $SERVER_USER@$SERVER_HOST "
-        cd /opt/elecmove/backend/backups
-        ls -t | tail -n +6 | xargs -r rm --
-        echo 'Anciens backups nettoyes'
-      "
+    - ssh $SERVER_USER@$SERVER_HOST "if sudo systemctl is-active --quiet elecmove-api; then echo 'Service actif'; sleep 15; if curl -f http://localhost:8080/actuator/health; then echo 'Application demarree avec succes'; sudo systemctl status elecmove-api --no-pager; else echo 'Attention health check echoue'; sudo journalctl -u elecmove-api -n 50 --no-pager; exit 1; fi; else echo 'Erreur service non actif'; sudo journalctl -u elecmove-api -n 50 --no-pager; exit 1; fi"
+    - ssh $SERVER_USER@$SERVER_HOST "cd /opt/elecmove/backend/backups && ls -t | tail -n +6 | xargs -r rm -- && echo 'Anciens backups nettoyes'"
   environment:
     name: production
     url: http://$SERVER_HOST:8080
@@ -181,9 +126,6 @@ deploy_production:
     - package_jar
   when: manual
 
-# ========================================
-# STAGE: ROLLBACK (en cas de problème)
-# ========================================
 rollback_production:
   stage: deploy
   image: ubuntu:22.04
@@ -197,24 +139,7 @@ rollback_production:
     - ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
   script:
     - echo "Rollback vers la version precedente..."
-    - |
-      ssh $SERVER_USER@$SERVER_HOST "
-        sudo systemctl stop elecmove-api
-        LAST_BACKUP=\$(ls -t /opt/elecmove/backend/backups/ | head -1)
-        if [ -z \"\$LAST_BACKUP\" ]; then
-          echo 'Aucun backup disponible'
-          exit 1
-        fi
-        sudo cp /opt/elecmove/backend/backups/\$LAST_BACKUP /opt/elecmove/backend/elecmove-api.jar
-        sudo systemctl start elecmove-api
-        sleep 10
-        if curl -f http://localhost:8080/actuator/health > /dev/null 2>&1; then
-          echo 'Rollback reussi'
-        else
-          echo 'Erreur apres rollback'
-          exit 1
-        fi
-      "
+    - ssh $SERVER_USER@$SERVER_HOST "sudo systemctl stop elecmove-api && LAST_BACKUP=\$(ls -t /opt/elecmove/backend/backups/ | head -1) && if [ -z \"\$LAST_BACKUP\" ]; then echo 'Aucun backup disponible'; exit 1; fi && sudo cp /opt/elecmove/backend/backups/\$LAST_BACKUP /opt/elecmove/backend/elecmove-api.jar && sudo systemctl start elecmove-api && sleep 10 && if curl -f http://localhost:8080/actuator/health; then echo 'Rollback reussi'; else echo 'Erreur apres rollback'; exit 1; fi"
   only:
     - main
   when: manual
