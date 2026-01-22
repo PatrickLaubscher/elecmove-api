@@ -53,6 +53,7 @@ dependencies {
 	testImplementation 'org.testcontainers:mysql:1.20.3'
 	testImplementation 'com.h2database:h2:2.2.220'
 
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 }
 
