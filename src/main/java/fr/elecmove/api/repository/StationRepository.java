@@ -24,12 +24,12 @@ public interface StationRepository extends JpaRepository<Station, String> {
     JOIN location_station ls ON s.location_id = ls.id
     WHERE s.is_available = TRUE
       AND ST_Distance_Sphere(
-            ST_SRID(POINT(ls.longitude, ls.latitude), 4326),
-            ST_SRID(POINT(:longitude, :latitude), 4326)
+            POINT(ls.longitude, ls.latitude),
+            POINT(:longitude, :latitude)
           ) <= :rayon
     ORDER BY ST_Distance_Sphere(
-            ST_SRID(POINT(ls.longitude, ls.latitude), 4326),
-            ST_SRID(POINT(:longitude, :latitude), 4326)
+            POINT(ls.longitude, ls.latitude),
+            POINT(:longitude, :latitude)
           ) ASC
     """, nativeQuery = true)
     List<Station> findStationsNearby(
