@@ -25,8 +25,9 @@ public class DataInitializer implements CommandLineRunner {
     private final CarRepository carRepository;
     private final BookingRepository bookingRepository;
     private final StationExceptionRepository stationExceptionRepository;
+    private final FavoriteStationRepository favoriteStationRepository;
 
-    public DataInitializer(BookingStatusRepository statusRepository, UserRepository userRepository, StationRepository stationRepository, LocationStationRepository locationStationRepository, PasswordEncoder passwordEncoder, CarRepository carRepository, BookingRepository bookingRepository, StationExceptionRepository stationExceptionRepository) {
+    public DataInitializer(BookingStatusRepository statusRepository, UserRepository userRepository, StationRepository stationRepository, LocationStationRepository locationStationRepository, PasswordEncoder passwordEncoder, CarRepository carRepository, BookingRepository bookingRepository, StationExceptionRepository stationExceptionRepository, FavoriteStationRepository favoriteStationRepository) {
         this.statusRepository = statusRepository;
         this.userRepository = userRepository;
         this.stationRepository = stationRepository;
@@ -35,6 +36,7 @@ public class DataInitializer implements CommandLineRunner {
         this.carRepository = carRepository;
         this.bookingRepository = bookingRepository;
         this.stationExceptionRepository = stationExceptionRepository;
+        this.favoriteStationRepository = favoriteStationRepository;
     }
 
     @Transactional
@@ -120,11 +122,15 @@ public class DataInitializer implements CommandLineRunner {
                     .filter(s -> s.getName() != null && s.getName().startsWith("Borne "))
                     .toList();
             if (!bornesLyon.isEmpty()) {
-                // Supprimer d'abord les bookings associés à ces stations
+                // Supprimer d'abord les bookings et favoris associés à ces stations
                 for (Station station : bornesLyon) {
                     var bookings = bookingRepository.findByStationId(station.getId());
                     if (!bookings.isEmpty()) {
                         bookingRepository.deleteAll(bookings);
+                    }
+                    var favorites = favoriteStationRepository.findAllByStationId(station.getId());
+                    if (!favorites.isEmpty()) {
+                        favoriteStationRepository.deleteAll(favorites);
                     }
                 }
                 // Maintenant on peut supprimer les stations
