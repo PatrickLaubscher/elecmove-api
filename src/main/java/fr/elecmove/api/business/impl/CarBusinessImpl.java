@@ -59,7 +59,7 @@ public class CarBusinessImpl implements CarBusiness {
 
         carEntityMapper.merge(existingCar, car);
 
-        return carRepository.save(car);
+        return carRepository.save(existingCar);
     }
 
 
