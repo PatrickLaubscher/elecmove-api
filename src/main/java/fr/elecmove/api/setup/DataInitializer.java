@@ -26,8 +26,9 @@ public class DataInitializer implements CommandLineRunner {
     private final BookingRepository bookingRepository;
     private final StationExceptionRepository stationExceptionRepository;
     private final FavoriteStationRepository favoriteStationRepository;
+    private final ReviewRepository reviewRepository;
 
-    public DataInitializer(BookingStatusRepository statusRepository, UserRepository userRepository, StationRepository stationRepository, LocationStationRepository locationStationRepository, PasswordEncoder passwordEncoder, CarRepository carRepository, BookingRepository bookingRepository, StationExceptionRepository stationExceptionRepository, FavoriteStationRepository favoriteStationRepository) {
+    public DataInitializer(BookingStatusRepository statusRepository, UserRepository userRepository, StationRepository stationRepository, LocationStationRepository locationStationRepository, PasswordEncoder passwordEncoder, CarRepository carRepository, BookingRepository bookingRepository, StationExceptionRepository stationExceptionRepository, FavoriteStationRepository favoriteStationRepository, ReviewRepository reviewRepository) {
         this.statusRepository = statusRepository;
         this.userRepository = userRepository;
         this.stationRepository = stationRepository;
@@ -37,6 +38,7 @@ public class DataInitializer implements CommandLineRunner {
         this.bookingRepository = bookingRepository;
         this.stationExceptionRepository = stationExceptionRepository;
         this.favoriteStationRepository = favoriteStationRepository;
+        this.reviewRepository = reviewRepository;
     }
 
     @Transactional
@@ -258,7 +260,26 @@ public class DataInitializer implements CommandLineRunner {
                 40.0, user2, car2, station1, status1)); // En attente
         }
 
+        // === 8. Reviews
+        if (reviewRepository.count() == 0) {
+            Review review1 = new Review();
+            review1.setComment("Super application, très pratique pour trouver des bornes !");
+            review1.setRate(5);
+            review1.setUser(user1);
+            reviewRepository.save(review1);
 
+            Review review2 = new Review();
+            review2.setComment("Bon service, quelques améliorations possibles sur l'interface.");
+            review2.setRate(4);
+            review2.setUser(user2);
+            reviewRepository.save(review2);
+
+            Review review3 = new Review();
+            review3.setComment("Facile à utiliser, je recommande !");
+            review3.setRate(5);
+            review3.setUser(user1);
+            reviewRepository.save(review3);
+        }
 
     }
 
