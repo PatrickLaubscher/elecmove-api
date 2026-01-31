@@ -48,6 +48,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/account/validate/**").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/stations/nearby").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/stations/nearby-available").permitAll()
+                .requestMatchers(HttpMethod.GET,"/api/reviews/top").permitAll()
                 .anyRequest().authenticated());
         http.exceptionHandling(e -> e
                 .accessDeniedHandler(accessDeniedHandler)

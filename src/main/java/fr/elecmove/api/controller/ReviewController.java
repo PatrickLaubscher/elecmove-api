@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/reviews")
@@ -25,6 +26,14 @@ public class ReviewController {
     public ReviewController(ReviewBusiness ReviewBusiness, ReviewMapper ReviewMapper) {
         this.ReviewBusiness = ReviewBusiness;
         this.ReviewMapper = ReviewMapper;
+    }
+
+    @GetMapping("/top")
+    public List<ReviewDTO> getTopReviews() {
+        return ReviewBusiness.getTopReviews()
+                .stream()
+                .map(ReviewMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")

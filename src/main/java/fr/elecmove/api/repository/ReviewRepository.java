@@ -11,4 +11,6 @@ public interface ReviewRepository extends JpaRepository<Review, String> {
 
     List<Review> findReviewByUserEmail(String email);
 
+    List<Review> findTop3ByRateGreaterThanEqualOrderByCreatedAtDesc(int rate);
+
 }

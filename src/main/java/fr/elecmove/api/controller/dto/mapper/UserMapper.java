@@ -18,6 +18,7 @@ public interface UserMapper {
     User toPatchEntity(UserPatchDTO dto);
     UserResponseDTO toDto(User user);
     UserConnectedDTO toConnectedDto(User user);
+    UserSingleDTO toSingleDto(User user);
 
     List<UserSingleDTO> toDTOList(List<User> users);
 

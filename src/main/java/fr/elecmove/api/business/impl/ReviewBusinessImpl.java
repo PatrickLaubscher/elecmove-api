@@ -75,5 +75,9 @@ public class ReviewBusinessImpl implements ReviewBusiness {
         reviewRepository.delete(existingReview);
     }
 
+    @Override
+    public List<Review> getTopReviews() {
+        return reviewRepository.findTop3ByRateGreaterThanEqualOrderByCreatedAtDesc(4);
+    }
 
 }
