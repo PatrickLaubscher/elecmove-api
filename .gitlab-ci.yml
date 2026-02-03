@@ -12,8 +12,6 @@ variables:
 test_app:
   stage: test
   image: gradle:8.4-jdk21
-  tags:
-    - docker
   before_script:
     - export GRADLE_USER_HOME=`pwd`/.gradle
   script:
