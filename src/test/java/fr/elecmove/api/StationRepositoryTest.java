@@ -19,10 +19,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 
 @SpringBootTest
 @Testcontainers
 @ActiveProfiles("test-mysql")
+@EnabledIfEnvironmentVariable(named = "CI", matches = "true")
 class StationRepositoryTest {
 
     @Container

@@ -132,13 +132,13 @@ class ApiStationExceptionTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
 			{
-				"day":"Monday",
+				"day":"Lundi",
 				"startLocalTime":"09:00",
 			    "endLocalTime": "12:00",
 			    "stationId": "%s"
 			}""".formatted(stationId)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.day").value("monday"))
+                .andExpect(jsonPath("$.day").value("MONDAY"))
                 .andExpect(jsonPath("$.startLocalTime").value("09:00"))
                 .andExpect(jsonPath("$.endLocalTime").value("12:00"))
                 .andExpect(jsonPath("$.station.id").value(stationId));

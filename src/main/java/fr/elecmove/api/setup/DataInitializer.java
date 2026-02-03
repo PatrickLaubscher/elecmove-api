@@ -4,27 +4,15 @@ package fr.elecmove.api.setup;
 import fr.elecmove.api.model.*;
 import fr.elecmove.api.repository.*;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.UUID;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -38,17 +26,9 @@ public class DataInitializer implements CommandLineRunner {
     private final BookingRepository bookingRepository;
     private final StationExceptionRepository stationExceptionRepository;
     private final FavoriteStationRepository favoriteStationRepository;
-    private final ReviewRepository reviewRepository;
     private final PictureRepository pictureRepository;
-    private final ResourceLoader resourceLoader;
 
-    @Value("${app.upload.dir:uploads}")
-    private String uploadDir;
-
-    @Value("${app.upload.base-url:/uploads}")
-    private String baseUrl;
-
-    public DataInitializer(BookingStatusRepository statusRepository, UserRepository userRepository, StationRepository stationRepository, LocationStationRepository locationStationRepository, PasswordEncoder passwordEncoder, CarRepository carRepository, BookingRepository bookingRepository, StationExceptionRepository stationExceptionRepository, FavoriteStationRepository favoriteStationRepository, ReviewRepository reviewRepository, PictureRepository pictureRepository, ResourceLoader resourceLoader) {
+    public DataInitializer(BookingStatusRepository statusRepository, UserRepository userRepository, StationRepository stationRepository, LocationStationRepository locationStationRepository, PasswordEncoder passwordEncoder, CarRepository carRepository, BookingRepository bookingRepository, StationExceptionRepository stationExceptionRepository, FavoriteStationRepository favoriteStationRepository, PictureRepository pictureRepository) {
         this.statusRepository = statusRepository;
         this.userRepository = userRepository;
         this.stationRepository = stationRepository;
@@ -58,9 +38,7 @@ public class DataInitializer implements CommandLineRunner {
         this.bookingRepository = bookingRepository;
         this.stationExceptionRepository = stationExceptionRepository;
         this.favoriteStationRepository = favoriteStationRepository;
-        this.reviewRepository = reviewRepository;
         this.pictureRepository = pictureRepository;
-        this.resourceLoader = resourceLoader;
     }
 
     @Transactional
@@ -146,7 +124,7 @@ public class DataInitializer implements CommandLineRunner {
                     .filter(s -> s.getName() != null && s.getName().startsWith("Borne "))
                     .toList();
             if (!bornesLyon.isEmpty()) {
-                // Supprimer d'abord les bookings, favoris et exceptions associés à ces stations
+                // Supprimer d'abord les bookings, favoris, exceptions et pictures associés à ces stations
                 for (Station station : bornesLyon) {
                     var bookings = bookingRepository.findByStationId(station.getId());
                     if (!bookings.isEmpty()) {
@@ -290,26 +268,7 @@ public class DataInitializer implements CommandLineRunner {
                 40.0, user2, car2, station1, status1)); // En attente
         }
 
-        // === 8. Reviews
-        if (reviewRepository.count() == 0) {
-            Review review1 = new Review();
-            review1.setComment("Super application, très pratique pour trouver des bornes !");
-            review1.setRate(5);
-            review1.setUser(user1);
-            reviewRepository.save(review1);
 
-            Review review2 = new Review();
-            review2.setComment("Bon service, quelques améliorations possibles sur l'interface.");
-            review2.setRate(4);
-            review2.setUser(user2);
-            reviewRepository.save(review2);
-
-            Review review3 = new Review();
-            review3.setComment("Facile à utiliser, je recommande !");
-            review3.setRate(5);
-            review3.setUser(user1);
-            reviewRepository.save(review3);
-        }
 
     }
 
@@ -333,103 +292,7 @@ public class DataInitializer implements CommandLineRunner {
         if (tarification != null) station.setTarification(tarification);
         if (freeStanding != null) station.setFreeStanding(freeStanding);
 
-        Station savedStation = stationRepository.save(station);
-
-        // Créer une image par défaut pour la station
-        createDefaultPicture(savedStation);
-
-        return savedStation;
-    }
-
-    private void createDefaultPicture(Station station) {
-        try {
-            // Charger l'image par défaut depuis les resources
-            Resource resource = resourceLoader.getResource("classpath:static/default-images/default-station.png");
-
-            if (!resource.exists()) {
-                return; // Pas d'image par défaut, on skip
-            }
-
-            // Créer le dossier uploads s'il n'existe pas
-            Path uploadPath = Paths.get(uploadDir);
-            if (!Files.exists(uploadPath)) {
-                Files.createDirectories(uploadPath);
-            }
-
-            // Générer des noms uniques
-            String filename = UUID.randomUUID() + ".jpg";
-            String thumbnailFilename = "thumb-" + filename;
-
-            // Lire et traiter l'image
-            try (InputStream inputStream = resource.getInputStream()) {
-                BufferedImage originalImage = ImageIO.read(inputStream);
-                if (originalImage == null) {
-                    return;
-                }
-
-                // Sauvegarder l'image principale (redimensionnée si nécessaire)
-                BufferedImage resizedImage = resizeImage(originalImage, 1200);
-                File outputFile = new File(uploadPath.toFile(), filename);
-                ImageIO.write(resizedImage, "jpg", outputFile);
-
-                // Créer et sauvegarder la miniature
-                BufferedImage thumbnail = createThumbnail(originalImage, 300);
-                File thumbFile = new File(uploadPath.toFile(), thumbnailFilename);
-                ImageIO.write(thumbnail, "jpg", thumbFile);
-
-                // Créer l'entité Picture
-                Picture picture = new Picture();
-                picture.setSrc(baseUrl + "/" + filename);
-                picture.setThumbnail(baseUrl + "/" + thumbnailFilename);
-                picture.setAlt(station.getName());
-                picture.setMain(true);
-                picture.setStation(station);
-
-                pictureRepository.save(picture);
-            }
-        } catch (IOException e) {
-            // Log l'erreur mais ne pas faire échouer l'initialisation
-            System.err.println("Erreur lors de la création de l'image par défaut: " + e.getMessage());
-        }
-    }
-
-    private BufferedImage resizeImage(BufferedImage original, int maxWidth) {
-        int width = original.getWidth();
-        int height = original.getHeight();
-
-        if (width <= maxWidth) {
-            return original;
-        }
-
-        double ratio = (double) maxWidth / width;
-        int newHeight = (int) (height * ratio);
-
-        BufferedImage resized = new BufferedImage(maxWidth, newHeight, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g = resized.createGraphics();
-        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g.drawImage(original, 0, 0, maxWidth, newHeight, null);
-        g.dispose();
-
-        return resized;
-    }
-
-    private BufferedImage createThumbnail(BufferedImage original, int size) {
-        int width = original.getWidth();
-        int height = original.getHeight();
-
-        int cropSize = Math.min(width, height);
-        int x = (width - cropSize) / 2;
-        int y = (height - cropSize) / 2;
-
-        BufferedImage cropped = original.getSubimage(x, y, cropSize, cropSize);
-
-        BufferedImage thumbnail = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g = thumbnail.createGraphics();
-        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        g.drawImage(cropped, 0, 0, size, size, null);
-        g.dispose();
-
-        return thumbnail;
+        return stationRepository.save(station);
     }
 
 }
