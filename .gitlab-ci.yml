@@ -12,11 +12,6 @@ variables:
 test_app:
   stage: test
   image: gradle:8.4-jdk21
-  services:
-    - docker:24-dind
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_TLS_CERTDIR: ""
   before_script:
     - export GRADLE_USER_HOME=`pwd`/.gradle
   script:
@@ -44,11 +39,6 @@ test_app:
 build_app:
   stage: build
   image: gradle:8.4-jdk21
-  services:
-    - docker:24-dind
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-    DOCKER_TLS_CERTDIR: ""
   before_script:
     - export GRADLE_USER_HOME=`pwd`/.gradle
   script:
