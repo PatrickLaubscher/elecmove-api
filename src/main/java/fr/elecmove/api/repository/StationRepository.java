@@ -44,8 +44,8 @@ public interface StationRepository extends JpaRepository<Station, String> {
     FROM Station s
     LEFT JOIN s.exceptions se
       ON se.day = :weekday
-      AND se.startLocalTime <= :startTime
-      AND se.endLocalTime >= :endTime
+      AND se.startLocalTime < :endTime
+      AND se.endLocalTime > :startTime
     WHERE se.id IS NULL
     """)
     List<Station> findAvailableStationsByDayAndTime(
@@ -80,8 +80,8 @@ public interface StationRepository extends JpaRepository<Station, String> {
     FROM Station s
     LEFT JOIN s.exceptions se
         ON se.day = :weekday
-        AND se.startLocalTime <= :startTime
-        AND se.endLocalTime >= :endTime
+        AND se.startLocalTime < :endTime
+        AND se.endLocalTime > :startTime
     LEFT JOIN Booking b
         ON b.station = s
         AND b.date = :date

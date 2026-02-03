@@ -42,12 +42,14 @@ public class SecurityConfig {
         http.authorizeHttpRequests(request -> request
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/actuator/health", "/actuator/info").permitAll()
+                .requestMatchers("/uploads/**").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/login").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/refresh-token").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
                 .requestMatchers("/api/account/validate/**").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/stations/nearby").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/stations/nearby-available").permitAll()
+                .requestMatchers(HttpMethod.GET,"/api/stations/*/pictures").permitAll()
                 .requestMatchers(HttpMethod.GET,"/api/reviews/top").permitAll()
                 .anyRequest().authenticated());
         http.exceptionHandling(e -> e
