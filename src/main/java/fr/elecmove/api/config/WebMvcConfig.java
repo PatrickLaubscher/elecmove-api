@@ -22,5 +22,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // Servir les fichiers uploadés depuis /uploads/**
         registry.addResourceHandler("/uploads/**")
                 .addResourceLocations("file:" + uploadDir + "/");
+
+        // Servir les images par défaut depuis les ressources statiques
+        registry.addResourceHandler("/default-images/**")
+                .addResourceLocations("classpath:/static/default-images/");
     }
 }

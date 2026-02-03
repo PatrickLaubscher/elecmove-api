@@ -5,6 +5,7 @@ import fr.elecmove.api.controller.dto.station_exception.StationExceptionCreation
 import fr.elecmove.api.controller.dto.station_exception.StationExceptionDTO;
 import fr.elecmove.api.model.StationException;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 
@@ -12,6 +13,8 @@ import org.mapstruct.ReportingPolicy;
 public interface StationAvailabilityMapper {
 
     StationException toEntity(StationExceptionCreationDTO dto);
+
+    @Mapping(source = "station.id", target = "stationId")
     StationExceptionDTO toDto(StationException stationException);
 
 }

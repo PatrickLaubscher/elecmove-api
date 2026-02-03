@@ -292,7 +292,18 @@ public class DataInitializer implements CommandLineRunner {
         if (tarification != null) station.setTarification(tarification);
         if (freeStanding != null) station.setFreeStanding(freeStanding);
 
-        return stationRepository.save(station);
+        Station savedStation = stationRepository.save(station);
+
+        // Ajouter l'image par défaut
+        Picture defaultPicture = new Picture();
+        defaultPicture.setSrc("/default-images/default-station.png");
+        defaultPicture.setThumbnail("/default-images/default-station.png");
+        defaultPicture.setAlt(name);
+        defaultPicture.setMain(true);
+        defaultPicture.setStation(savedStation);
+        pictureRepository.save(defaultPicture);
+
+        return savedStation;
     }
 
 }

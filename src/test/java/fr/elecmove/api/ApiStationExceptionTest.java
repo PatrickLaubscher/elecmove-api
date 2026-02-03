@@ -103,7 +103,7 @@ class ApiStationExceptionTest {
                 .andExpect(jsonPath("$.day").value("monday"))
                 .andExpect(jsonPath("$.startLocalTime").value("09:00"))
                 .andExpect(jsonPath("$.endLocalTime").value("12:00"))
-                .andExpect(jsonPath("$.station.id").value(stationId));
+                .andExpect(jsonPath("$.stationId").value(stationId));
     }
 
     @Test
@@ -141,7 +141,7 @@ class ApiStationExceptionTest {
                 .andExpect(jsonPath("$.day").value("MONDAY"))
                 .andExpect(jsonPath("$.startLocalTime").value("09:00"))
                 .andExpect(jsonPath("$.endLocalTime").value("12:00"))
-                .andExpect(jsonPath("$.station.id").value(stationId));
+                .andExpect(jsonPath("$.stationId").value(stationId));
     }
 
     @Test
