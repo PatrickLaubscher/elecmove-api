@@ -49,5 +49,10 @@ public interface ReviewBusiness {
      */
     void deleteReview(String id, User user);
 
+    /**
+     * Get top 3 reviews with rate >= 4
+     * @return list of top reviews
+     */
+    List<Review> getTopReviews();
 
 }

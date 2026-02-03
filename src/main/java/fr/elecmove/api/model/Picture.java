@@ -5,10 +5,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Table(name = "picture")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Picture {
 
     @Id
@@ -16,28 +24,9 @@ public class Picture {
     private String id;
     private String alt;
     private String src;
+    private String thumbnail;
     private boolean main;
 
     @ManyToOne
     private Station station;
-
-
-
-    public Picture() {
-    }
-    public Picture(String id, String alt, String src, boolean main, Station station) {
-        this.id = id;
-        this.alt = alt;
-        this.src = src;
-        this.main = main;
-        this.station = station;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 }

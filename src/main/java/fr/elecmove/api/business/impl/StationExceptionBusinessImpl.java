@@ -11,11 +11,31 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.DayOfWeek;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
 public class StationExceptionBusinessImpl implements StationExceptionBusiness {
+
+    private static final Map<String, DayOfWeek> FRENCH_TO_DAY_OF_WEEK = Map.of(
+            "lundi", DayOfWeek.MONDAY,
+            "mardi", DayOfWeek.TUESDAY,
+            "mercredi", DayOfWeek.WEDNESDAY,
+            "jeudi", DayOfWeek.THURSDAY,
+            "vendredi", DayOfWeek.FRIDAY,
+            "samedi", DayOfWeek.SATURDAY,
+            "dimanche", DayOfWeek.SUNDAY
+    );
+
+    private String convertDayToEnglish(String frenchDay) {
+        DayOfWeek dayOfWeek = FRENCH_TO_DAY_OF_WEEK.get(frenchDay.toLowerCase());
+        if (dayOfWeek == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid day: " + frenchDay);
+        }
+        return dayOfWeek.name();
+    }
 
     StationExceptionRepository availabilityRepository;
     StationRepository stationRepository;
@@ -33,7 +53,7 @@ public class StationExceptionBusinessImpl implements StationExceptionBusiness {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The station does not exist")
         );
         availability.setStation(station);
-        availability.setDay(availability.getDay().toLowerCase());
+        availability.setDay(convertDayToEnglish(availability.getDay()));
         return availabilityRepository.save(availability);
     }
 
@@ -56,8 +76,11 @@ public class StationExceptionBusinessImpl implements StationExceptionBusiness {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "The availability does not exist")
         );
 
+        if (availability.getDay() != null) {
+            availability.setDay(convertDayToEnglish(availability.getDay()));
+        }
         stationExceptionEntityMapper.merge(existingAvailability, availability);
-        return availabilityRepository.save(availability);
+        return availabilityRepository.save(existingAvailability);
     }
 
     @Override
