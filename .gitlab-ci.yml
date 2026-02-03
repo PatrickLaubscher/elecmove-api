@@ -18,6 +18,7 @@ test_app:
     - chmod +x gradlew
     - ./gradlew clean test --info --continue
   allow_failure: true
+  timeout: 30 minutes
   artifacts:
     when: always
     reports:
