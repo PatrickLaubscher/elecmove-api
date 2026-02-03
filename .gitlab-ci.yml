@@ -29,7 +29,7 @@ test_app:
       junit: build/test-results/test/TEST-*.xml
     paths:
       - build/reports/tests/test/
-    expire_in: 1 week
+    expire_in: 1 day
   coverage: '/Total.*?([0-9]{1,3})%/'
   only:
     - /^feature\/.*$/
@@ -57,7 +57,7 @@ build_app:
   artifacts:
     paths:
       - build/libs/*.jar
-    expire_in: 1 week
+    expire_in: 1 day
   only:
     - /^feature\/.*$/
     - dev
@@ -83,7 +83,7 @@ package_jar:
     name: "${ARTIFACT_NAME}-${CI_COMMIT_SHORT_SHA}"
     paths:
       - build/libs/*.jar
-    expire_in: 30 days
+    expire_in: 7 days
   only:
     - main
   dependencies:
