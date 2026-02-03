@@ -19,12 +19,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.math.BigDecimal;
 import java.util.List;
 
-import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
 
 @SpringBootTest
 @Testcontainers
 @ActiveProfiles("test-mysql")
-@EnabledIfEnvironmentVariable(named = "CI", matches = "true")
+@DisabledIfEnvironmentVariable(named = "CI", matches = "true", disabledReason = "Docker not available on GitLab shared runners")
 class StationRepositoryTest {
 
     @Container
