@@ -40,7 +40,6 @@ test_app:
 build_app:
   stage: build
   image: gradle:8.4-jdk21
-  # Services Docker-in-Docker retirés
   before_script:
     - export GRADLE_USER_HOME=`pwd`/.gradle
   script:
@@ -102,4 +101,36 @@ deploy_production:
     - echo "Fichier JAR a deployer $JAR_FILE"
     - ls -lh "$JAR_FILE"
     - scp "$JAR_FILE" $SERVER_USER@$SERVER_HOST:/home/debian/elecmove-api-new.jar
-    - ssh
+    - ssh $SERVER_USER@$SERVER_HOST "sudo mv /home/debian/elecmove-api-new.jar /opt/elecmove/backend/elecmove-api.jar"
+    - ssh $SERVER_USER@$SERVER_HOST "sudo chown debian:debian /opt/elecmove/backend/elecmove-api.jar"
+    - ssh $SERVER_USER@$SERVER_HOST "sudo systemctl restart elecmove-api"
+    - echo "Attente du demarrage..."
+    - sleep 30
+    - ssh $SERVER_USER@$SERVER_HOST "if sudo systemctl is-active --quiet elecmove-api; then echo 'Service actif'; sleep 15; if curl -f http://localhost:8080/actuator/health; then echo 'Application demarree avec succes'; sudo systemctl status elecmove-api --no-pager; else echo 'Attention health check echoue'; sudo journalctl -u elecmove-api -n 50 --no-pager; exit 1; fi; else echo 'Erreur service non actif'; sudo journalctl -u elecmove-api -n 50 --no-pager; exit 1; fi"
+    - ssh $SERVER_USER@$SERVER_HOST "cd /opt/elecmove/backend/backups && ls -t | tail -n +6 | xargs -r rm -- && echo 'Anciens backups nettoyes'"
+  environment:
+    name: production
+    url: http://$SERVER_HOST:8080
+  only:
+    - main
+  dependencies:
+    - package_jar
+  when: manual
+
+rollback_production:
+  stage: deploy
+  image: ubuntu:22.04
+  before_script:
+    - apt-get update && apt-get install -y openssh-client
+    - eval $(ssh-agent -s)
+    - chmod 600 "$SSH_PRIVATE_KEY"
+    - ssh-add "$SSH_PRIVATE_KEY"
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
+  script:
+    - echo "Rollback vers la version precedente..."
+    - ssh $SERVER_USER@$SERVER_HOST "sudo systemctl stop elecmove-api && LAST_BACKUP=\$(ls -t /opt/elecmove/backend/backups/ | head -1) && if [ -z \"\$LAST_BACKUP\" ]; then echo 'Aucun backup disponible'; exit 1; fi && sudo cp /opt/elecmove/backend/backups/\$LAST_BACKUP /opt/elecmove/backend/elecmove-api.jar && sudo systemctl start elecmove-api && sleep 10 && if curl -f http://localhost:8080/actuator/health; then echo 'Rollback reussi'; else echo 'Erreur apres rollback'; exit 1; fi"
+  only:
+    - main
+  when: manual
